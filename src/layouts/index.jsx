@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import Typekit from 'react-typekit';
 
 import '../assets/normalize.css';
 
@@ -20,6 +21,7 @@ const SplashLayout = ({ children }) => (
         { name: 'keywords', content: '' },
       ]}>
     </Helmet>
+    <Typekit kitId="qjx1ccs" />
     <LayoutWrapper>
       { children() }
     </LayoutWrapper>

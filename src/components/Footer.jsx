@@ -89,7 +89,7 @@ const OnTheSide = styled.aside`
 `;
 const Kicker = styled.h5`
   color: #34495e;
-  font-family: 'Sofia Pro';
+  font-family: 'acumin-pro';
   font-size: 14px;
   font-weight: 400;
   letter-spacing: .01em;
@@ -105,7 +105,7 @@ const Kicker = styled.h5`
 `;
 const Info = styled.p`
   color: #34495e;
-  font-family: 'Sofia Pro';
+  font-family: 'acumin-pro';
   font-size: 14px;
   font-weight: 600;
   letter-spacing: .01em;

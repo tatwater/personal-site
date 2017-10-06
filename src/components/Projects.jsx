@@ -73,7 +73,7 @@ const ProjectWrapper = styled.div`
 `;
 const Kicker = styled.h5`
   color: #34495e;
-  font-family: 'Sofia Pro';
+  font-family: 'acumin-pro';
   font-size: 16px;
   font-weight: 400;
   letter-spacing: .01em;
@@ -91,7 +91,7 @@ const Kicker = styled.h5`
 `;
 const Title = styled.h3`
   color: #34495e;
-  font-family: 'Sofia Pro';
+  font-family: 'acumin-pro';
   font-size: 30px;
   font-weight: 500;
   letter-spacing: .01em;
@@ -120,7 +120,7 @@ const Title = styled.h3`
 `;
 const Subtitle = styled.h4`
   color: #34495e;
-  font-family: 'Sofia Pro';
+  font-family: 'acumin-pro';
   font-size: 20px;
   font-weight: 400;
   letter-spacing: .01em;
@@ -141,7 +141,7 @@ const Subtitle = styled.h4`
 const VisitLink = styled.a`
   color: #34495e;
   display: inline-block;
-  font-family: 'Roboto Mono';
+  font-family: 'roboto-mono';
   font-size: 14px;
   font-weight: 500;
   letter-spacing: .05em;
@@ -176,7 +176,7 @@ const VisitLink = styled.a`
   }
   &::after {
     content: '→';
-    font-family: 'Sofia Pro';
+    font-family: 'acumin-pro';
     margin-left: 6px;
     transition: margin-left .2s ease;
   }

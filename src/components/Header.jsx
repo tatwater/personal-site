@@ -43,7 +43,7 @@ const Logo = styled.img`
 `;
 const Name = styled.h1`
   color: #34495e;
-  font-family: 'Roboto Mono';
+  font-family: 'roboto-mono';
   font-size: 16px;
   font-weight: 400;
   margin: 0;

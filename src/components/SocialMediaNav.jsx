@@ -50,7 +50,7 @@ const IconRow = styled.nav`
 `;
 const Social = styled.ul`
   display: flex;
-  font-family: 'Roboto Mono';
+  font-family: 'roboto-mono';
   font-size: 0;
   font-weight: 400;
   list-style-type: none;

@@ -41,7 +41,7 @@ const Skills = styled.ul`
   color: #34495e;
   display: flex;
   flex-direction: column;
-  font-family: 'Sofia Pro';
+  font-family: 'acumin-pro';
   font-size: 30px;
   font-weight: 600;
   letter-spacing: .01em;

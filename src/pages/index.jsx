@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import Header from '../components/Header';
 import Headline from '../components/Headline';
-import GoFundMe from '../components/GoFundMe';
 import SocialMediaNav from '../components/SocialMediaNav';
 import Projects from '../components/Projects';
 import Footer from '../components/Footer';
