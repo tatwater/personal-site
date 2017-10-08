@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Link from 'gatsby-link';
 import styled, {keyframes} from 'styled-components';
 
@@ -9,6 +9,9 @@ import dribbble from '../assets/dribbble.svg';
 import medium from '../assets/medium.svg';
 import spotify from '../assets/spotify.svg';
 import longarrowdown from '../assets/longarrowdown.svg';
+
+// TODO: Down arrow click scroll
+// TODO: Min heights for all elements
 
 const fadeIn = keyframes`
   from {
@@ -150,13 +153,28 @@ const MediaIcon = styled.img`
     height: 0;
   }
 `;
-// TODO: Animate to indicate downward scroll
+const ScrollBounce = keyframes`
+  0% {
+    transform: translate(0, -5px);
+  }
+  50% {
+    transform: translate(0, 5px);
+  }
+  100% {
+    transform: translate(0, -5px);
+  }
+`;
 const ScrollIndicator = styled.button`
+  animation: ${ScrollBounce} 1.2s ease infinite;
   background: none;
   border: none;
   font-size: 0;
   height: 40px;
+  visibility: ${props => props.visible ? 'visible' : 'hidden'};
+  opacity: ${props => props.visible ? '1' : '0'};
   padding: 0;
+  transform: translate(0, 0);
+  transition: opacity .3s ease, visibility 0s ease ${props => props.visible ? '0s' : '.3s'};
   width: 40px;
 
   @media screen and (orientation: portrait) and (min-height: 900px),
@@ -165,50 +183,110 @@ const ScrollIndicator = styled.button`
   }
 `;
 
-const SocialMediaNav = () => (
-  <IconRow>
-    <Social>
-      <Media color='#0077b5'>
-        <a href='https://www.linkedin.com/in/teaganatwater/' target='_blank'>
-          <MediaIcon src={ linkedin } alt='LinkedIn' />
-          LinkedIn
-        </a>
-      </Media>
-      <Media color='#333'>
-        <a href='https://angel.co/teagan-atwater' target='_blank'>
-          <MediaIcon src={ angellist } alt='AngelList' />
-          AngelList
-        </a>
-      </Media>
-      <Media color='#bd2c00'>
-        <a href='https://github.com/tatwater' target='_blank'>
-          <MediaIcon src={ github } alt='GitHub' />
-          GitHub
-        </a>
-      </Media>
-      <Media color='#ea4c89'>
-        <a href='https://dribbble.com/tatwater' target='_blank'>
-          <MediaIcon src={ dribbble } alt='Dribbble' />
-          Dribbble
-        </a>
-      </Media>
-      <Media color='#00ab6c'>
-        <a href='https://medium.com/@teaganatwater' target='_blank'>
-          <MediaIcon src={ medium } alt='Medium' />
-          Medium
-        </a>
-      </Media>
-      {/* <Media color='#1db954'>
-        <a href='https://open.spotify.com/user/nagaant' target='_blank'>
-          <MediaIcon src={ spotify } alt='Spotify' />
-          Spotify
-        </a>
-      </Media> */}
-    </Social>
-    <ScrollIndicator type='button'>
-      <MediaIcon src={ longarrowdown } alt='Scroll down' />
-    </ScrollIndicator>
-  </IconRow>
-);
+class SocialMediaNav extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showScrollIndicator: true,
+    };
+
+    this.manageScrollIndicator = this.manageScrollIndicator.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
+    this.scroll = this.scroll.bind(this);
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.manageScrollIndicator);
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.manageScrollIndicator);
+  }
+
+  manageScrollIndicator = () => {
+    let scrollTop = event.srcElement.body.scrollTop;
+
+    if (scrollTop > 100) {
+      this.setState({
+        showScrollIndicator: false,
+      });
+    } else {
+      this.setState({
+        showScrollIndicator: true,
+      });
+    }
+  }
+
+  scrollToBottom = () => {
+    let pageHeight = Math.max(document.body.scrollHeight,
+                              document.body.offsetHeight, 
+                              document.documentElement.clientHeight,
+                              document.documentElement.scrollHeight,
+                              document.documentElement.offsetHeight);
+    let bottom = pageHeight - window.innerHeight;
+    let duration = 100;
+    let perTick = (bottom - window.scrollY) / duration * 5;
+
+    this.scroll(bottom, perTick);
+  }
+
+  scroll = (target, perTick) => {
+    if (window.scrollY < target) {
+      setTimeout(() => {
+        window.scrollTo(0, window.scrollY + perTick);
+        this.scroll(target, perTick);
+      }, 10);
+    }
+  }
+
+  render() {
+    return (
+      <IconRow>
+        <Social>
+          <Media color='#0077b5'>
+            <a href='https://www.linkedin.com/in/teaganatwater/' target='_blank'>
+              <MediaIcon src={ linkedin } alt='LinkedIn' />
+              LinkedIn
+            </a>
+          </Media>
+          <Media color='#333'>
+            <a href='https://angel.co/teagan-atwater' target='_blank'>
+              <MediaIcon src={ angellist } alt='AngelList' />
+              AngelList
+            </a>
+          </Media>
+          <Media color='#bd2c00'>
+            <a href='https://github.com/tatwater' target='_blank'>
+              <MediaIcon src={ github } alt='GitHub' />
+              GitHub
+            </a>
+          </Media>
+          <Media color='#ea4c89'>
+            <a href='https://dribbble.com/tatwater' target='_blank'>
+              <MediaIcon src={ dribbble } alt='Dribbble' />
+              Dribbble
+            </a>
+          </Media>
+          <Media color='#00ab6c'>
+            <a href='https://medium.com/@teaganatwater' target='_blank'>
+              <MediaIcon src={ medium } alt='Medium' />
+              Medium
+            </a>
+          </Media>
+          {/* <Media color='#1db954'>
+            <a href='https://open.spotify.com/user/nagaant' target='_blank'>
+              <MediaIcon src={ spotify } alt='Spotify' />
+              Spotify
+            </a>
+          </Media> */}
+        </Social>
+        <ScrollIndicator onClick={this.scrollToBottom} type='button' visible={this.state.showScrollIndicator}>
+          <MediaIcon src={longarrowdown} alt='Scroll down' />
+        </ScrollIndicator>
+      </IconRow>
+    );
+  }
+}
 
 export default SocialMediaNav;

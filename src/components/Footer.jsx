@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Link from 'gatsby-link';
 import styled, {keyframes} from 'styled-components';
 
@@ -128,13 +128,13 @@ const Info = styled.p`
   }
 `;
 
-class Footer extends React.Component {
+class Footer extends Component {
   componentDidMount() {
     let account = 'desk';
-    let domain = 'teaganatwater.com'
+    let domain = 'teaganatwater.com';
     let linkText = account + '@' + domain;
 
-    let link = document.querySelector('a.contact')
+    let link = document.querySelector('a.contact');
     link.href = 'mai' + 'lto:' + linkText; // Break string for added security
     link.innerText = linkText;
   }
