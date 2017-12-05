@@ -138,11 +138,11 @@ const Tag = styled.span`
 
 const Header = ({tag}, {secondUnwrapPageFits}) => (
   <HeaderWrapper>
-    <Line adjust={secondUnwrapPageFits} />
-    <Name adjust={secondUnwrapPageFits}>
+    <Line />
+    <Name>
       <NameLink to='/'>Teagan Atwater</NameLink>
     </Name>
-    <Logo adjust={secondUnwrapPageFits} src={logo} alt='T A Logo' />
+    <Logo src={logo} alt='T A Logo' />
     {tag ? <Tag>{tag}</Tag> : null}
   </HeaderWrapper>
 );
