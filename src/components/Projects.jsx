@@ -2,35 +2,25 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled, {keyframes} from 'styled-components';
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
+import { Animations, Breakpoints } from '../assets/helpers';
+
 
 const ProjectsWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  grid-area: projects;
 
-  @media screen and (orientation: landscape) {
+  @media screen and (orientation: landscape) and (min-width: 768px) {
     flex-direction: row;
-    margin-bottom: 30px;
-  }
-  @media screen and (orientation: landscape) and (max-width: 900px) {
-    margin-bottom: 10px;
   }
 `;
 const ProjectWrapper = styled.div`
   align-items: center;
-  animation: ${fadeIn} .5s ease;
+  animation: ${Animations.fadeIn} .5s ease;
   animation-delay: .9s;
   animation-fill-mode: both;
   display: flex;
-  height: calc((100vh - 280px) / 2);
+  flex-grow: 1;
   width: 100%;
 
   @media (hover: hover) {
@@ -43,32 +33,15 @@ const ProjectWrapper = styled.div`
 
         &::before {
           background: ${props => props.color ? props.color : '#34495e'};
-          right: 26px;
+          right: 28px;
           transform: scale(1);
         }
         &::after {
           color: ${props => props.color ? props.color : '#34495e'};
-          margin-left: 10px;
+          margin-left: 12px;
         }
       }
     }
-  }
-
-  @media screen and (orientation: landscape) and (max-width: 900px) {
-    height: calc(100vh - 180px);
-  }
-  @media screen and (orientation: portrait) and (min-height: 900px) {
-    align-items: flex-start;
-    height: calc((100vh - 330px) / 4);
-  }
-  @media screen and (orientation: landscape) and (min-width: 900px) {
-    height: calc((100vh - 370px) / 2);
-  }
-  @media screen and (min-width: 1000px) {
-    height: calc((100vh - 310px) / 2);
-  }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
-    height: calc((100vh - 390px) / 2);
   }
 `;
 const Kicker = styled.h5`
@@ -79,14 +52,8 @@ const Kicker = styled.h5`
   letter-spacing: .01em;
   margin: 0 0 4px 0;
 
-  @media screen and (min-height: 600px) {
-    margin: 0 0 6px 0;
-  }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
+  @media screen and (min-width: 900px) {
     font-size: 18px;
-  }
-  @media screen and (orientation: landscape) and (min-height: 1000px) {
-    font-size: 20px;
   }
 `;
 const Title = styled.h3`
@@ -105,16 +72,13 @@ const Title = styled.h3`
     text-decoration: none;
   }
 
-  @media screen and (min-height: 600px) {
-    font-size: 34px;
-  }
-  @media screen and (min-width: 768px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     font-size: 36px;
   }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
     font-size: 40px;
   }
-  @media screen and (orientation: landscape) and (min-height: 1000px) {
+  @media ${Breakpoints.secondFooterFontIncrease} {
     font-size: 44px;
   }
 `;
@@ -128,14 +92,14 @@ const Subtitle = styled.h4`
   margin: 0;
   transform: translate(-1px, 0);
 
-  @media screen and (min-height: 600px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     font-size: 24px;
   }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
     font-size: 28px;
   }
-  @media screen and (orientation: landscape) and (min-height: 1000px) {
-    font-size: 32px;
+  @media ${Breakpoints.secondFooterFontIncrease} {
+    font-size: 30px;
   }
 `;
 const VisitLink = styled.a`
@@ -164,12 +128,11 @@ const VisitLink = styled.a`
     transition: background .2s ease, right .2s ease, scale .2s ease;
     z-index: -1;
 
-    @media screen and (orientation: portrait) and (min-height: 900px),
-           screen and (orientation: landscape) and (min-width: 900px) {
+    @media ${Breakpoints.secondFooterUnwrapWidth} {
       top: 7px;
       height: 11px;
     }
-    @media screen and (orientation: landscape) and (min-height: 1000px) {
+    @media ${Breakpoints.secondFooterFontIncrease} {
       top: 8px;
       height: 12px;
     }
@@ -181,13 +144,10 @@ const VisitLink = styled.a`
     transition: margin-left .2s ease;
   }
 
-  @media screen and (min-height: 600px) {
-    margin-top: 14px;
-  }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
     font-size: 16px;
   }
-  @media screen and (orientation: landscape) and (min-height: 1000px) {
+  @media ${Breakpoints.secondFooterFontIncrease} {
     font-size: 18px;
   }
 `;

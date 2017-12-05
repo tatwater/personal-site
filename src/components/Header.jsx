@@ -1,143 +1,149 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
-import logo from '../assets/logo.svg';
+import logo from '../assets/images/logo.svg';
 
-const fadeIn = keyframes`
-  from {
-    left: 5px;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    opacity: 1;
-  }
-`;
+import { Animations, Breakpoints, Colors, Fonts } from '../assets/helpers';
+
 
 const HeaderWrapper = styled.div`
   align-items: flex-end;
   display: flex;
-  height: calc((100vh - 60px) / 2);
-
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
-    height: 200px;
-  }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
-    height: 220px;
-  }
+  grid-area: header;
+  justify-content: flex-start;
+  position: relative;
 `;
-const Logo = styled.img`
-  animation: ${fadeIn} .3s ease;
-  animation-delay: .1s;
+const Line = styled.div`
+  animation: ${Animations.fadeIn} .3s ease;
+  animation-delay: .2s;
   animation-fill-mode: both;
-  height: 130px;
-  margin-left: 30px;
+  background: ${Colors.brandPrimary};
+  content: '';
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+    top: 0;
+    left: -8px;
+  width: 2px;
 
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
-    height: 146px;
-    margin-left: 0;
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
+    left: -28px;
+  }
+  @media ${Breakpoints.secondFooterFontIncrease} {
+    left: -38px;
   }
 `;
 const Name = styled.h1`
-  color: #34495e;
-  font-family: 'roboto-mono';
+  align-items: center;
+  animation: ${Animations.loadName} .3s ease;
+  animation-delay: .3s;
+  animation-fill-mode: backwards;
+  background: #fff;
+  color: ${Colors.brandPrimary};
+  display: flex;
+  font-family: ${Fonts.mono};
   font-size: 16px;
   font-weight: 400;
+  height: 16px;
   margin: 0;
+  padding: 0 6px 0 0;
   position: absolute;
-    top: 0;
-    left: 20px;
-  transform: rotate(-90deg)
-             translateX(calc( (100vh - 55px) / -2 ));
-  transform-origin: 0 0;
-  width: calc( (100vh - 55px) / 2 );
-
-  a {
-    animation: ${fadeIn} .3s ease;
-    animation-delay: .3s;
-    animation-fill-mode: both;
-    color: inherit;
-    padding-left: 0;
-    position: relative;
-    text-decoration: none;
-    transition: padding-left .3s ease .1s;
-  }
+    bottom: 0;
+    left: 0;
+  transform: rotate(-90deg);
+  transform-origin: 0 100%;
+  transition: padding .3s ease .1s;
 
   @media (hover: hover) {
     &:hover {
-      a {
-        transition: padding-left .3s ease 0s;
-        padding-left: 10px;
-      }
-      div::after {
-        transition: padding-left .3s ease .1s;
-        padding-left: 10px;
-      }
+      transition: padding .3s ease 0s;
+      padding: 0 10px;
     }
   }
 
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
     font-size: 18px;
-    left: 30px;
-    transform: rotate(-90deg)
-               translateX(-202px);
-    width: 202px;
+    left: -20px;
   }
-  @media screen and (orientation: landscape) and (min-height: 900px) {
-    transform: rotate(-90deg)
-               translateX(-222px);
-    width: 222px;
-  }
-  @media screen and (min-width: 1280px) {
-    left: 60px;
+  @media ${Breakpoints.secondFooterFontIncrease} {
+    left: -30px;
   }
 `;
-const Line = styled.div`
-  animation: ${fadeIn} .3s ease;
-  animation-delay: .2s;
+const NameLink = styled(Link)`
+  animation: ${Animations.loadNameLink} .3s ease;
+  animation-delay: .3s;
   animation-fill-mode: both;
-  background: #34495e;
-  height: 2px;
-  position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-  z-index: -2;
+  color: inherit;
+  opacity: 0;
+  position: relative;
+    left: 5px;
+  text-decoration: none;
+`;
+const Logo = styled.img`
+  animation: ${Animations.fadeIn} .3s ease;
+  animation-delay: .1s;
+  animation-fill-mode: both;
+  height: 100px;
+  margin: 0 12px 0 20px;
+  opacity: 0;
 
-  &::after {
-    background: #fff;
-    box-sizing: content-box;
+  @media ${Breakpoints.afterFirstFooterUnwrapWidth} {
+    height: 120px;
+  }
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
+    height: 140px;
+    margin-left: 5px;
+  }
+  @media ${Breakpoints.secondFooterFontIncrease} {
+    margin-left: 0;
+  }
+`;
+const Tag = styled.span`
+  align-items: center;
+  animation: ${Animations.loadTag} .3s ease;
+  animation-delay: .3s;
+  animation-fill-mode: both;
+  color: ${Colors.brandPrimary};
+  display: flex;
+  font-family: ${Fonts.sans};
+  font-size: 11px;
+  height: 20px;
+  letter-spacing: .07em;
+  padding: 0 10px;
+  position: relative;
+  text-transform: uppercase;
+
+  &::before {
+    border: 1px solid ${Colors.brandPrimary};
     content: '';
-    padding-left: 0;
     position: absolute;
-      top: -1px;
-      bottom: -1px;
+      top: 0;
+      right: 0;
+      bottom: 0;
       left: 0;
-    transition: padding-left .3s ease 0s;
-    width: 150px;
-    z-index: -1;
+    transform: skew(13deg);
+  }
 
-    @media screen and (orientation: portrait) and (min-height: 900px),
-           screen and (orientation: landscape) and (min-width: 900px) {
-      width: 170px;
-    }
+  @media ${Breakpoints.afterFirstFooterUnwrapWidth} {
+    font-size: 12px;
+    height: 21px;
+  }
+  @media ${Breakpoints.secondFooterUnwrapWidth} {
+    font-size: 13px;
+    height: 22px;
   }
 `;
 
-const Header = () => (
+
+const Header = ({tag}, {secondUnwrapPageFits}) => (
   <HeaderWrapper>
-
-    <Logo src={ logo } alt='Teagan Atwater brand logo' />
-
-    <Name>
-      <Line />
-      <Link to='/'>Teagan Atwater</Link>
+    <Line adjust={secondUnwrapPageFits} />
+    <Name adjust={secondUnwrapPageFits}>
+      <NameLink to='/'>Teagan Atwater</NameLink>
     </Name>
-
+    <Logo adjust={secondUnwrapPageFits} src={logo} alt='T A Logo' />
+    {tag ? <Tag>{tag}</Tag> : null}
   </HeaderWrapper>
 );
 

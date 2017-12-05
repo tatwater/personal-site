@@ -1,45 +1,33 @@
 import React, {Component} from 'react';
 import Link from 'gatsby-link';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 
-import linkedin from '../assets/linkedin.svg';
-import angellist from '../assets/angellist.svg';
-import github from '../assets/github.svg';
-import dribbble from '../assets/dribbble.svg';
-import medium from '../assets/medium.svg';
-import spotify from '../assets/spotify.svg';
-import longarrowdown from '../assets/longarrowdown.svg';
+import linkedin from '../assets/images/linkedin.svg';
+import angellist from '../assets/images/angellist.svg';
+import github from '../assets/images/github.svg';
+import dribbble from '../assets/images/dribbble.svg';
+import medium from '../assets/images/medium.svg';
+import spotify from '../assets/images/spotify.svg';
+import longarrowdown from '../assets/images/longarrowdown.svg';
 
-// TODO: Down arrow click scroll
-// TODO: Min heights for all elements
+import { Animations, Breakpoints } from '../assets/helpers';
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
 
 const IconRow = styled.nav`
   align-items: center;
-  animation: ${fadeIn} .5s ease;
+  animation: ${Animations.fadeIn} .5s ease;
   animation-delay: 1s;
   animation-fill-mode: both;
   display: flex;
+  grid-area: socialicons;
   justify-content: space-between;
-  margin-bottom: 20px;
   transform: translate(-5px, 0);
-  width: calc(100vw - 50px);
+  width: calc(100% + 10px);
 
-  @media screen and (orientation: landscape) {
-    margin-bottom: 10px;
-  }
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     justify-content: center;
     margin-bottom: 0;
+    min-width: 550px;
     position: fixed;
       top: 50%;
       right: 30px;
@@ -47,7 +35,7 @@ const IconRow = styled.nav`
     transform-origin: 100% 0;
     width: 100vh;
   }
-  @media screen and (min-width: 1280px) {
+  @media ${Breakpoints.secondFooterFontIncrease} {
     right: 50px;
   }
 `;
@@ -60,12 +48,12 @@ const Social = styled.ul`
   margin: 0;
   padding: 0;
 
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     font-size: 14px;
   }
-  @media screen and (orientation: landscape) and (min-height: 1000px) {
-    font-size: 16px;
+  @media ${Breakpoints.secondFooterFontIncrease} and
+          (min-height: 600px) {
+    font-size: 15px;
   }
 `;
 const Media = styled.li`
@@ -117,8 +105,7 @@ const Media = styled.li`
     z-index: -1;
   }
 
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     height: auto;
     margin: 0 40px 0 0;
     width: auto;
@@ -127,8 +114,8 @@ const Media = styled.li`
       margin-right: 0;
     }
   }
-  @media screen and (orientation: portrait) and (min-height: 900px) and (hover: hover),
-         screen and (orientation: landscape) and (min-width: 900px) and (hover: hover) {
+  @media ${Breakpoints.socialMediaSwitch} and
+         (hover: hover) {
     &:hover {
       color: ${props => props.color ? props.color : '#34495e'};
       transform: scale(1.075);
@@ -144,28 +131,20 @@ const Media = styled.li`
       }
     }
   }
+  @media ${Breakpoints.secondFooterFontIncrease} and
+          (min-height: 600px) {
+    margin: 0 54px 0 0;
+  }
 `;
 const MediaIcon = styled.img`
   height: 22px;
 
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     height: 0;
   }
 `;
-const ScrollBounce = keyframes`
-  0% {
-    transform: translate(0, -5px);
-  }
-  50% {
-    transform: translate(0, 5px);
-  }
-  100% {
-    transform: translate(0, -5px);
-  }
-`;
 const ScrollIndicator = styled.button`
-  animation: ${ScrollBounce} 1.2s ease infinite;
+  animation: ${Animations.bounce} 1.2s ease infinite;
   background: none;
   border: none;
   font-size: 0;
@@ -177,8 +156,7 @@ const ScrollIndicator = styled.button`
   transition: opacity .3s ease, visibility 0s ease ${props => props.visible ? '0s' : '.3s'};
   width: 40px;
 
-  @media screen and (orientation: portrait) and (min-height: 900px),
-         screen and (orientation: landscape) and (min-width: 900px) {
+  @media ${Breakpoints.socialMediaSwitch} {
     display: none;
   }
 `;
@@ -207,7 +185,7 @@ class SocialMediaNav extends Component {
   manageScrollIndicator = () => {
     let scrollTop = event.srcElement.body.scrollTop;
 
-    if (scrollTop > 100) {
+    if (scrollTop > 50) {
       this.setState({
         showScrollIndicator: false,
       });
@@ -231,6 +209,7 @@ class SocialMediaNav extends Component {
     this.scroll(bottom, perTick);
   }
 
+  // TODO: Add easing to perTick equation for variable stepping
   scroll = (target, perTick) => {
     if (window.scrollY < target) {
       setTimeout(() => {
@@ -256,7 +235,7 @@ class SocialMediaNav extends Component {
               AngelList
             </a>
           </Media>
-          <Media color='#bd2c00'>
+          <Media color='#5d267d'>
             <a href='https://github.com/tatwater' target='_blank'>
               <MediaIcon src={ github } alt='GitHub' />
               GitHub
