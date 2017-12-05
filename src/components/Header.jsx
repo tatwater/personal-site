@@ -136,7 +136,7 @@ const Tag = styled.span`
 `;
 
 
-const Header = ({tag}, {secondUnwrapPageFits}) => (
+const Header = ({tag}) => (
   <HeaderWrapper>
     <Line />
     <Name>
