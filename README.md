@@ -1,5 +1,1 @@
-# Personal Site
-
-###### Possible fonts
-- Nudista
-- Myriad
+# Teagan Atwater

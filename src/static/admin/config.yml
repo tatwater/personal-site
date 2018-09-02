@@ -1,0 +1,87 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update
+
+publish_mode: editorial_workflow
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+display_url: https://teaganatwater.com
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  - name: "recipes" # Used in routes
+    label: "Recipes" # Used in the UI
+    folder: "_posts/recipes" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template
+    fields: # The fields for each document, usually in front matter
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "recipe"
+      - label: "Source"
+        name: "source"
+        widget: "string"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Main dish", "Side", "Bread", "Dessert", "Cocktail"]
+      - label: "Allergens"
+        name: "allergens"
+        widget: "list"
+        fields:
+          - label: "Common Allergen"
+            name: "allergen"
+            widget: "select"
+            options: ["Dairy", "Egg", "Fish", "Gluten", "Tree nut", "Peanut", "Poultry", "Red meat", "Shellfish"]
+          - label: "Contains Allergen"
+            name: "allergen-contained"
+            widget: "boolean"
+            default: true
+      - label: "Timing"
+        name: "timing"
+        widget: "list"
+        fields:
+          - label: "Timing Type"
+            name: "timing-type"
+            widget: "select"
+            options: ["Prep time", "Wait time", "Chill time", "Cook time", "Bake time"]
+          - label: "Timing Amount"
+            name: "timing-amount"
+            widget: "string"
+      - label: "Total Time"
+        name: "time"
+        widget: "string"
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+      - label: "Ingredients"
+        name: "ingredients"
+        widget: "list"
+        fields:
+          - label: "Name"
+            name: "ingredient-name"
+            widget: "string"
+          - label: "Amount"
+            name: "ingredient-amount"
+            widget: "string"
+          - label: "Modification"
+            name: "ingredient-modification"
+            widget: "string"
+      - label: "Tools"
+        name: "tools"
+        widget: "list"
+          - label: "Name"
+            name: "tool-name"
+            widget: "string"
+      - label: "Instructions"
+        name: "instructions"
+        widget: "markdown"

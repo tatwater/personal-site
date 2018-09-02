@@ -1,9 +1,76 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import {keyframes} from 'styled-components';
 
-import { Animations, Breakpoints } from '../assets/helpers';
+const Animations = {
+  bounce: keyframes`
+    0% {
+      transform: translate(0, -5px);
+    }
+    50% {
+      transform: translate(0, 5px);
+    }
+    100% {
+      transform: translate(0, -5px);
+    }
+  `,
+  fadeIn: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `,
+  loadHeadline: keyframes`
+    from {
+      left: -50px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+  loadName: keyframes`
+    from {
+      padding: 0 8px 0 10px;
+    }
+    to {
+      padding: 0 6px 0 0;
+    }
+  `,
+  loadNameLink: keyframes`
+    from {
+      left: 5px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+  loadTag: keyframes`
+    from {
+      left: -5px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+}
 
+const Breakpoints = {
+  socialMediaSwitch: 'screen and (min-width: 760px) and (min-height: 600px)',
+  beforeFirstFooterUnwrapWidth: 'screen and (max-width: 399px)',
+  afterFirstFooterUnwrapWidth: 'screen and (min-width: 400px)',
+  secondFooterUnwrapWidth: 'screen and (min-width: 900px)',
+  firstFooterFontIncrease: 'screen and (min-width: 1000px)',
+  secondFooterFontIncrease: 'screen and (min-width: 1200px) and (min-height: 600px)',
+}
 
 const ProjectsWrapper = styled.section`
   display: flex;
@@ -46,7 +113,7 @@ const ProjectWrapper = styled.div`
 `;
 const Kicker = styled.h5`
   color: #34495e;
-  font-family: 'acumin-pro';
+  font-family: 'Roboto';
   font-size: 16px;
   font-weight: 400;
   letter-spacing: .01em;
@@ -58,7 +125,7 @@ const Kicker = styled.h5`
 `;
 const Title = styled.h3`
   color: #34495e;
-  font-family: 'acumin-pro';
+  font-family: 'Roboto';
   font-size: 30px;
   font-weight: 500;
   letter-spacing: .01em;
@@ -84,7 +151,7 @@ const Title = styled.h3`
 `;
 const Subtitle = styled.h4`
   color: #34495e;
-  font-family: 'acumin-pro';
+  font-family: 'Roboto';
   font-size: 20px;
   font-weight: 400;
   letter-spacing: .01em;
@@ -105,7 +172,7 @@ const Subtitle = styled.h4`
 const VisitLink = styled.a`
   color: #34495e;
   display: inline-block;
-  font-family: 'roboto-mono';
+  font-family: 'Roboto Mono';
   font-size: 14px;
   font-weight: 500;
   letter-spacing: .05em;
@@ -139,7 +206,7 @@ const VisitLink = styled.a`
   }
   &::after {
     content: '→';
-    font-family: 'acumin-pro';
+    font-family: 'Roboto';
     margin-left: 6px;
     transition: margin-left .2s ease;
   }

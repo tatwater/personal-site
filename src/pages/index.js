@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import {keyframes} from 'styled-components';
 
 import Header from '../components/Header';
 import PageHeading from '../components/PageHeading';
@@ -8,8 +9,136 @@ import SocialMediaNav from '../components/SocialMediaNav';
 import Projects from '../components/Projects';
 import Footer from '../components/Footer';
 
-import { Headline } from '../assets/typography';
-import { Breakpoints } from '../assets/helpers';
+const Animations = {
+  bounce: keyframes`
+    0% {
+      transform: translate(0, -5px);
+    }
+    50% {
+      transform: translate(0, 5px);
+    }
+    100% {
+      transform: translate(0, -5px);
+    }
+  `,
+  fadeIn: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `,
+  loadHeadline: keyframes`
+    from {
+      left: -50px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+  loadName: keyframes`
+    from {
+      padding: 0 8px 0 10px;
+    }
+    to {
+      padding: 0 6px 0 0;
+    }
+  `,
+  loadNameLink: keyframes`
+    from {
+      left: 5px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+  loadTag: keyframes`
+    from {
+      left: -5px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+}
+const Breakpoints = {
+  socialMediaSwitch: 'screen and (min-width: 760px) and (min-height: 600px)',
+  beforeFirstFooterUnwrapWidth: 'screen and (max-width: 399px)',
+  afterFirstFooterUnwrapWidth: 'screen and (min-width: 400px)',
+  secondFooterUnwrapWidth: 'screen and (min-width: 900px)',
+  firstFooterFontIncrease: 'screen and (min-width: 1000px)',
+  secondFooterFontIncrease: 'screen and (min-width: 1200px) and (min-height: 600px)',
+}
+
+const Colors = {
+  brandPrimary: '#34495e',
+  angelList: '#333333',
+  dribbble: '#ea4c89',
+  gitHub: '#5d267d',
+  linkedIn: '#0077b5',
+  medium: '#00ab6c',
+}
+
+const Fonts = {
+  mono: 'Roboto Mono',
+  sans: 'Roboto',
+}
+
+const Headline = styled.h2`
+  animation-delay: ${props => props.delay ? props.delay : '.5s'};
+  animation-duration: .4s;
+  animation-easing-function: ease;
+  animation-fill-mode: both;
+  animation-name: ${props => props.slide ? Animations.loadHeadline : Animations.fadeIn};
+  color: ${Colors.brandPrimary};
+  display: flex;
+  flex-direction: column;
+  font-family: ${Fonts.sans};
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1.2em;
+  margin: 20px 0;
+  position: relative;
+
+  & + h2 {
+    margin-top: -12px;
+  }
+
+  @media screen and (min-width: 700px) {
+    font-size: 36px;
+    font-weight: 500;
+    margin: 30px 0;
+    width: 75%;
+
+    & + h2 {
+      margin-top: -22px;
+    }
+  }
+  @media ${Breakpoints.secondFooterUnwrapWidth} and
+         ${secondUnwrapPageFits} {
+    font-size: 44px;
+    line-height: 1.33em;
+    max-width: 600px;
+  }
+  @media ${Breakpoints.secondFooterFontIncrease} {
+    font-size: 52px;
+    line-height: 1.4em;
+    margin: 36px 0;
+    max-width: 720px;
+
+    & + h2 {
+      margin-top: -32px;
+    }
+  }
+`;
 
 
 const noUnwrapPageFitsScrollFooter = '(min-height: 810px)';

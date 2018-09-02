@@ -1,16 +1,77 @@
 import React, {Component} from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {keyframes} from 'styled-components';
 
-import linkedin from '../assets/images/linkedin.svg';
-import angellist from '../assets/images/angellist.svg';
-import github from '../assets/images/github.svg';
-import dribbble from '../assets/images/dribbble.svg';
-import medium from '../assets/images/medium.svg';
-import spotify from '../assets/images/spotify.svg';
-import longarrowdown from '../assets/images/longarrowdown.svg';
+const Animations = {
+  bounce: keyframes`
+    0% {
+      transform: translate(0, -5px);
+    }
+    50% {
+      transform: translate(0, 5px);
+    }
+    100% {
+      transform: translate(0, -5px);
+    }
+  `,
+  fadeIn: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `,
+  loadHeadline: keyframes`
+    from {
+      left: -50px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+  loadName: keyframes`
+    from {
+      padding: 0 8px 0 10px;
+    }
+    to {
+      padding: 0 6px 0 0;
+    }
+  `,
+  loadNameLink: keyframes`
+    from {
+      left: 5px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+  loadTag: keyframes`
+    from {
+      left: -5px;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  `,
+}
 
-import { Animations, Breakpoints } from '../assets/helpers';
+const Breakpoints = {
+  socialMediaSwitch: 'screen and (min-width: 760px) and (min-height: 600px)',
+  beforeFirstFooterUnwrapWidth: 'screen and (max-width: 399px)',
+  afterFirstFooterUnwrapWidth: 'screen and (min-width: 400px)',
+  secondFooterUnwrapWidth: 'screen and (min-width: 900px)',
+  firstFooterFontIncrease: 'screen and (min-width: 1000px)',
+  secondFooterFontIncrease: 'screen and (min-width: 1200px) and (min-height: 600px)',
+}
 
 
 const IconRow = styled.nav`
@@ -41,7 +102,7 @@ const IconRow = styled.nav`
 `;
 const Social = styled.ul`
   display: flex;
-  font-family: 'roboto-mono';
+  font-family: 'Roboto Mono';
   font-size: 0;
   font-weight: 400;
   list-style-type: none;
@@ -136,7 +197,7 @@ const Media = styled.li`
     margin: 0 54px 0 0;
   }
 `;
-const MediaIcon = styled.img`
+const MediaIcon = styled(FontAwesomeIcon)`
   height: 22px;
 
   @media ${Breakpoints.socialMediaSwitch} {
@@ -225,43 +286,43 @@ class SocialMediaNav extends Component {
         <Social>
           <Media color='#0077b5'>
             <a href='https://www.linkedin.com/in/teaganatwater/' target='_blank'>
-              <MediaIcon src={ linkedin } alt='LinkedIn' />
+              <MediaIcon icon={['fab', 'linkedin-in']} />
               LinkedIn
             </a>
           </Media>
           <Media color='#333'>
             <a href='https://angel.co/teagan-atwater' target='_blank'>
-              <MediaIcon src={ angellist } alt='AngelList' />
+              <MediaIcon icon={['fab', 'angellist']} />
               AngelList
             </a>
           </Media>
           <Media color='#5d267d'>
             <a href='https://github.com/tatwater' target='_blank'>
-              <MediaIcon src={ github } alt='GitHub' />
+              <MediaIcon icon={['fab', 'github']} />
               GitHub
             </a>
           </Media>
           <Media color='#ea4c89'>
             <a href='https://dribbble.com/tatwater' target='_blank'>
-              <MediaIcon src={ dribbble } alt='Dribbble' />
+              <MediaIcon icon={['fab', 'dribbble']} />
               Dribbble
             </a>
           </Media>
           <Media color='#00ab6c'>
             <a href='https://medium.com/@teaganatwater' target='_blank'>
-              <MediaIcon src={ medium } alt='Medium' />
+              <MediaIcon icon={['fab', 'medium-m']} />
               Medium
             </a>
           </Media>
           {/* <Media color='#1db954'>
             <a href='https://open.spotify.com/user/nagaant' target='_blank'>
-              <MediaIcon src={ spotify } alt='Spotify' />
+              <MediaIcon icon={['fab', 'spotify']} />
               Spotify
             </a>
           </Media> */}
         </Social>
         <ScrollIndicator onClick={this.scrollToBottom} type='button' visible={this.state.showScrollIndicator}>
-          <MediaIcon src={longarrowdown} alt='Scroll down' />
+          <MediaIcon  icon={['far', 'long-arrow-down']} />
         </ScrollIndicator>
       </IconRow>
     );

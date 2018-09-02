@@ -1,28 +1,42 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "teagan-atwater",
+  "description": "Site at teaganatwater.com",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Teagan Atwater <desk@teaganatwater.com>",
   "dependencies": {
-    "gatsby": "^1.9.45",
-    "gatsby-link": "^1.6.17",
-    "gatsby-plugin-google-analytics": "^1.0.12",
-    "gatsby-plugin-react-helmet": "^1.0.5",
-    "gatsby-plugin-styled-components": "^1.0.5",
-    "react-typekit": "^1.1.0"
+    "@fortawesome/fontawesome-svg-core": "^1.2.0",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0",
+    "@fortawesome/pro-light-svg-icons": "^5.1.0",
+    "@fortawesome/pro-regular-svg-icons": "^5.1.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.1.0",
+    "@fortawesome/react-fontawesome": "0.1.0",
+    "@wapps/gatsby-plugin-fonts": "^1.0.2",
+    "babel-plugin-styled-components": "^1.5.1",
+    "gatsby": "^1.9.277",
+    "gatsby-link": "^1.6.46",
+    "gatsby-plugin-react-helmet": "^2.0.11",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools": "^3.4.1",
+    "styled-components": "^3.3.3"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.6.1"
+    "prettier": "^1.13.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tatwater/personal-site"
   }
 }

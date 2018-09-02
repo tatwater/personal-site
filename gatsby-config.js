@@ -1,15 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: `Teagan Atwater`,
+    description: '',
+    keywords: '',
+    title: 'Teagan Atwater',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `@wapps/gatsby-plugin-fonts`,
       options: {
-        trackingId: 'UA-41735344-1',
-        anonymize: true
+        googleFonts: {
+          families: [
+            'Roboto:400,500',
+            'Roboto Mono:400,500',
+          ],
+          subsets: [
+            'latin',
+          ]
+        },
       },
     },
   ],
