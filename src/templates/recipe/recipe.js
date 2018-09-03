@@ -16,7 +16,9 @@ export default function Recipe({ data }) {
   const instructionsList = [];
   const notesList = [];
 
-  frontmatter.timing.map((time, key) => {
+  console.log(frontmatter.totalTime);
+
+  frontmatter.timing && frontmatter.timing.map((time, key) => {
     timesList.push(
       <SC.TimeBlock key={key}>
         <SC.TimeAmount>
@@ -78,10 +80,10 @@ export default function Recipe({ data }) {
             <SC.TotalTime>
               <FontAwesomeIcon icon={['far', 'clock']} />
               <SC.TimeAmount>
-                { frontmatter.time.timeAmount }
+                { frontmatter.totalTime.timeAmount }
               </SC.TimeAmount>
               <SC.TimeType>
-                { frontmatter.time.timeUnits }
+                { frontmatter.totalTime.timeUnits }
               </SC.TimeType>
             </SC.TotalTime>
             <SC.Photo
@@ -90,13 +92,13 @@ export default function Recipe({ data }) {
             <SC.TimeBreakdown>
               <SC.TotalTime>
                 <SC.TimeAmount>
-                  { frontmatter.time.timeAmount }
+                  { frontmatter.totalTime.timeAmount }
                 </SC.TimeAmount>
                 <SC.TimeType>
-                  { frontmatter.time.timeUnits }
+                  { frontmatter.totalTime.timeUnits }
                 </SC.TimeType>
               </SC.TotalTime>
-              { timesList }
+              { frontmatter.timing && timesList }
             </SC.TimeBreakdown>
           </SC.TimeWrapper>
           <SC.Recipe>
@@ -145,7 +147,7 @@ export const pageQuery = graphql`
         path
         category
         title
-        time {
+        totalTime {
           timeAmount
           timeUnits
         }

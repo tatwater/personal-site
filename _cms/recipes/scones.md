@@ -15,7 +15,7 @@ timing:
     timingType: Prep time
   - timingAmount: 15 mins
     timingType: Bake time
-time:
+totalTime:
   timeAmount: '45'
   timeUnits: mins
 photo: /images/uploads/33351013_1971880926475743_3867560433061724160_n.jpg

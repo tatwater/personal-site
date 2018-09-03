@@ -64,7 +64,7 @@ collections:
             widget: "string"
         required: false
       - label: "Total Time"
-        name: "time"
+        name: "totalTime"
         widget: "object"
         fields:
           - label: "Amount"

@@ -4,7 +4,7 @@ layout: recipe
 title: Lemon Drop Martini
 category: Cocktails
 timing: []
-time:
+totalTime:
   timeAmount: '5'
   timeUnits: mins
 photo: /images/uploads/37761064_1592044721102661_4525177341202137088_n.jpg

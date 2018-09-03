@@ -18,7 +18,7 @@ timing:
     timingType: Chill time
   - timingAmount: 10 mins
     timingType: Bake time
-time:
+totalTime:
   timeAmount: '1.5'
   timeUnits: hrs
 photo: /images/uploads/39390115_2046653325647526_6382762327493574656_n.jpg
