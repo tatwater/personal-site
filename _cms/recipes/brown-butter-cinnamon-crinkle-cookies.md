@@ -18,7 +18,9 @@ timing:
     timingType: Chill time
   - timingAmount: 10 mins
     timingType: Bake time
-time: 1.5 hrs
+time:
+  - timeAmount: '1.5'
+  - timeUnits: hrs
 photo: /images/uploads/39390115_2046653325647526_6382762327493574656_n.jpg
 ingredients:
   - ingredientAmount: 10 tbsp
@@ -83,4 +85,3 @@ instructions:
       Allow the cookies to cool on the pan for a few minutes before transferring
       them to a wire rack to finish cooling.
 ---
-
