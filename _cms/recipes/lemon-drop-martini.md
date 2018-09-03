@@ -28,4 +28,3 @@ instructions:
       shake well.
   - step: Strain into a coupe glass.
 ---
-
