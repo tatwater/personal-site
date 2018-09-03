@@ -79,6 +79,7 @@ collections:
       - label: "Tools"
         name: "tools"
         widget: "list"
+        field:
           - label: "Name"
             name: "tool-name"
             widget: "string"
