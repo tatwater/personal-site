@@ -53,6 +53,9 @@ ul {
 li + li {
   margin-top: 1em;
 }
+strong {
+  font-weight: 700;
+}
 
 @media screen and (min-width: 768px) {
   h1 {

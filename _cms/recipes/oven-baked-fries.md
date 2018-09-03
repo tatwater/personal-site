@@ -55,11 +55,7 @@ instructions:
   - step: Mix potato slices, olive oil, garlic powder, onion powder, salt, and black pepper together in either a large bowl or a resealable bag until evenly coated. Save the rosemary for later.
   - step: Spread the coated potato slices in a single layer on the prepared baking sheet.
   - step: Bake in the preheated oven for 20 minutes. Flip fries and bake for until crisp and browned, about 20 more minutes.
-notes: >-
-  - The sugar releases juices in the potatoes and helps them get crisp in the
-  oven.
-
-
-  - _Not tested: Soak potato slices in water for an hour or so to reduce
-  internal fry fluffiness._
+notes:
+  - note: The sugar releases juices in the potatoes and helps them get crisp in the oven.
+  - note: 'Not tested: Soak potato slices in water for an hour or so to reduce internal fry fluffiness.'
 ---

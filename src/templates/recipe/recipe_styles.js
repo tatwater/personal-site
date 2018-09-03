@@ -96,6 +96,7 @@ export const TotalTime = styled.div`
   margin-bottom: 50px;
 
   svg {
+    height: 18px;
     margin-right: 6px;
   }
 
@@ -191,10 +192,6 @@ export const Recipe = styled.div`
   flex-wrap: wrap;
   width: 100%;
 
-  ul {
-    list-style-type: none;
-    padding-left: 8px;
-  }
   ol {
     padding-left: 8px;
 
@@ -209,6 +206,10 @@ export const Recipe = styled.div`
     line-height: 1.3em;
     margin: 0 0 6px;
   }
+`;
+export const List = styled.ul`
+  ${props => props.hideBullets && 'list-style-type: none'};
+  padding-left: ${props => props.hideBullets ? '8px' : '20px'};
 `;
 export const Ingredients = styled.div`
   width: 100%;

@@ -109,5 +109,9 @@ collections:
             widget: "text"
       - label: "Notes"
         name: "notes"
-        widget: "markdown"
+        widget: "list"
+        fields:
+          - label: "Note"
+            name: "note"
+            widget: "text"
         required: false

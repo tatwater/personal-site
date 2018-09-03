@@ -14,6 +14,7 @@ export default function Recipe({ data }) {
   const ingredientsList = [];
   const toolsList = [];
   const instructionsList = [];
+  const notesList = [];
 
   console.log(frontmatter.time[0].timeAmount);
 
@@ -52,6 +53,14 @@ export default function Recipe({ data }) {
     instructionsList.push(
       <li key={key}>
         { instruction.step }
+      </li>
+    );
+  });
+
+  frontmatter.notes.map((note, key) => {
+    notesList.push(
+      <li key={key}>
+        { note.note }
       </li>
     );
   });
@@ -95,21 +104,30 @@ export default function Recipe({ data }) {
           <SC.Recipe>
             <SC.Ingredients>
               <h3>Ingredients</h3>
-              <ul>
+              <SC.List hideBullets>
                 { ingredientsList }
-              </ul>
+              </SC.List>
             </SC.Ingredients>
             <SC.Tools>
               <h3>Tools</h3>
-              <ul>
+              <SC.List hideBullets>
                 { toolsList }
-              </ul>
+              </SC.List>
             </SC.Tools>
             <SC.Instructions>
               <h3>Instructions</h3>
               <ol>
                 { instructionsList }
               </ol>
+            </SC.Instructions>
+            <SC.Instructions>
+              <h3>Notes</h3>
+              <SC.List>
+                { notesList }
+              </SC.List>
+            </SC.Instructions>
+            <SC.Instructions>
+              <strong>From: </strong>{ frontmatter.source }
             </SC.Instructions>
           </SC.Recipe>
         </SC.Content>
@@ -145,6 +163,10 @@ export const pageQuery = graphql`
         instructions {
           step
         }
+        notes {
+          note
+        }
+        source
       }
     }
   }
