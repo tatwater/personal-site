@@ -1,13 +1,14 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import Helmet from "react-helmet";
 
-export default function Recipe({ data }) {
+export default function Template({ data }) {
   const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { frontmatter } = markdownRemark;
 
   return (
-    <div>
-      <div>
+    <div className="blog-post-container">
+      <Helmet title={`${frontmatter.title} | Teagan Atwater`} />
+      <div className="blog-post">
         <h1>{frontmatter.title}</h1>
       </div>
     </div>
@@ -15,13 +16,12 @@ export default function Recipe({ data }) {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query RecipeByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
       frontmatter {
         path
         title
       }
     }
   }
-`
+`;

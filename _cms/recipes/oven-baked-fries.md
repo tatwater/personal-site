@@ -1,4 +1,5 @@
 ---
+path: /kitchen/recipe/oven-baked-fries
 layout: recipe
 source: Life Tastes Good
 title: Oven-baked fries
@@ -81,4 +82,3 @@ instructions: >-
   \- _Not tested: Soak potato slices in water for an hour or so to reduce
   internal fry fluffiness._
 ---
-

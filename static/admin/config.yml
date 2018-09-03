@@ -16,10 +16,13 @@ slug:
 collections:
   - name: "recipes" # Used in routes
     label: "Recipes" # Used in the UI
-    folder: "_posts/recipes" # The path to the folder where the documents are stored
+    folder: "_cms/recipes" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template
     fields: # The fields for each document, usually in front matter
+      - label: "Path"
+        name: "path"
+        widget: "string"
       - label: "Layout"
         name: "layout"
         widget: "hidden"
@@ -27,6 +30,7 @@ collections:
       - label: "Source"
         name: "source"
         widget: "string"
+        required: false
       - label: "Title"
         name: "title"
         widget: "string"
@@ -46,6 +50,7 @@ collections:
             name: "allergen-contained"
             widget: "boolean"
             default: true
+        required: false
       - label: "Timing"
         name: "timing"
         widget: "list"
@@ -57,12 +62,14 @@ collections:
           - label: "Timing Amount"
             name: "timing-amount"
             widget: "string"
+        required: false
       - label: "Total Time"
         name: "time"
         widget: "string"
       - label: "Photo"
         name: "photo"
         widget: "image"
+        required: false
       - label: "Ingredients"
         name: "ingredients"
         widget: "list"
@@ -76,16 +83,20 @@ collections:
           - label: "Modification"
             name: "ingredient-modification"
             widget: "string"
+        required: false
       - label: "Tools"
         name: "tools"
         widget: "list"
-        field:
+        fields:
           - label: "Tool name"
             name: "tool-name"
             widget: "string"
+        required: false
       - label: "Instructions"
         name: "instructions"
         widget: "markdown"
+        required: false
       - label: "Notes"
         name: "notes"
         widget: "markdown"
+        required: false
