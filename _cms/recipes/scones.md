@@ -33,6 +33,9 @@ ingredients:
     ingredientName: Butter
   - ingredientAmount: 1 cup
     ingredientName: Whipping cream
+  - ingredientAmount: 2 tbsp
+    ingredientModification: ' (optional)'
+    ingredientName: Cinnamon sugar
 tools:
   - toolName: Large bowl
   - toolName: Whisk
@@ -54,5 +57,7 @@ instructions:
   - step: >-
       Line a cookie sheet with parchment paper. Place scones on parchment paper
       and brush tops with a bit of cream, melted butter, or olive oil.
+  - step: 'Optionally, sprinkle tops of scones with cinnamon sugar.'
   - step: Bake for 15-20 minutes until golden brown. Cool on a rack.
 ---
+
