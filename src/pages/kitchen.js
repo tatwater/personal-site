@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 import KitchenLayout from '../layouts/kitchen/kitchen';
@@ -33,7 +32,7 @@ const SecondPage = () => (
   <KitchenLayout>
     <Content>
       <h2>Hi there!</h2>
-      <p>While this is largely a tool for myself to keep track of things I’ve made for future reference, it’s a pleasure to share my notes with you! If you find something you like, please let me know on Instagram <Link to='https://instagram.com/teaganskitchen'>@teaganskitchen</Link> :)</p>
+      <p>While this is largely a tool for myself to keep track of things I’ve made for future reference, it’s a pleasure to share my notes with you! If you find something you like, please let me know on Instagram <a href='https://instagram.com/teaganskitchen' target='_insta'>@teaganskitchen</a> :)</p>
       
       <h2>What you'll find</h2>
       <p>Starting with what you won’t find: I have allergies to eggs and peanuts, so none of my recipes involve either ingredient. While these allergies make restaurant eating an oft-annoying challenge, I’ve found my own kitchen experiments to be very empowering, and I don’t really miss them.</p>
