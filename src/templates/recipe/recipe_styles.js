@@ -22,9 +22,9 @@ export const Photo = styled.img`
 `;
 export const Category = styled.span`
   color: #C6C9CD;
-  font-family: Butler;
+  font-family: Playfair Display;
   font-size: 34px;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 20px;
   position: relative;
 
@@ -33,7 +33,7 @@ export const Category = styled.span`
     content: '';
     height: 1px;
     position: absolute;
-      top: 40%;
+      top: 50%;
       right: calc(100% + 16px);
     width 64px;
   }

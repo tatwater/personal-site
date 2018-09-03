@@ -12,7 +12,7 @@ module.exports = {
           families: [
             'Roboto:400,500',
             'Roboto Mono:400,500',
-            'Butler:800',
+            'Playfair Display:400,700',
             'Montserrat:300,700',
           ],
           subsets: [
