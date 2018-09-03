@@ -73,17 +73,12 @@ instructions: >-
 
   6. Bake in the preheated oven for 20 minutes. Flip fries and bake for until
   crisp and browned, about 20 more minutes.
-
-
-
-
-  **Notes**
-
-
-  \- The sugar releases juices in the potatoes and helps them get crisp in the
+notes: >-
+  - The sugar releases juices in the potatoes and helps them get crisp in the
   oven.
 
 
-  \- _Not tested: Soak potato slices in water for an hour or so to reduce
+  - _Not tested: Soak potato slices in water for an hour or so to reduce
   internal fry fluffiness._
 ---
+
