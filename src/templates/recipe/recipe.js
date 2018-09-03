@@ -10,6 +10,7 @@ import * as SC from './recipe_styles';
 export default function Recipe({ data }) {
   const { markdownRemark } = data;
   const { frontmatter } = markdownRemark;
+  const hasTotalTime = frontmatter.time.timeAmount !== '';
   const timesList = [];
   const ingredientsList = [];
   const toolsList = [];
@@ -75,7 +76,7 @@ export default function Recipe({ data }) {
             { frontmatter.title }
           </h1>
           <SC.TimeWrapper>
-            { frontmatter.time &&
+            { hasTotalTime &&
               <SC.TotalTime>
                 <FontAwesomeIcon icon={['far', 'clock']} />
                 <SC.TimeAmount>
@@ -90,7 +91,7 @@ export default function Recipe({ data }) {
               src={ withPrefix(frontmatter.photo) }
             />
             <SC.TimeBreakdown>
-              { frontmatter.time &&
+              { hasTotalTime &&
                 <SC.TotalTime>
                   <SC.TimeAmount>
                     { frontmatter.time.timeAmount }
