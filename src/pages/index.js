@@ -292,6 +292,20 @@ const LayoutWrapper = styled.div`
   }
 `;
 
+const Netlify = () => {
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    })
+  }
+  
+  return null;
+}
+
 
 const HomePage = () => (
   <LayoutWrapper>
@@ -308,6 +322,8 @@ const HomePage = () => (
     <Projects />
 
     <Footer />
+
+    <Netlify />
   </LayoutWrapper>
 );
 
