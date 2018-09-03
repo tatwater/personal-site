@@ -1,5 +1,5 @@
 ---
-path: kitchen/recipe/lemon-drop-martini
+path: /kitchen/recipe/lemon-drop-martini
 layout: recipe
 title: Lemon Drop Martini
 category: Cocktails
@@ -28,4 +28,3 @@ instructions:
       shake well.
   - step: Strain into a coupe glass.
 ---
-
