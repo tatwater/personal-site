@@ -15,7 +15,9 @@ timing:
     timingType: Wait time
   - timingAmount: 40 mins
     timingType: Bake time
-time: 1.5 hrs
+time:
+  - timeAmount: '1.5'
+  - timeUnits: hrs
 photo: /images/uploads/39957947_2117679278486826_8708568275979599872_n.jpg
 ingredients:
   - ingredientAmount: '6'

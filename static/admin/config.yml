@@ -65,7 +65,15 @@ collections:
         required: false
       - label: "Total Time"
         name: "time"
-        widget: "string"
+        widget: "object"
+        fields:
+          - label: "Amount"
+            name: "timeAmount"
+            widget: "string"
+          - label: "Units"
+            name: "timeUnits"
+            widget: "select"
+            options: ["mins", "hrs"]
       - label: "Photo"
         name: "photo"
         widget: "image"

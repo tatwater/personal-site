@@ -51,6 +51,84 @@ export const Category = styled.span`
     }
   }
 `;
+export const TimeWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  margin: 10px 0 50px 0;
+
+  @media screen and (min-width: 1024px) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 25px 0 80px 0;
+  }
+`;
+export const TimeBlock = styled.div`
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 46px;
+  justify-content: center;
+  width: 90px;
+
+  & + div {
+    margin-left: 12px;
+  }
+`;
+export const TimeAmount = styled.span`
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 1px;
+`;
+export const TimeType = styled.span`
+  color: #C6C9CD;
+  font-size: 12px;
+  font-weight: 300;
+`;
+export const TotalTime = styled.div`
+  color: #C6C9CD;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 50px;
+
+  svg {
+    margin-right: 6px;
+  }
+
+  @media screen and (max-width: 599px) {
+    ${TimeAmount} {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    ${TimeType} {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    align-items: center;
+    background: #222F3E;
+    border-radius: 50%;
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 700;
+    height: 52px;
+    justify-content: center;
+    margin: 0 16px 0 0;
+    top: 0;
+    width: 52px;
+
+    svg {
+      display: none;
+    }
+  }
+`;
 export const Photo = styled.div`
   ${props => props.src && 'background-image: url(' + props.src + ')'};
   background-position: center center;
@@ -67,12 +145,13 @@ export const Photo = styled.div`
   @media screen and (min-width: 600px) {
     border-radius: 6px;
     box-shadow: 0 3px 15px rgba(34, 47, 62, .16);
+    top: 10px;
     left: -10px;
+    margin-bottom: 40px;
     width: calc(100% + 20px);
   }
-  @media screen and (min-width: 600px) {
-    margin-bottom: 30px;
-    top: -30px;
+  @media screen and (min-width: 880px) {
+    margin-bottom: 50px;
   }
   @media screen and (min-width: 1024px) {
     border-radius: 10px 0 0 10px;
@@ -89,6 +168,20 @@ export const Photo = styled.div`
   @media screen and (min-width: 1440px) {
     left: calc(900px + 15%);
     width: auto;
+  }
+`;
+export const TimeBreakdown = styled.div`
+  align-items: center;
+  display: flex;
+
+  ${TotalTime} {
+    display: none;
+  }
+
+  @media screen and (min-width: 600px) {
+    ${TotalTime} {
+      display: flex;
+    }
   }
 `;
 export const Recipe = styled.div`

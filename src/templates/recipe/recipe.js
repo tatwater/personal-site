@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import KitchenLayout from '../../layouts/kitchen/kitchen';
 import * as SC from './recipe_styles';
@@ -9,9 +10,25 @@ import * as SC from './recipe_styles';
 export default function Recipe({ data }) {
   const { markdownRemark } = data;
   const { frontmatter } = markdownRemark;
+  const timesList = [];
   const ingredientsList = [];
   const toolsList = [];
   const instructionsList = [];
+
+  console.log(frontmatter.time[0].timeAmount);
+
+  frontmatter.timing.map((time, key) => {
+    timesList.push(
+      <SC.TimeBlock key={key}>
+        <SC.TimeAmount>
+          { time.timingAmount }
+        </SC.TimeAmount>
+        <SC.TimeType>
+          { time.timingType.toLowerCase() }
+        </SC.TimeType>
+      </SC.TimeBlock>
+    );
+  });
 
   frontmatter.ingredients.map((ingredient, key) => {
     ingredientsList.push(
@@ -41,7 +58,7 @@ export default function Recipe({ data }) {
 
   return (
     <div>
-      <Helmet title={`${frontmatter.title} | Teagan Atwater`} />
+      <Helmet title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` } />
       <KitchenLayout>
         <SC.Content>
           <SC.Category>
@@ -50,9 +67,31 @@ export default function Recipe({ data }) {
           <h1>
             { frontmatter.title }
           </h1>
-          <SC.Photo
-            src={ withPrefix(frontmatter.photo) }
-          />
+          <SC.TimeWrapper>
+            <SC.TotalTime>
+              <FontAwesomeIcon icon={['far', 'clock']} />
+              <SC.TimeAmount>
+                { frontmatter.time[0].timeAmount }
+              </SC.TimeAmount>
+              <SC.TimeType>
+                { frontmatter.time[1].timeUnits }
+              </SC.TimeType>
+            </SC.TotalTime>
+            <SC.Photo
+              src={ withPrefix(frontmatter.photo) }
+            />
+            <SC.TimeBreakdown>
+              <SC.TotalTime>
+                <SC.TimeAmount>
+                  { frontmatter.time[0].timeAmount }
+                </SC.TimeAmount>
+                <SC.TimeType>
+                  { frontmatter.time[1].timeUnits }
+                </SC.TimeType>
+              </SC.TotalTime>
+              { timesList }
+            </SC.TimeBreakdown>
+          </SC.TimeWrapper>
           <SC.Recipe>
             <SC.Ingredients>
               <h3>Ingredients</h3>
@@ -86,7 +125,15 @@ export const pageQuery = graphql`
         path
         category
         title
+        time {
+          timeAmount
+          timeUnits
+        }
         photo
+        timing {
+          timingAmount
+          timingType
+        }
         ingredients {
           ingredientAmount
           ingredientName

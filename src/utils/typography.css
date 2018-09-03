@@ -8,7 +8,7 @@ h1 {
   font-size: 42px;
   font-weight: 700;
   line-height: 1.2em;
-  margin: 0 0 40px;
+  margin: 0 0 14px;
 }
 h2 {
   color: #1c3456;
@@ -57,12 +57,12 @@ li + li {
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 54px;
-    margin: 0 0 50px;
+    margin: 0 0 20px;
   }
 }
 @media screen and (min-width: 1024px) {
   h1 {
     font-size: 76px;
-    margin: 0 0 70px;
+    margin: 0 0 0;
   }
 }

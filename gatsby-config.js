@@ -13,7 +13,7 @@ module.exports = {
             'Roboto:400,500',
             'Roboto Mono:400,500',
             'Playfair Display:400,700',
-            'Montserrat:300,700',
+            'Montserrat:300,500,700',
           ],
           subsets: [
             'latin',
