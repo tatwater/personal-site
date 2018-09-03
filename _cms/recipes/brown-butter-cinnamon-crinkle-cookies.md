@@ -18,7 +18,7 @@ timing:
     timingType: Chill time
   - timingAmount: 10 mins
     timingType: Bake time
-totalTime:
+time:
   timeAmount: '1.5'
   timeUnits: hrs
 photo: /images/uploads/39390115_2046653325647526_6382762327493574656_n.jpg
@@ -85,3 +85,4 @@ instructions:
       Allow the cookies to cool on the pan for a few minutes before transferring
       them to a wire rack to finish cooling.
 ---
+
