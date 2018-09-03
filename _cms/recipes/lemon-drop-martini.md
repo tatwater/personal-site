@@ -4,7 +4,7 @@ layout: recipe
 title: Lemon Drop Martini
 category: Cocktails
 timing: []
-totalTime:
+time:
   timeAmount: '5'
   timeUnits: mins
 photo: /images/uploads/37761064_1592044721102661_4525177341202137088_n.jpg
@@ -28,3 +28,4 @@ instructions:
       shake well.
   - step: Strain into a coupe glass.
 ---
+
