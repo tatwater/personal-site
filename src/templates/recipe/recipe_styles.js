@@ -5,6 +5,7 @@ export const Content = styled.div`
   max-width: 800px;
 `;
 export const PhotoWrapper = styled.div`
+  border-radius: 10px 0 0 10px;
   overflow: hidden;
   position: fixed;
     top: 80px;
