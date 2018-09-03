@@ -3,7 +3,7 @@ const path = require('path');
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const recipeTemplate = path.resolve(`src/templates/recipe.js`);
+  const recipeTemplate = path.resolve(`src/templates/recipe/recipe.js`);
 
   return graphql(`{
     allMarkdownRemark(

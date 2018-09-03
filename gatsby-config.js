@@ -12,6 +12,8 @@ module.exports = {
           families: [
             'Roboto:400,500',
             'Roboto Mono:400,500',
+            'Butler:800',
+            'Montserrat:300,700',
           ],
           subsets: [
             'latin',

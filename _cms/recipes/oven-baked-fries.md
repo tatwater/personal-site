@@ -3,44 +3,49 @@ path: /kitchen/recipe/oven-baked-fries
 layout: recipe
 source: Life Tastes Good
 title: Oven-baked fries
-category: Side
+category: Sides
 allergens:
   - allergen: Peanut
-    allergen-contained: false
+    allergenContained: false
   - allergen: Gluten
 timing:
-  - timing-amount: 15 mins
-    timing-type: Prep time
-  - timing-amount: 30 mins
-    timing-type: Wait time
-  - timing-amount: 40 mins
-    timing-type: Bake time
+  - timingAmount: 15 mins
+    timingType: Prep time
+  - timingAmount: 30 mins
+    timingType: Wait time
+  - timingAmount: 40 mins
+    timingType: Bake time
 time: 1.5 hrs
 photo: /images/uploads/39957947_2117679278486826_8708568275979599872_n.jpg
 ingredients:
-  - ingredient-amount: '6'
-    ingredient-modification: 'of good size, suggested Yukon Gold or Russet'
-    ingredient-name: Potatoes
-  - ingredient-amount: 1 tbsp
-    ingredient-name: Granulated sugar
-  - ingredient-name: Cooking spray
-  - ingredient-amount: 1/4 cup
-    ingredient-name: Extra virgin olive oil
-  - ingredient-amount: 1 tsp
-    ingredient-name: Garlic powder
-  - ingredient-amount: 1 tsp
-    ingredient-name: Onion powder
-  - ingredient-amount: 1 tsp
-    ingredient-name: Salt
-  - ingredient-amount: 1 tsp
-    ingredient-modification: ', ground'
-    ingredient-name: Black pepper
-  - ingredient-amount: 1 tsp
-    ingredient-modification: ', dried or fresh'
-    ingredient-name: Rosemary
+  - ingredientAmount: '6'
+    ingredientModification: ', preferably Yukon Gold or Russet'
+    ingredientName: Potatoes
+  - ingredientAmount: 1 tbsp
+    ingredientName: Granulated sugar
+  - ingredientName: Cooking spray
+  - ingredientAmount: 1/4 cup
+    ingredientName: Extra virgin olive oil
+  - ingredientAmount: 1 tsp
+    ingredientName: Garlic powder
+  - ingredientAmount: 1 tsp
+    ingredientName: Onion powder
+  - ingredientAmount: 1 tsp
+    ingredientName: Salt
+  - ingredientAmount: 1 tsp
+    ingredientModification: ', ground'
+    ingredientName: Black pepper
+  - ingredientAmount: 1 tsp
+    ingredientModification: ', dried or fresh'
+    ingredientName: Rosemary
 tools:
-  - K
-  - j
+  - toolName: Cutting board
+  - toolName: Knife
+  - toolName: Colander
+  - toolName: Baking sheet
+  - toolName: Aluminum foil
+  - toolName: Large bowl or resealable bag
+  - toolName: Spatula
 instructions: >-
   1. Cut potatoes into desired size and shape. I recommend leaving the skin on
   and slicing into thick batons about 1/2" across, but removing the skin or

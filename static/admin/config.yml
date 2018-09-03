@@ -37,7 +37,7 @@ collections:
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["Main dish", "Side", "Bread", "Dessert", "Cocktail"]
+        options: ["Main dishes", "Sides", "Breads", "Desserts", "Cocktails"]
       - label: "Allergens"
         name: "allergens"
         widget: "list"
@@ -47,7 +47,7 @@ collections:
             widget: "select"
             options: ["Dairy", "Egg", "Fish", "Gluten", "Tree nut", "Peanut", "Poultry", "Red meat", "Shellfish"]
           - label: "Contains Allergen"
-            name: "allergen-contained"
+            name: "allergenContained"
             widget: "boolean"
             default: true
         required: false
@@ -56,11 +56,11 @@ collections:
         widget: "list"
         fields:
           - label: "Timing Type"
-            name: "timing-type"
+            name: "timingType"
             widget: "select"
             options: ["Prep time", "Wait time", "Chill time", "Cook time", "Bake time"]
           - label: "Timing Amount"
-            name: "timing-amount"
+            name: "timingAmount"
             widget: "string"
         required: false
       - label: "Total Time"
@@ -75,13 +75,13 @@ collections:
         widget: "list"
         fields:
           - label: "Ingredient name"
-            name: "ingredient-name"
+            name: "ingredientName"
             widget: "string"
           - label: "Amount"
-            name: "ingredient-amount"
+            name: "ingredientAmount"
             widget: "string"
           - label: "Modification"
-            name: "ingredient-modification"
+            name: "ingredientModification"
             widget: "string"
         required: false
       - label: "Tools"
@@ -89,7 +89,7 @@ collections:
         widget: "list"
         fields:
           - label: "Tool name"
-            name: "tool-name"
+            name: "toolName"
             widget: "string"
         required: false
       - label: "Instructions"
