@@ -2,8 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import {keyframes} from 'styled-components';
-
-import logo from '../static/images/logo.svg';
+import { withPrefix } from 'gatsby-link'
 
 const Animations = {
   bounce: keyframes`
@@ -225,7 +224,7 @@ const Header = ({tag}) => (
     <Name>
       <NameLink to='/'>Teagan Atwater</NameLink>
     </Name>
-    <Logo src={logo} alt='T A Logo' />
+    <Logo src={withPrefix('/images/logo.svg')} alt='T A Logo' />
     {tag ? <Tag>{tag}</Tag> : null}
   </HeaderWrapper>
 );

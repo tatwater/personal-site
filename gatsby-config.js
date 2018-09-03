@@ -5,8 +5,6 @@ module.exports = {
     title: 'Teagan Atwater',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     {
       resolve: `@wapps/gatsby-plugin-fonts`,
       options: {
@@ -21,5 +19,8 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-netlify-cms`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-styled-components',
   ],
 }
