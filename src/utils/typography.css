@@ -11,10 +11,10 @@ h1 {
   margin: 0 0 14px;
 }
 h2 {
-  color: #1c3456;
-  font-family: 'Poppins';
-  font-size: 26px;
-  font-weight: normal;
+  color: #222F3E;
+  font-family: 'Montserrat';
+  font-size: 28px;
+  font-weight: 700;
   line-height: 1.2em;
   margin: 0 0 16px;
 }
@@ -42,9 +42,12 @@ p {
 p + p {
   margin-top: 1em;
 }
+p + h2 {
+  margin-top: 2em;
+}
 a {
-  color: #2962ff;
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
 }
 ul {
   margin: 0;
