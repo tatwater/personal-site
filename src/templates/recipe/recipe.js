@@ -16,8 +16,6 @@ export default function Recipe({ data }) {
   const instructionsList = [];
   const notesList = [];
 
-  console.log(frontmatter.time[0].timeAmount);
-
   frontmatter.timing.map((time, key) => {
     timesList.push(
       <SC.TimeBlock key={key}>
@@ -80,10 +78,10 @@ export default function Recipe({ data }) {
             <SC.TotalTime>
               <FontAwesomeIcon icon={['far', 'clock']} />
               <SC.TimeAmount>
-                { frontmatter.time[0].timeAmount }
+                { frontmatter.time.timeAmount }
               </SC.TimeAmount>
               <SC.TimeType>
-                { frontmatter.time[1].timeUnits }
+                { frontmatter.time.timeUnits }
               </SC.TimeType>
             </SC.TotalTime>
             <SC.Photo
@@ -92,10 +90,10 @@ export default function Recipe({ data }) {
             <SC.TimeBreakdown>
               <SC.TotalTime>
                 <SC.TimeAmount>
-                  { frontmatter.time[0].timeAmount }
+                  { frontmatter.time.timeAmount }
                 </SC.TimeAmount>
                 <SC.TimeType>
-                  { frontmatter.time[1].timeUnits }
+                  { frontmatter.time.timeUnits }
                 </SC.TimeType>
               </SC.TotalTime>
               { timesList }

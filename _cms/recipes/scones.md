@@ -16,8 +16,8 @@ timing:
   - timingAmount: 15 mins
     timingType: Bake time
 time:
-  - timeAmount: '45'
-  - timeUnits: mins
+  timeAmount: '45'
+  timeUnits: mins
 photo: /images/uploads/33351013_1971880926475743_3867560433061724160_n.jpg
 ingredients:
   - ingredientAmount: 2 cups
@@ -60,4 +60,3 @@ instructions:
   - step: 'Optionally, sprinkle tops of scones with cinnamon sugar.'
   - step: Bake for 15-20 minutes until golden brown. Cool on a rack.
 ---
-
