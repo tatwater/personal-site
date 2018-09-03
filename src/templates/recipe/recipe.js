@@ -50,11 +50,9 @@ export default function Recipe({ data }) {
           <h1>
             { frontmatter.title }
           </h1>
-          <SC.PhotoWrapper>
-            <SC.Photo
-              src={ withPrefix(frontmatter.photo) }
-            />
-          </SC.PhotoWrapper>
+          <SC.Photo
+            src={ withPrefix(frontmatter.photo) }
+          />
           <SC.Recipe>
             <SC.Ingredients>
               <h3>Ingredients</h3>

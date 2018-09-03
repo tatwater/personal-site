@@ -5,10 +5,10 @@ html {
 h1 {
   color: #222F3E;
   font-family: 'Playfair Display';
-  font-size: 76px;
+  font-size: 42px;
   font-weight: 700;
   line-height: 1.2em;
-  margin: 0 0 70px;
+  margin: 0 0 40px;
 }
 h2 {
   color: #1c3456;
@@ -52,4 +52,17 @@ ul {
 }
 li + li {
   margin-top: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 54px;
+    margin: 0 0 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 76px;
+    margin: 0 0 70px;
+  }
 }
