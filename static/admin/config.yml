@@ -94,8 +94,11 @@ collections:
         required: false
       - label: "Instructions"
         name: "instructions"
-        widget: "markdown"
-        required: false
+        widget: "list"
+        fields:
+          - label: "Step"
+            name: "step"
+            widget: "text"
       - label: "Notes"
         name: "notes"
         widget: "markdown"

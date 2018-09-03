@@ -6,6 +6,7 @@ export const Content = styled.div`
 `;
 export const PhotoWrapper = styled.div`
   border-radius: 10px 0 0 10px;
+  box-shadow: 0 5px 20px rgba(34, 47, 62, .20);
   overflow: hidden;
   position: fixed;
     top: 80px;
@@ -24,7 +25,7 @@ export const Photo = styled.img`
 export const Category = styled.span`
   color: #C6C9CD;
   font-family: Playfair Display;
-  font-size: 34px;
+  font-size: 26px;
   font-weight: 400;
   margin-bottom: 20px;
   position: relative;
@@ -33,6 +34,7 @@ export const Category = styled.span`
     background: #C6C9CD;
     content: '';
     height: 1px;
+    opacity: .5;
     position: absolute;
       top: 50%;
       right: calc(100% + 16px);
@@ -45,31 +47,25 @@ export const Recipe = styled.div`
   font-weight: 300;
   flex-wrap: wrap;
   width: 100%;
-`;
-export const Ingredients = styled.div`
-  width: 50%;
 
   ul {
     list-style-type: none;
     padding-left: 8px;
   }
+  ol {
+    padding-left: 30px;
+  }
   li {
     line-height: 1.3em;
-    margin: 0 0 4px;
+    margin: 0 0 6px;
   }
+`;
+export const Ingredients = styled.div`
+  width: 50%;
 `;
 export const Tools = styled.div`
   padding-left: 40px;
   width: 50%;
-
-  ul {
-    list-style-type: none;
-    padding-left: 8px;
-  }
-  li {
-    line-height: 1.3em;
-    margin: 0 0 4px;
-  }
 `;
 export const Instructions = styled.div`
   margin-top: 70px;

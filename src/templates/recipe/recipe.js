@@ -11,6 +11,7 @@ export default function Recipe({ data }) {
   const { frontmatter } = markdownRemark;
   const ingredientsList = [];
   const toolsList = [];
+  const instructionsList = [];
 
   frontmatter.ingredients.map((ingredient, key) => {
     ingredientsList.push(
@@ -26,6 +27,14 @@ export default function Recipe({ data }) {
     toolsList.push(
       <li key={key}>
         { tool.toolName.toLowerCase() }
+      </li>
+    );
+  });
+
+  frontmatter.instructions.map((instruction, key) => {
+    instructionsList.push(
+      <li key={key}>
+        { instruction.step }
       </li>
     );
   });
@@ -61,7 +70,9 @@ export default function Recipe({ data }) {
             </SC.Tools>
             <SC.Instructions>
               <h3>Instructions</h3>
-              { frontmatter.instructions }
+              <ol>
+                { instructionsList }
+              </ol>
             </SC.Instructions>
           </SC.Recipe>
         </SC.Content>
@@ -86,7 +97,9 @@ export const pageQuery = graphql`
         tools {
           toolName
         }
-        instructions
+        instructions {
+          step
+        }
       }
     }
   }
