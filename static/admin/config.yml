@@ -67,7 +67,7 @@ collections:
         name: "ingredients"
         widget: "list"
         fields:
-          - label: "Name"
+          - label: "Ingredient name"
             name: "ingredient-name"
             widget: "string"
           - label: "Amount"
@@ -80,9 +80,12 @@ collections:
         name: "tools"
         widget: "list"
         field:
-          - label: "Name"
+          - label: "Tool name"
             name: "tool-name"
             widget: "string"
       - label: "Instructions"
         name: "instructions"
+        widget: "markdown"
+      - label: "Notes"
+        name: "notes"
         widget: "markdown"
