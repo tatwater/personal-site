@@ -7,15 +7,21 @@ export const Content = styled.div`
     margin: 40px 30px 60px;
   }
   @media screen and (min-width: 768px) {
-    margin: 40px 40px 80px;
+    margin: 30px 40px 80px;
   }
   @media screen and (min-width: 880px) {
-    margin: 60px auto 100px;
+    margin: 40px auto 100px;
     max-width: 800px;
   }
   @media screen and (min-width: 1024px) {
-    margin: 120px 40% 160px 15%;
-    max-width: 300px;
+    margin: 80px 500px 100px 80px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin: 80px 525px 100px 80px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin: 100px auto 160px 15%;
+    max-width: 800px;
   }
 `;
 export const Category = styled.span`
@@ -76,9 +82,13 @@ export const Photo = styled.div`
       top: 80px;
       right: 0;
       bottom: 30px;
-      left: calc(15% + 900px);
-    width: auto;
+      left: auto;
+    width: 440px;
     z-index: 100;
+  }
+  @media screen and (min-width: 1440px) {
+    left: calc(900px + 15%);
+    width: auto;
   }
 `;
 export const Recipe = styled.div`
@@ -113,6 +123,12 @@ export const Ingredients = styled.div`
   @media screen and (min-width: 600px) {
     width: 50%;
   }
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 50%;
+  }
 `;
 export const Tools = styled.div`
   margin-top: 30px;
@@ -123,12 +139,22 @@ export const Tools = styled.div`
     padding-left: 40px;
     width: 50%;
   }
+  @media screen and (min-width: 1024px) {
+    margin-top: 50px;
+    padding-left: 0;
+    width: 100%;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 0;
+    padding-left: 40px;
+    width: 50%;
+  }
 `;
 export const Instructions = styled.div`
   margin-top: 30px;
   width: 100%;
 
-  @media screen and (min-width: 768px) {
-    margin-top: 70px;
+  @media screen and (min-width: 600px) {
+    margin-top: 50px;
   }
 `;

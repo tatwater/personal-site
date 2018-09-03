@@ -4,6 +4,9 @@ export const Container = styled.div`
   min-width: 320px;
   padding-top: 72px;
 
+  @media screen and (min-width: 768px) {
+    padding-top: 86px;
+  }
   @media screen and (min-width: 1024px) {
     padding-top: 110px;
   }
@@ -21,6 +24,9 @@ export const Navbar = styled.nav`
     left: 0;
   z-index: 50;
 
+  @media screen and (min-width: 768px) {
+    height: 86px;
+  }
   @media screen and (min-width: 1024px) {
     height: 110px;
     justify-content: space-between;
@@ -40,6 +46,9 @@ export const SectionName = styled.span`
   font-size: 32px;
   font-weight: 300;
   margin-left: 16px;
-  position: relative;
-    top: -1px;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+      top: -1px;
+  }
 `;
