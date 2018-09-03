@@ -57,7 +57,7 @@ export default function Recipe({ data }) {
     );
   });
 
-  frontmatter.notes.map((note, key) => {
+  frontmatter.notes && frontmatter.notes.map((note, key) => {
     notesList.push(
       <li key={key}>
         { note.note }
@@ -120,15 +120,19 @@ export default function Recipe({ data }) {
                 { instructionsList }
               </ol>
             </SC.Instructions>
-            <SC.Instructions>
-              <h3>Notes</h3>
-              <SC.List>
-                { notesList }
-              </SC.List>
-            </SC.Instructions>
-            <SC.Instructions>
-              <strong>From: </strong>{ frontmatter.source }
-            </SC.Instructions>
+            { frontmatter.notes &&
+              <SC.Instructions>
+                <h3>Notes</h3>
+                <SC.List>
+                  { notesList }
+                </SC.List>
+              </SC.Instructions>
+            }
+            { frontmatter.source &&
+              <SC.Instructions>
+                <strong>From: </strong>{ frontmatter.source }
+              </SC.Instructions>
+            }
           </SC.Recipe>
         </SC.Content>
       </KitchenLayout>
