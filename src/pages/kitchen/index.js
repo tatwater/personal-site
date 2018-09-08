@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import KitchenLayout from '../layouts/kitchen/kitchen';
+import KitchenLayout from '../../layouts/kitchen/kitchen';
+import Gallery from '../../components/gallery/gallery';
 
 const Content = styled.div`
   margin: 40px 20px 60px;
@@ -28,15 +29,24 @@ const Content = styled.div`
   }
 `;
 
-const SecondPage = () => (
+const KitchenHomePage = (// {
+  // data: {
+  //   allMarkdownRemark: { edges },
+  // },
+//}
+) => (
   <KitchenLayout>
     <Content>
+      <h1>Latest recipes</h1>
+      {/* <Gallery
+        recipes={ edges }
+      /> */}
       <h2>Hi there!</h2>
       <p>While this is largely a tool for myself to keep track of things I’ve made for future reference, it’s a pleasure to share my notes with you! If you find something you like, please let me know on Instagram <a href='https://instagram.com/teaganskitchen' target='_insta'>@teaganskitchen</a> :)</p>
       
       <h2>What you'll find</h2>
       <p>Starting with what you won’t find: I have allergies to eggs and peanuts, so none of my recipes involve either ingredient. While these allergies make restaurant eating an oft-annoying challenge, I’ve found my own kitchen experiments to be very empowering, and I don’t really miss them.</p>
-      <p>While I’m not vegan, vegetarian, gluten-free, or sugar-free, I am interested in eating healthy, well-balanced meals, and I enjoy exploring tasty dishes that limit meat, dairy, gluten, and sugar for their respective physical and mental benefits. You’ll see what is and isn’t in each recipe marked by allergen icons, and there are filters to limit what you’re looking at as well.</p>
+      <p>While I’m not vegan, vegetarian, dairy-free, gluten-free, alcohol-free, or sugar-free, I am very interested in eating healthy, well-balanced meals, and I enjoy exploring tasty dishes that limit meat, dairy, gluten, alcohol, and sugar for their respective physical and mental benefits. You’ll see what is and isn’t in each recipe marked by allergen icons, and there are filters to limit what you’re looking at as well.</p>
       
       <h2>About my process</h2>
       <p>I am by no means any more than a beginner in the kitchen, so take everything I say with, erm, a grain of salt!</p>
@@ -52,4 +62,25 @@ const SecondPage = () => (
   </KitchenLayout>
 )
 
-export default SecondPage
+export default KitchenHomePage;
+
+
+// export const pageQuery = graphql`
+//   query kitchenHomeQuery {
+//     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___title] }) {
+//       edges {
+//         node {
+//           frontmatter {
+//             path
+//             photo
+//             title
+//             time {
+//               timeAmount
+//               timeUnits
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
