@@ -21,6 +21,7 @@ timing:
 time:
   timeAmount: '1'
   timeUnits: hrs
+photo: /images/uploads/delete-this.jpg
 ingredients:
   - ingredientAmount: 1 cup + 2 tbsp
     ingredientName: All-purpose flour
