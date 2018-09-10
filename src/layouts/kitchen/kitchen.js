@@ -28,18 +28,6 @@ const KitchenLayout = ({ children }) => (
         title={ 'Teagan Atwater' }
       />
 
-      <SC.Navbar>
-        <SC.BrandWrapper>
-          <SC.Logo
-            alt='T A Logo'
-            src={ withPrefix('/images/logo.svg') }
-          />
-          <SC.SectionName>
-            kitchen
-          </SC.SectionName>
-        </SC.BrandWrapper>
-      </SC.Navbar>
-
       { children }
 
     </SC.Container>
