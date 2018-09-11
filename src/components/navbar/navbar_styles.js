@@ -41,3 +41,7 @@ export const SectionName = styled.span`
       top: -1px;
   }
 `;
+export const MenuWrapper = styled.div`
+  align-items: center;
+  display: flex;
+`;
