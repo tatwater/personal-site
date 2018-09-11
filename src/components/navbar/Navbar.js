@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Link, { push, withPrefix } from 'gatsby-link';
+import { connect } from 'react-redux';
 import auth from '../../utils/auth';
 
+import { toggleMainNav as toggleMainNavAction } from '../../state/app';
+import MainNav from '../main-nav/MainNav';
 import * as SC from './navbar_styles';
 
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
 
@@ -46,6 +49,11 @@ export default class Navbar extends Component {
     return (
       <SC.Container>
         <SC.BrandWrapper>
+          <SC.MainNavButton
+            onClick={() => { this.props.toggleMainNav(true) }}
+            type='button'
+          >
+          </SC.MainNavButton>
           <Link
             to='/'
           >
@@ -61,7 +69,14 @@ export default class Navbar extends Component {
         <SC.MenuWrapper>
           { auth.currentUser() && <button onClick={() => { this.signOut() }}>Sign out</button> }
         </SC.MenuWrapper>
+        { this.props.isMainNavVisible && <MainNav /> }
       </SC.Container>
     );
   }
 }
+
+
+export default connect(
+  state => ({ isMainNavVisible: state.app.isMainNavVisible }),
+  dispatch => ({ toggleMainNav: visible => dispatch(toggleMainNavAction(visible)) }),
+)(Navbar);

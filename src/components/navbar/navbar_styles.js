@@ -19,15 +19,31 @@ export const Container = styled.nav`
   @media screen and (min-width: 1024px) {
     height: 110px;
     justify-content: space-between;
-    padding: 0 100px 0 80px;
+    padding: 0 100px 0 40px;
   }
 `;
 export const BrandWrapper = styled.div`
   align-items: center;
   display: flex;
 `;
+export const MainNavButton = styled.button`
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 40px;
+  outline: none;
+  transition: background .1s ease;
+  width: 40px;
+
+  &:hover,
+  &:focus {
+    background: #fafafa;
+  }
+`;
 export const Logo = styled.img`
   height: 30px;
+  margin-left: 12px;
   vertical-align: bottom;
 `;
 export const SectionName = styled.span`
