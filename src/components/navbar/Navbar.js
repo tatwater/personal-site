@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link, { push, withPrefix } from 'gatsby-link';
-
 import auth from '../../utils/auth';
+
 import * as SC from './navbar_styles';
 
 
@@ -24,6 +24,7 @@ export default class Navbar extends Component {
   }
 
   render() {
+    console.log(auth.currentUser());
     let sectionSlug = this.props.location.pathname.split('/')[1];
 
     let section;

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { push } from 'gatsby-link';
-
 import auth from '../../utils/auth';
-import * as SC from './signIn_styles';
 
+import * as SC from './signIn_styles';
 
 
 export default class SignIn extends Component {
@@ -20,7 +19,7 @@ export default class SignIn extends Component {
     event.preventDefault();
     auth.login(this.emailField.current.value, this.passwordField.current.value)
         .then((response) => {
-          push('/');
+          push('/kitchen');
         })
         .catch((error) => {
           console.log(error);
