@@ -55,7 +55,6 @@ export const TimeWrapper = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  font-family: Montserrat;
   margin: 10px 0 50px 0;
 
   @media screen and (min-width: 1024px) {
@@ -80,6 +79,7 @@ export const TimeBlock = styled.div`
   }
 `;
 export const TimeAmount = styled.span`
+  font-family: 'Poppins';
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 1px;
@@ -164,7 +164,7 @@ export const Photo = styled.div`
       bottom: 30px;
       left: auto;
     width: 440px;
-    z-index: 100;
+    z-index: 51;
   }
   @media screen and (min-width: 1440px) {
     left: calc(900px + 15%);
@@ -187,8 +187,6 @@ export const TimeBreakdown = styled.div`
 `;
 export const Recipe = styled.div`
   display: flex;
-  font-family: Montserrat;
-  font-weight: 300;
   flex-wrap: wrap;
   width: 100%;
 

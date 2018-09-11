@@ -27,7 +27,6 @@ class Navbar extends Component {
   }
 
   render() {
-    console.log(auth.currentUser());
     let sectionSlug = this.props.location.pathname.split('/')[1];
 
     let section;
