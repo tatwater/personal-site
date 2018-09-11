@@ -28,6 +28,7 @@ export const BrandWrapper = styled.div`
 `;
 export const Logo = styled.img`
   height: 30px;
+  vertical-align: bottom;
 `;
 export const SectionName = styled.span`
   color: #C6C9CD;

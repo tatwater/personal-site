@@ -15,32 +15,57 @@ export default class Layout extends Component {
   render() {
     const { location, children } = this.props;
 
-    return (
-      <Provider store={createStore()}>
-        <SC.Container>
-          <Helmet
-            meta={[
-              {
-                name: 'description',
-                content: 'Full-stack web developer, designer, and startup founder'
-              },
-              {
-                name: 'keywords',
-                content: 'develop, developer, web, website, full-stack, design, designer, production, ui, ux, user interface, user experience, startup, entrepreneur, founder, fiber, fiber app'
-              },
-            ]}
-            title={ 'Teagan Atwater' }
-          />
+    if (location.pathname === '/') {
+      return (
+        <Provider store={createStore()}>
+          <div>
+            <Helmet
+              meta={[
+                {
+                  name: 'description',
+                  content: 'Full-stack web developer, designer, and startup founder'
+                },
+                {
+                  name: 'keywords',
+                  content: 'develop, developer, web, website, full-stack, design, designer, production, ui, ux, user interface, user experience, startup, entrepreneur, founder, fiber, fiber app'
+                },
+              ]}
+              title={ 'Teagan Atwater' }
+            />
 
-          <Navbar
-            location={ location }
-          />
+            { children() }
 
-          { children() }
+          </div>
+        </Provider>
+      );
+    } else {
+      return (
+        <Provider store={createStore()}>
+          <SC.Container>
+            <Helmet
+              meta={[
+                {
+                  name: 'description',
+                  content: 'Full-stack web developer, designer, and startup founder'
+                },
+                {
+                  name: 'keywords',
+                  content: 'develop, developer, web, website, full-stack, design, designer, production, ui, ux, user interface, user experience, startup, entrepreneur, founder, fiber, fiber app'
+                },
+              ]}
+              title={ 'Teagan Atwater' }
+            />
 
-        </SC.Container>
-      </Provider>
-    );
+            <Navbar
+              location={ location }
+            />
+
+            { children() }
+
+          </SC.Container>
+        </Provider>
+      );
+    }
   }
 }
 

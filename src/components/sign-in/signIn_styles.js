@@ -9,6 +9,7 @@ export const Container = styled.form`
     top: 50%;
     left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 100%;
   width: 350px;
 `;
 export const FieldWrapper = styled.div`

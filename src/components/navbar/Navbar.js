@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { push, withPrefix } from 'gatsby-link';
+import Link, { push, withPrefix } from 'gatsby-link';
 
 import auth from '../../utils/auth';
 import * as SC from './navbar_styles';
@@ -45,10 +45,14 @@ export default class Navbar extends Component {
     return (
       <SC.Container>
         <SC.BrandWrapper>
-          <SC.Logo
-            alt='T A logo'
-            src={ withPrefix('/images/logo.svg') }
-          />
+          <Link
+            to='/'
+          >
+            <SC.Logo
+              alt='T A logo'
+              src={ withPrefix('/images/logo.svg') }
+            />
+          </Link>
           <SC.SectionName>
             { section }
           </SC.SectionName>

@@ -18,7 +18,6 @@ export default class SignIn extends Component {
 
   signin(event) {
     event.preventDefault();
-    console.log(this.emailField);
     auth.login(this.emailField.current.value, this.passwordField.current.value)
         .then((response) => {
           push('/');
