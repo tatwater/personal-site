@@ -128,6 +128,7 @@ export const Social = styled.div`
   }
 `;
 export const Title = styled.span`
+  font-family: 'Poppins';
   font-size: 28px;
   font-weight: 700;
   position: absolute;

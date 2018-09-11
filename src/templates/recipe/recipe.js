@@ -3,7 +3,6 @@ import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import KitchenLayout from '../../layouts/kitchen/kitchen';
 import * as SC from './recipe_styles';
 
 

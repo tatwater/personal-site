@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import KitchenLayout from '../../layouts/kitchen/kitchen';
 import Gallery from '../../components/gallery/gallery';
 
 const Content = styled.div`
