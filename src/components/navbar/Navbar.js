@@ -24,7 +24,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    let sectionSlug = location.pathname.split('/')[1];
+    let sectionSlug = this.props.location.pathname.split('/')[1];
 
     let section;
     switch(sectionSlug) {
