@@ -66,19 +66,34 @@ export default function Recipe({ data }) {
 
   return (
     <div>
-      <Helmet title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` } />
-      <KitchenLayout>
-        <SC.Content>
-          <SC.Category>
-            { frontmatter.category }
-          </SC.Category>
-          <h1>
-            { frontmatter.title }
-          </h1>
-          <SC.TimeWrapper>
+      <Helmet
+        title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
+      />
+      <SC.Content>
+        <SC.Category>
+          { frontmatter.category }
+        </SC.Category>
+        <h1>
+          { frontmatter.title }
+        </h1>
+        <SC.TimeWrapper>
+          { hasTotalTime &&
+            <SC.TotalTime>
+              <FontAwesomeIcon icon={['far', 'clock']} />
+              <SC.TimeAmount>
+                { frontmatter.time.timeAmount }
+              </SC.TimeAmount>
+              <SC.TimeType>
+                { frontmatter.time.timeUnits }
+              </SC.TimeType>
+            </SC.TotalTime>
+          }
+          <SC.Photo
+            src={ withPrefix(frontmatter.photo) }
+          />
+          <SC.TimeBreakdown>
             { hasTotalTime &&
               <SC.TotalTime>
-                <FontAwesomeIcon icon={['far', 'clock']} />
                 <SC.TimeAmount>
                   { frontmatter.time.timeAmount }
                 </SC.TimeAmount>
@@ -87,58 +102,43 @@ export default function Recipe({ data }) {
                 </SC.TimeType>
               </SC.TotalTime>
             }
-            <SC.Photo
-              src={ withPrefix(frontmatter.photo) }
-            />
-            <SC.TimeBreakdown>
-              { hasTotalTime &&
-                <SC.TotalTime>
-                  <SC.TimeAmount>
-                    { frontmatter.time.timeAmount }
-                  </SC.TimeAmount>
-                  <SC.TimeType>
-                    { frontmatter.time.timeUnits }
-                  </SC.TimeType>
-                </SC.TotalTime>
-              }
-              { frontmatter.timing && timesList }
-            </SC.TimeBreakdown>
-          </SC.TimeWrapper>
-          <SC.Recipe>
-            <SC.Ingredients>
-              <h3>Ingredients</h3>
-              <SC.List hideBullets>
-                { ingredientsList }
-              </SC.List>
-            </SC.Ingredients>
-            <SC.Tools>
-              <h3>Tools</h3>
-              <SC.List hideBullets>
-                { toolsList }
-              </SC.List>
-            </SC.Tools>
+            { frontmatter.timing && timesList }
+          </SC.TimeBreakdown>
+        </SC.TimeWrapper>
+        <SC.Recipe>
+          <SC.Ingredients>
+            <h3>Ingredients</h3>
+            <SC.List hideBullets>
+              { ingredientsList }
+            </SC.List>
+          </SC.Ingredients>
+          <SC.Tools>
+            <h3>Tools</h3>
+            <SC.List hideBullets>
+              { toolsList }
+            </SC.List>
+          </SC.Tools>
+          <SC.Instructions>
+            <h3>Instructions</h3>
+            <ol>
+              { instructionsList }
+            </ol>
+          </SC.Instructions>
+          { frontmatter.notes &&
             <SC.Instructions>
-              <h3>Instructions</h3>
-              <ol>
-                { instructionsList }
-              </ol>
+              <h3>Notes</h3>
+              <SC.List>
+                { notesList }
+              </SC.List>
             </SC.Instructions>
-            { frontmatter.notes &&
-              <SC.Instructions>
-                <h3>Notes</h3>
-                <SC.List>
-                  { notesList }
-                </SC.List>
-              </SC.Instructions>
-            }
-            { frontmatter.source &&
-              <SC.Instructions>
-                <strong>From: </strong>{ frontmatter.source }
-              </SC.Instructions>
-            }
-          </SC.Recipe>
-        </SC.Content>
-      </KitchenLayout>
+          }
+          { frontmatter.source &&
+            <SC.Instructions>
+              <strong>From: </strong>{ frontmatter.source }
+            </SC.Instructions>
+          }
+        </SC.Recipe>
+      </SC.Content>
     </div>
   );
 }
