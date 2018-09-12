@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,93 +6,106 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as SC from './recipe_styles';
 
 
-export default function Recipe({ data }) {
-  const { markdownRemark } = data;
-  const { frontmatter } = markdownRemark;
-  const hasTotalTime = frontmatter.time.timeAmount !== '';
-  const timesList = [];
-  const ingredientsList = [];
-  const toolsList = [];
-  const instructionsList = [];
-  const notesList = [];
+export default class Recip extends Component {
+  constructor(props) {
+    super(props);
 
-  frontmatter.timing && frontmatter.timing.map((time, key) => {
-    timesList.push(
-      <SC.TimeBlock key={key}>
-        <SC.TimeAmount>
-          { time.timingAmount }
-        </SC.TimeAmount>
-        <SC.TimeType>
-          { time.timingType.toLowerCase() }
-        </SC.TimeType>
-      </SC.TimeBlock>
+    this.photoWrapper = React.createRef();
+    this.photo = React.createRef();
+
+    this.resizePhoto = this.resizePhoto.bind(this);
+  }
+
+  resizePhoto() {
+    let scale = Math.min(
+      this.photoWrapper.current.offsetWidth / 770, 
+      this.photoWrapper.current.offsetHeight / 1080 
     );
-  });
+    this.photo.current.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+  }
 
-  frontmatter.ingredients.map((ingredient, key) => {
-    ingredientsList.push(
-      <li key={key}>
-        { ingredient.ingredientAmount && ingredient.ingredientAmount + ' ' }
-        <span>{ ingredient.ingredientAmount ? ingredient.ingredientName.toLowerCase() : ingredient.ingredientName }</span>
-        { ingredient.ingredientModification && ingredient.ingredientModification }
-      </li>
-    );
-  });
+  componentDidMount() {
+    window.addEventListener("resize", this.resizePhoto);
+    this.resizePhoto();
+  }
 
-  frontmatter.tools.map((tool, key) => {
-    toolsList.push(
-      <li key={key}>
-        { tool.toolName.toLowerCase() }
-      </li>
-    );
-  });
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resizePhoto);
+  }
 
-  frontmatter.instructions.map((instruction, key) => {
-    instructionsList.push(
-      <li key={key}>
-        { instruction.step }
-      </li>
-    );
-  });
+  render() {
+    const { markdownRemark } = this.props.data;
+    const { frontmatter } = markdownRemark;
+    const hasTotalTime = frontmatter.time.timeAmount !== '';
+    const timesList = [];
+    const ingredientsList = [];
+    const toolsList = [];
+    const instructionsList = [];
+    const notesList = [];
 
-  frontmatter.notes && frontmatter.notes.map((note, key) => {
-    notesList.push(
-      <li key={key}>
-        { note.note }
-      </li>
-    );
-  });
+    frontmatter.timing && frontmatter.timing.map((time, key) => {
+      timesList.push(
+        <SC.TimeBlock key={key}>
+          <SC.TimeAmount>
+            { time.timingAmount }
+          </SC.TimeAmount>
+          <SC.TimeType>
+            { time.timingType.toLowerCase() }
+          </SC.TimeType>
+        </SC.TimeBlock>
+      );
+    });
 
-  return (
-    <div>
-      <Helmet
-        title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
-      />
-      <SC.Content>
-        <SC.Category>
-          { frontmatter.category }
-        </SC.Category>
-        <h1>
-          { frontmatter.title }
-        </h1>
-        <SC.TimeWrapper>
-          { hasTotalTime &&
-            <SC.TotalTime>
-              <FontAwesomeIcon icon={['far', 'clock']} />
-              <SC.TimeAmount>
-                { frontmatter.time.timeAmount }
-              </SC.TimeAmount>
-              <SC.TimeType>
-                { frontmatter.time.timeUnits }
-              </SC.TimeType>
-            </SC.TotalTime>
-          }
-          <SC.Photo
-            src={ withPrefix(frontmatter.photo) }
-          />
-          <SC.TimeBreakdown>
+    frontmatter.ingredients.map((ingredient, key) => {
+      ingredientsList.push(
+        <li key={key}>
+          { ingredient.ingredientAmount && ingredient.ingredientAmount + ' ' }
+          <span>{ ingredient.ingredientAmount ? ingredient.ingredientName.toLowerCase() : ingredient.ingredientName }</span>
+          { ingredient.ingredientModification && ingredient.ingredientModification }
+        </li>
+      );
+    });
+
+    frontmatter.tools.map((tool, key) => {
+      toolsList.push(
+        <li key={key}>
+          { tool.toolName.toLowerCase() }
+        </li>
+      );
+    });
+
+    frontmatter.instructions.map((instruction, key) => {
+      instructionsList.push(
+        <li key={key}>
+          { instruction.step }
+        </li>
+      );
+    });
+
+    frontmatter.notes && frontmatter.notes.map((note, key) => {
+      notesList.push(
+        <li key={key}>
+          { note.note }
+        </li>
+      );
+    });
+
+    return (
+      <div>
+        <Helmet
+          title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
+        />
+        <SC.Content>
+          <SC.Category>
+            { frontmatter.category }
+          </SC.Category>
+          <h1>
+            { frontmatter.title }
+          </h1>
+          <SC.TimeWrapper>
             { hasTotalTime &&
               <SC.TotalTime>
+                <FontAwesomeIcon icon={['far', 'clock']} />
                 <SC.TimeAmount>
                   { frontmatter.time.timeAmount }
                 </SC.TimeAmount>
@@ -101,45 +114,65 @@ export default function Recipe({ data }) {
                 </SC.TimeType>
               </SC.TotalTime>
             }
-            { frontmatter.timing && timesList }
-          </SC.TimeBreakdown>
-        </SC.TimeWrapper>
-        <SC.Recipe>
-          <SC.Ingredients>
-            <h3>Ingredients</h3>
-            <SC.List hideBullets>
-              { ingredientsList }
-            </SC.List>
-          </SC.Ingredients>
-          <SC.Tools>
-            <h3>Tools</h3>
-            <SC.List hideBullets>
-              { toolsList }
-            </SC.List>
-          </SC.Tools>
-          <SC.Instructions>
-            <h3>Instructions</h3>
-            <ol>
-              { instructionsList }
-            </ol>
-          </SC.Instructions>
-          { frontmatter.notes &&
-            <SC.Instructions>
-              <h3>Notes</h3>
-              <SC.List>
-                { notesList }
+            <SC.PhotoWrapper
+              innerRef={ this.photoWrapper }
+            >
+              <SC.Photo
+                innerRef={ this.photo }
+                src={ withPrefix(frontmatter.photo) }
+              />
+            </SC.PhotoWrapper>
+            <SC.TimeBreakdown>
+              { hasTotalTime &&
+                <SC.TotalTime>
+                  <SC.TimeAmount>
+                    { frontmatter.time.timeAmount }
+                  </SC.TimeAmount>
+                  <SC.TimeType>
+                    { frontmatter.time.timeUnits }
+                  </SC.TimeType>
+                </SC.TotalTime>
+              }
+              { frontmatter.timing && timesList }
+            </SC.TimeBreakdown>
+          </SC.TimeWrapper>
+          <SC.Recipe>
+            <SC.Ingredients>
+              <h3>Ingredients</h3>
+              <SC.List hideBullets>
+                { ingredientsList }
               </SC.List>
-            </SC.Instructions>
-          }
-          { frontmatter.source &&
+            </SC.Ingredients>
+            <SC.Tools>
+              <h3>Tools</h3>
+              <SC.List hideBullets>
+                { toolsList }
+              </SC.List>
+            </SC.Tools>
             <SC.Instructions>
-              <strong>From: </strong>{ frontmatter.source }
+              <h3>Instructions</h3>
+              <ol>
+                { instructionsList }
+              </ol>
             </SC.Instructions>
-          }
-        </SC.Recipe>
-      </SC.Content>
-    </div>
-  );
+            { frontmatter.notes &&
+              <SC.Instructions>
+                <h3>Notes</h3>
+                <SC.List>
+                  { notesList }
+                </SC.List>
+              </SC.Instructions>
+            }
+            { frontmatter.source &&
+              <SC.Instructions>
+                <strong>From: </strong>{ frontmatter.source }
+              </SC.Instructions>
+            }
+          </SC.Recipe>
+        </SC.Content>
+      </div>
+    );
+  }
 }
 
 export const pageQuery = graphql`

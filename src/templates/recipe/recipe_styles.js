@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+
+const CONTENT_WIDTH_1024 = '61vw';
+const PHOTO_MAX_WIDTH_1024 = '32vw';
+const CONTENT_WIDTH_1440 = '48vw';
+const PHOTO_MAX_WIDTH_1440 = '35vw';
+
+
 export const Content = styled.div`
   margin: 40px 20px 60px;
 
@@ -14,14 +21,16 @@ export const Content = styled.div`
     max-width: 800px;
   }
   @media screen and (min-width: 1024px) {
-    margin: 80px 500px 100px 80px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin: 80px 525px 100px 80px;
+    margin: 0 0 100px 0;
+    position: absolute;
+      top: 80px;
+      right: calc(2vw + ${PHOTO_MAX_WIDTH_1024} + 2vw);
+    width: ${CONTENT_WIDTH_1024};
   }
   @media screen and (min-width: 1440px) {
-    margin: 100px auto 160px 15%;
-    max-width: 800px;
+      top: 140px;
+      right: calc(2vw + ${PHOTO_MAX_WIDTH_1440} + 2vw);
+    width: ${CONTENT_WIDTH_1440};
   }
 `;
 export const Category = styled.span`
@@ -130,24 +139,41 @@ export const TotalTime = styled.div`
     }
   }
 `;
+export const PhotoWrapper = styled.div`
+  position: relative;
+    top: -20px;
+    left: -20px;
+
+  @media screen and (min-width: 600px) {
+    top: 10px;
+    left: -10px;
+  }
+  @media screen and (min-width: 1024px) {
+    height: calc(100vh - 170px);
+    position: fixed;
+      top: 110px;
+      right: 2vw;
+      left: auto;
+    width: ${PHOTO_MAX_WIDTH_1024};
+  }
+  @media screen and (min-width: 1440px) {
+    height: calc(100vh - 230px);
+      top: 140px;
+    width: ${PHOTO_MAX_WIDTH_1440};
+  }
+`;
 export const Photo = styled.div`
   ${props => props.src && 'background-image: url(' + props.src + ')'};
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 20px;
-  padding-top: 60%;
-  position: relative;
-    top: -20px;
-    left: -20px;
+  padding-top: 61.8%;
   width: calc(100% + 40px);
-  z-index: 1;
 
   @media screen and (min-width: 600px) {
     border-radius: 6px;
     box-shadow: 0 3px 15px rgba(34, 47, 62, .16);
-    top: 10px;
-    left: -10px;
     margin-bottom: 40px;
     width: calc(100% + 20px);
   }
@@ -155,20 +181,14 @@ export const Photo = styled.div`
     margin-bottom: 50px;
   }
   @media screen and (min-width: 1024px) {
-    border-radius: 10px 0 0 10px;
-    box-shadow: 0 5px 20px rgba(34, 47, 62, .20);
-    padding: 0;
-    position: fixed;
-      top: 80px;
-      right: 0;
-      bottom: 30px;
-      left: auto;
-    width: 440px;
-    z-index: 51;
-  }
-  @media screen and (min-width: 1440px) {
-    left: calc(900px + 15%);
-    width: auto;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(34, 47, 62, .2);
+    height: 1080px;
+    margin-bottom: 0;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+    width: 770px;
   }
 `;
 export const TimeBreakdown = styled.div`
