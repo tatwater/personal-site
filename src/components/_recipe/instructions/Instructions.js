@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import RecipeNotes from '../notes/Notes';
 import * as SC from './instructions_styles';
 
 
@@ -11,12 +12,20 @@ class Instructions extends Component {
 
     this.state = {
       currentStep: 0,
+      notesVisible: false,
       numSteps: this.props.instructions.length,
     }
 
     this.setStep = this.setStep.bind(this);
+    this.setNotesVisible = this.setNotesVisible.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.previousStep = this.previousStep.bind(this);
+  }
+
+  setNotesVisible(visibility) {
+    this.setState({
+      notesVisible: visibility,
+    });
   }
 
   setStep(step) {
@@ -91,11 +100,18 @@ class Instructions extends Component {
             { instructionsList }
           </SC.List>
         </SC.Container>
+        <RecipeNotes
+          notes={ this.props.notes }
+          notesVisible={ this.state.notesVisible }
+          setNotesVisible={(visibility) => { this.setNotesVisible(visibility) }}
+          showInstructions={ this.props.showInstructions }
+        />
         <SC.Controls
           showInstructions={ this.props.showInstructions }
         >
           { this.props.notes.length > 0 &&
             <SC.NotesButton
+              onClick={() => { this.setNotesVisible(true) }}
               type='button'
             >
               <FontAwesomeIcon icon={['fal', 'sticky-note']} />

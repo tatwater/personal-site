@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   padding: 0 20px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   
   @media screen and (min-width: 480px) {
     padding: 0 30px;
@@ -123,21 +124,6 @@ export const Controls = styled.div`
   transition: transform .33s ease;
   width: 60px;
 `;
-export const NotesButton = styled.button`
-  align-items: center;
-  background: none;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  font-size: 20px;
-  height: 60px;
-  justify-content: center;
-  margin-top: 20px;
-  outline: none;
-  position: relative;
-  width: 60px;
-`;
 export const NumNotes = styled.span`
   align-items: center;
   background: #FF7555;
@@ -154,6 +140,30 @@ export const NumNotes = styled.span`
     top: 14px;
     right: 14px;
   width: 18px;
+`;
+export const NotesButton = styled.button`
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  height: 60px;
+  justify-content: center;
+  margin-top: 20px;
+  outline: none;
+  position: relative;
+  width: 60px;
+  z-index: 102;
+
+  &:hover {
+    background: #fafafa;
+
+    ${NumNotes} {
+      border-color: #fafafa;
+    }
+  }
 `;
 export const NavButton = styled.button`
   align-items: center;
