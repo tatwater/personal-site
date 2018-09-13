@@ -9,6 +9,7 @@ import * as SC from './instructions_styles';
 class Instructions extends Component {
   constructor(props) {
     super(props);
+    console.log('hi');
 
     this.state = {
       currentStep: 0,
