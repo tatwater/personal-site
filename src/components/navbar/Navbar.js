@@ -28,8 +28,8 @@ class Navbar extends Component {
 
   render() {
     let sectionSlug = this.props.location.pathname.split('/')[1];
-
     let section;
+    
     switch(sectionSlug) {
       case '':
         section = '';
@@ -54,7 +54,7 @@ class Navbar extends Component {
           >
           </SC.MainNavButton>
           <Link
-            to='/'
+            to={ '/' + sectionSlug }
           >
             <SC.Logo
               alt='T A logo'

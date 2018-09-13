@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  padding: 0 20px;
+  margin-bottom: 50px;
+  
+  @media screen and (min-width: 480px) {
+    padding: 0 30px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 0 20px;
+  }
   @media screen and (min-width: 1024px) {
     margin-bottom: 100px;
-    padding: 0 20px;
     position: absolute;
       top: 10vh;
       right: 8vw;
@@ -21,9 +29,13 @@ export const Container = styled.div`
 `;
 export const Header = styled.div`
   align-items: flex-end;
-  display: flex;
+  display: none;
   justify-content: space-between;
   margin: 50px 30px;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
 `;
 export const Kicker = styled.span`
   color: #C6C9CD;
@@ -60,23 +72,44 @@ export const CurrentStep = styled.span`
     width: 40px;
   }
 `;
+export const MobileHeading = styled.h3`
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 20px;
+  }
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+`;
 export const List = styled.ol`
-  list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding-left: 24px;
+
+  @media screen and (min-width: 768px) {
+    list-style-type: none;
+    padding: 0;
+  }
 `;
 export const Step = styled.li`
-  background: ${props => props.active ? '#526199' : 'transparent'};
-  border-radius: 5px;
-  box-shadow: ${props => props.active ? '0 10px 30px rgba(34, 47, 62, .16)' : '0 10px 30px transparent'};
-  color: ${props => props.active ? '#fff' : 'inherit'};
-  color: ${props => props.done && '#C6C9CD'};
-  cursor: pointer;
-  font-size: ${props => props.active ? '18px' : 'inherit'};
   line-height: 1.4em;
-  margin: ${props => props.active ? '20px 0' : '0'};
-  padding: ${props => props.active ? '20px 30px' : '8px 50px'};
-  transition: background .2s ease, box-shadow .2s ease, color .2s ease, font-size .2s ease, margin .2s ease, padding .2s ease;
+
+  @media screen and (min-width: 768px) {
+    background: ${props => props.active ? '#526199' : 'transparent'};
+    border-radius: 5px;
+    box-shadow: ${props => props.active ? '0 10px 30px rgba(34, 47, 62, .16)' : '0 10px 30px transparent'};
+    color: ${props => props.active ? '#fff' : 'inherit'};
+    color: ${props => props.done && '#C6C9CD'};
+    cursor: pointer;
+    margin: ${props => props.active ? '10px 0' : '0'};
+    padding: ${props => props.active ? '10px 20px' : '8px 20px'};
+    transition: background .2s ease, box-shadow .2s ease, color .2s ease, font-size .2s ease, margin .2s ease, padding .2s ease;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: ${props => props.active ? '18px' : 'inherit'};
+    margin: ${props => props.active ? '20px 0' : '0'};
+    padding: ${props => props.active ? '20px 30px' : '8px 50px'};
+  }
 `;
 export const Controls = styled.div`
   position: fixed;

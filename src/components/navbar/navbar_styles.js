@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
   align-items: center;
+  background: #fff;
   display: flex;
   height: 60px;
   justify-content: center;
@@ -16,6 +17,7 @@ export const Container = styled.nav`
     height: 80px;
   }
   @media screen and (min-width: 1024px) {
+    background: none;
     justify-content: space-between;
     padding: 0 100px 0 40px;
   }
@@ -52,12 +54,7 @@ export const SectionName = styled.span`
   font-family: 'Poppins';
   font-size: 32px;
   font-weight: 300;
-  margin-left: 16px;
-
-  @media screen and (min-width: 768px) {
-    position: relative;
-      top: -1px;
-  }
+  margin-left: 18px;
 `;
 export const MenuWrapper = styled.div`
   align-items: center;

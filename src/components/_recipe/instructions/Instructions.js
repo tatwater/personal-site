@@ -51,7 +51,6 @@ class Instructions extends Component {
 
   render() {
     let instructionsList = [];
-    console.log(this.props.notes);
 
     this.props.instructions.map((instruction, key) => {
       instructionsList.push(
@@ -87,6 +86,7 @@ class Instructions extends Component {
               { this.state.currentStep + 1 }
             </SC.CurrentStep>
           </SC.Header>
+          <SC.MobileHeading>Instructions</SC.MobileHeading>
           <SC.List>
             { instructionsList }
           </SC.List>
@@ -94,16 +94,16 @@ class Instructions extends Component {
         <SC.Controls
           showInstructions={ this.props.showInstructions }
         >
-          <SC.NotesButton
-            type='button'
-          >
-            <FontAwesomeIcon icon={['fal', 'sticky-note']} />
-            { this.props.notes.length &&
-              <SC.NumNotes>
-                { this.props.notes.length }
-              </SC.NumNotes>
-            }
-          </SC.NotesButton>
+          { this.props.notes.length > 0 &&
+            <SC.NotesButton
+              type='button'
+            >
+              <FontAwesomeIcon icon={['fal', 'sticky-note']} />
+                <SC.NumNotes>
+                  { this.props.notes.length }
+                </SC.NumNotes>
+            </SC.NotesButton>
+          }
           <SC.NavButton
             onClick={() => { this.previousStep() }}
             type='button'

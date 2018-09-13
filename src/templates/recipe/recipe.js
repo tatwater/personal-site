@@ -23,6 +23,9 @@ class Recipe extends Component {
     this.setState({
       instructionsVisible: visibility,
     });
+
+    // TODO: Smooth jarring jump when scrolled down
+    document.getElementsByTagName('body')[0].scrollTo(0, 0);
   }
 
   render() {
@@ -94,40 +97,41 @@ class Recipe extends Component {
             <h1>
               { frontmatter.title }
             </h1>
+            { hasTotalTime &&
+              <SC.TotalTime>
+                <FontAwesomeIcon icon={['far', 'clock']} />
+                <SC.TimeAmount>
+                  { frontmatter.time.timeAmount }
+                </SC.TimeAmount>
+                <SC.TimeType>
+                  { frontmatter.time.timeUnits }
+                </SC.TimeType>
+              </SC.TotalTime>
+            }
+            <SC.Photo
+              src={ withPrefix(frontmatter.photo) }
+            />
             <SC.TimeWrapper>
-              { hasTotalTime &&
-                <SC.TotalTime>
-                  <FontAwesomeIcon icon={['far', 'clock']} />
-                  <SC.TimeAmount>
-                    { frontmatter.time.timeAmount }
-                  </SC.TimeAmount>
-                  <SC.TimeType>
-                    { frontmatter.time.timeUnits }
-                  </SC.TimeType>
-                </SC.TotalTime>
-              }
-              <SC.ButtonRowWrapper>
-                <SC.TimeBreakdown>
-                  { hasTotalTime &&
-                    <SC.TotalTime>
-                      <SC.TimeAmount>
-                        { frontmatter.time.timeAmount }
-                      </SC.TimeAmount>
-                      <SC.TimeType>
-                        { frontmatter.time.timeUnits }
-                      </SC.TimeType>
-                    </SC.TotalTime>
-                  }
-                  { frontmatter.timing && timesList }
-                </SC.TimeBreakdown>
-                <SC.InstructionsButton
-                  onClick={() => { this.setInstructionsVisible(true) }}
-                  type='button'
-                >
-                  INSTRUCTIONS
-                  <FontAwesomeIcon icon={['fal', 'long-arrow-right']} />
-                </SC.InstructionsButton>
-              </SC.ButtonRowWrapper>
+              <SC.TimeBreakdown>
+                { hasTotalTime &&
+                  <SC.TotalTime>
+                    <SC.TimeAmount>
+                      { frontmatter.time.timeAmount }
+                    </SC.TimeAmount>
+                    <SC.TimeType>
+                      { frontmatter.time.timeUnits }
+                    </SC.TimeType>
+                  </SC.TotalTime>
+                }
+                { frontmatter.timing && timesList }
+              </SC.TimeBreakdown>
+              <SC.InstructionsButton
+                onClick={() => { this.setInstructionsVisible(true) }}
+                type='button'
+              >
+                INSTRUCTIONS
+                <FontAwesomeIcon icon={['fal', 'long-arrow-right']} />
+              </SC.InstructionsButton>
             </SC.TimeWrapper>
             <SC.Yield>
               Makes ~100 fries
@@ -146,11 +150,6 @@ class Recipe extends Component {
                 { toolsList }
               </SC.List>
             </SC.Tools>
-            { frontmatter.source &&
-              <SC.Instructions>
-                <strong>From: </strong>{ frontmatter.source }
-              </SC.Instructions>
-            }
           </SC.Recipe>
         </SC.Prep>
         <RecipePhoto

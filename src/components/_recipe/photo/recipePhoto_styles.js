@@ -54,24 +54,14 @@ export const Photo = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 61.8%;
-
-  @media screen and (min-width: 600px) {
-    border-radius: 6px;
-    box-shadow: 0 3px 15px rgba(34, 47, 62, .16);
-  }
-
-
-  @media screen and (min-width: 1024px) {
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(34, 47, 62, .2);
-    height: 1080px;
-    margin-bottom: 0;
-    position: absolute;
-      top: 50%;
-      left: 50%;
-    width: 770px;
-  }
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(34, 47, 62, .2);
+  height: 1080px;
+  margin-bottom: 0;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+  width: 770px;
 `;
 export const PreparationButton = styled.button`
   align-items: center;
