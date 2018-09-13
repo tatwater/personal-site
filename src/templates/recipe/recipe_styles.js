@@ -63,10 +63,12 @@ export const Header = styled.div`
   }
 `;
 export const Category = styled.span`
+  align-items: center;
   color: #C6C9CD;
-  display: block;
+  display: flex;
   font-size: 22px;
   font-weight: 400;
+  justify-content: space-between;
   margin-bottom: 4px;
   position: relative;
 
@@ -86,6 +88,22 @@ export const Category = styled.span`
         right: calc(100% + 16px);
       width 64px;
     }
+  }
+`;
+export const EditButton = styled.a`
+  align-items: center;
+  border-radius: 50%;
+  color: #222F3E;
+  display: flex;
+  font-size: 16px;
+  height: 40px;
+  justify-content: center;
+  text-decoration: none;
+  transition: background .2s ease;
+  width: 40px;
+
+  &:hover {
+    background: #C6C9CD;
   }
 `;
 export const Photo = styled.div`

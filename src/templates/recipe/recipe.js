@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import auth from '../../utils/auth';
 import RecipePhoto from '../../components/_recipe/photo/RecipePhoto';
 import Instructions from '../../components/_recipe/instructions/Instructions';
 import * as SC from './recipe_styles';
@@ -93,6 +94,14 @@ class Recipe extends Component {
           >
             <SC.Category>
               { frontmatter.category }
+              { auth.currentUser() &&
+                <SC.EditButton
+                  href={ 'https://www.teaganatwater.com/admin/#/collections/recipes/entries/' + frontmatter.title.toLowerCase().split(' ').join('-') }
+                  target='_edit'
+                >
+                  <FontAwesomeIcon icon={['fal', 'pencil']} />
+                </SC.EditButton>
+              }
             </SC.Category>
             <h1>
               { frontmatter.title }

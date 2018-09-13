@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Link, { push, withPrefix } from 'gatsby-link';
 import { connect } from 'react-redux';
-import auth from '../../utils/auth';
 
+import auth from '../../utils/auth';
 import { toggleMainNav as toggleMainNavAction } from '../../state/app';
 import MainNav from '../main-nav/MainNav';
 import * as SC from './navbar_styles';
