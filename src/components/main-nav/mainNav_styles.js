@@ -54,9 +54,10 @@ export const CloseButton = styled.button`
   }
 `;
 export const CloseLabel = styled.span`
+  font-family: 'Poppins';
   font-size: 14px;
   font-weight: 500;
-  margin-left: 8px;
+  margin-left: 10px;
 `;
 export const NavLayout = styled.div`
   display: grid;

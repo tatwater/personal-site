@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { push } from 'gatsby-link';
-import auth from '../../utils/auth';
 
+import auth from '../../utils/auth';
 import * as SC from './signIn_styles';
 
 

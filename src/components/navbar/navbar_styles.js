@@ -72,7 +72,7 @@ export const Logo = styled.img`
 export const SectionName = styled.span`
   color: #C6C9CD;
   font-family: 'Poppins';
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 300;
   margin-left: 18px;
 `;

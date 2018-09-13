@@ -30,6 +30,11 @@ class Navbar extends Component {
   render() {
     let sectionSlug = this.props.location.pathname.split('/')[1];
     let section;
+    let signedIn = false;
+
+    if (auth.currentUser()) {
+      signedIn = true;
+    }
     
     switch(sectionSlug) {
       case '':
@@ -75,7 +80,7 @@ class Navbar extends Component {
           { section === 'kitchen' &&
             <MegaMenu />
           }
-          { auth.currentUser() && <button onClick={() => { this.signOut() }}>Sign out</button> }
+          { signedIn && <button onClick={() => { this.signOut() }}>Sign out</button> }
         </SC.MenuWrapper>
         { this.props.isMainNavVisible && <MainNav /> }
       </SC.Container>

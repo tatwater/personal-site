@@ -14,3 +14,17 @@ export const Container = styled.div`
       left: calc(100vw - ${RECIPE.PREP_WIDTH._1440} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1440} - 2vw);
   }
 `;
+export const BackgroundFlair = styled.div`
+  display: none;
+
+  @media screen and (min-width: 1024px) {
+    background: #fafafa;
+    display: block;
+    position: fixed;
+      top: 0;
+      right: 8vw;
+      bottom: 0;
+    width: 35vw;
+    z-index: 0;
+  }
+`;
