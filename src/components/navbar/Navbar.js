@@ -53,6 +53,11 @@ class Navbar extends Component {
             onClick={() => { this.props.toggleMainNav(true) }}
             type='button'
           >
+            <SC.HamburgerIcon>
+              <div></div>
+              <div class='small'></div>
+              <div></div>
+            </SC.HamburgerIcon>
           </SC.MainNavButton>
           <Link
             to={ '/' + sectionSlug }

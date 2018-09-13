@@ -30,11 +30,14 @@ export const BrandWrapper = styled.div`
   display: flex;
 `;
 export const MainNavButton = styled.button`
+  align-items: center;
   background: #fff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
   height: 40px;
+  justify-content: center;
   outline: none;
   transition: background .1s ease;
   width: 40px;
@@ -42,6 +45,23 @@ export const MainNavButton = styled.button`
   &:hover,
   &:focus {
     background: #EFF0F3;
+  }
+`;
+export const HamburgerIcon = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 18px;
+  justify-content: space-between;
+
+  div {
+    background: #222F3E;
+    height: 2px;
+    width: 22px;
+
+    &.small {
+      width: 18px;
+    }
   }
 `;
 export const Logo = styled.img`
