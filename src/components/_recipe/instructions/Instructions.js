@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import RecipeNotes from '../notes/Notes';
+// import RecipeNotes from '../notes/Notes';
 import * as SC from './instructions_styles';
 
 
@@ -100,12 +100,12 @@ class Instructions extends Component {
             { instructionsList }
           </SC.List>
         </SC.Container>
-        <RecipeNotes
+        {/* <RecipeNotes
           notes={ this.props.notes }
           notesVisible={ this.state.notesVisible }
           setNotesVisible={(visibility) => { this.setNotesVisible(visibility) }}
           showInstructions={ this.props.showInstructions }
-        />
+        /> */}
         <SC.Controls
           showInstructions={ this.props.showInstructions }
         >
