@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import auth from '../../utils/auth';
 import { toggleMainNav as toggleMainNavAction } from '../../state/app';
 import MainNav from '../main-nav/MainNav';
+import MegaMenu from '../mega-menu/MegaMenu';
 import * as SC from './navbar_styles';
 
 
@@ -66,6 +67,9 @@ class Navbar extends Component {
           </SC.SectionName>
         </SC.BrandWrapper>
         <SC.MenuWrapper>
+          { section === 'kitchen' &&
+            <MegaMenu />
+          }
           { auth.currentUser() && <button onClick={() => { this.signOut() }}>Sign out</button> }
         </SC.MenuWrapper>
         { this.props.isMainNavVisible && <MainNav /> }

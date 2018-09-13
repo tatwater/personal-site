@@ -55,7 +55,7 @@ export const Photo = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 16px;
-  box-shadow: 0 30px 90px rgba(34, 47, 62, .2);
+  box-shadow: 0 30px 90px rgba(34, 47, 62, .25);
   height: 1080px;
   margin-bottom: 0;
   position: absolute;

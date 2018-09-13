@@ -1,33 +1,8 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import styled from 'styled-components';
 
-import Gallery from '../../components/gallery/gallery';
+import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
-const Content = styled.div`
-  margin: 40px 20px 60px;
-
-  @media screen and (min-width: 600px) {
-    margin: 40px 30px 60px;
-  }
-  @media screen and (min-width: 768px) {
-    margin: 30px 40px 80px;
-  }
-  @media screen and (min-width: 880px) {
-    margin: 40px auto 100px;
-    max-width: 800px;
-  }
-  @media screen and (min-width: 1024px) {
-    margin: 80px 500px 100px 80px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin: 80px 525px 100px 80px;
-  }
-  @media screen and (min-width: 1440px) {
-    margin: 100px auto 160px 15%;
-    max-width: 800px;
-  }
-`;
 
 const KitchenHomePage = (// {
   // data: {
@@ -35,11 +10,13 @@ const KitchenHomePage = (// {
   // },
 //}
 ) => (
-  <Content>
-    <h1>Latest recipes</h1>
+  <KitchenLayout>
+    <h1>Favorite meals coming soon</h1>
+
+
     {/* <Gallery
       recipes={ edges }
-    /> */}
+    />
     <h2>Hi there!</h2>
     <Link to='/kitchen/recipe/oven-baked-fries'>Oven-baked fries</Link>
     <p>While this is largely a tool for myself to keep track of things I’ve made for future reference, it’s a pleasure to share my notes with you! If you find something you like, please let me know on Instagram <a href='https://instagram.com/teaganskitchen' target='_insta'>@teaganskitchen</a> :)</p>
@@ -57,9 +34,10 @@ const KitchenHomePage = (// {
     <h2>An admission</h2>
     <p>I’m really bad at timing. When I do repeats of meals, I can generally get things to finish up around the same time, but that’s definitely not the case most nights. It’s kinda a bummer for other people I might be serving (oops), but luckily I eat on my own more often than not!</p>
     <p>Then again, that’s not really the point of cooking for me. For me, it’s all about hanging out with the food, taking my time, having fun with it, and watching others enjoy what I’ve made. It’s a great way to be creative, to wind down from the day, and I often find it rather meditative. My general attitude is usually that I’ll eat whenever it’s ready.</p>
-    <p>This may be important to you because for a large part, unless I’ve made the recipe a bunch, the time estimates are largely guesses. Sorry about that.</p>
-  </Content>
+    <p>This may be important to you because for a large part, unless I’ve made the recipe a bunch, the time estimates are largely guesses. Sorry about that.</p> */}
+  </KitchenLayout>
 )
+
 
 export default KitchenHomePage;
 

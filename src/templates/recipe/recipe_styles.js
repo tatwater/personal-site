@@ -39,7 +39,7 @@ export const Prep = styled.div`
     margin: 40px 40px 40px;
   }
   @media screen and (min-width: 1024px) {
-    margin: 0 0 100px 0;
+    margin: 0;
     position: absolute;
       top: 10vh;
       right: calc(2vw + ${RECIPE.PHOTO_MAX_WIDTH._1024} + 2vw);
@@ -51,7 +51,6 @@ export const Prep = styled.div`
     width: ${RECIPE.PREP_WIDTH._1024};
   }
   @media screen and (min-width: 1440px) {
-      top: 140px;
       right: calc(2vw + ${RECIPE.PHOTO_MAX_WIDTH._1440} + 2vw);
     width: ${RECIPE.PREP_WIDTH._1440};
   }
