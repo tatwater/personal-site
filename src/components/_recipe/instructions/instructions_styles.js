@@ -93,15 +93,14 @@ export const List = styled.ol`
   }
 `;
 export const Step = styled.li`
-  line-height: 1.4em;
-
   @media screen and (min-width: 768px) {
     background: ${props => props.active ? '#526199' : 'transparent'};
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: ${props => props.active ? '0 10px 30px rgba(34, 47, 62, .16)' : '0 10px 30px transparent'};
     color: ${props => props.active ? '#fff' : 'inherit'};
     color: ${props => props.done && '#C6C9CD'};
     cursor: pointer;
+    line-height: ${props => props.active ? '1.5em' : '1.4em'};
     margin: ${props => props.active ? '10px 0' : '0'};
     padding: ${props => props.active ? '10px 20px' : '8px 20px'};
     transition: background .2s ease, box-shadow .2s ease, color .2s ease, font-size .2s ease, margin .2s ease, padding .2s ease;
