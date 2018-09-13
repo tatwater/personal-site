@@ -21,7 +21,7 @@ export const BackgroundFlair = styled.div`
   };
   z-index: 0;
 `;
-export const Content = styled.div`
+export const Prep = styled.div`
   margin: 40px 20px 60px;
 
   @media screen and (min-width: 600px) {

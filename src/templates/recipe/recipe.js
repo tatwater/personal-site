@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
-import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { toggleInstructions as toggleInstructionsAction } from '../../state/app';
 import RecipePhoto from '../../components/_recipe/photo/RecipePhoto';
 import Instructions from '../../components/_recipe/instructions/Instructions';
 import * as SC from './recipe_styles';
@@ -13,6 +11,18 @@ import * as SC from './recipe_styles';
 class Recipe extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      instructionsVisible: false,
+    }
+
+    this.setInstructionsVisible = this.setInstructionsVisible.bind(this);
+  }
+
+  setInstructionsVisible(visibility) {
+    this.setState({
+      instructionsVisible: visibility,
+    });
   }
 
   render() {
@@ -70,13 +80,13 @@ class Recipe extends Component {
           title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
         />
         <SC.BackgroundFlair
-          showInstructions={ this.props.areInstructionsVisible }
+          showInstructions={ this.state.instructionsVisible }
         />
-        <SC.Content
-          showInstructions={ this.props.areInstructionsVisible }
+        <SC.Prep
+          showInstructions={ this.state.instructionsVisible }
         >
           <SC.Header
-            showInstructions={ this.props.areInstructionsVisible }
+            showInstructions={ this.state.instructionsVisible }
           >
             <SC.Category>
               { frontmatter.category }
@@ -111,7 +121,7 @@ class Recipe extends Component {
                   { frontmatter.timing && timesList }
                 </SC.TimeBreakdown>
                 <SC.InstructionsButton
-                  onClick={() => { this.props.toggleInstructions(true) }}
+                  onClick={() => { this.setInstructionsVisible(true) }}
                   type='button'
                 >
                   INSTRUCTIONS
@@ -142,15 +152,16 @@ class Recipe extends Component {
               </SC.Instructions>
             }
           </SC.Recipe>
-        </SC.Content>
+        </SC.Prep>
         <RecipePhoto
-          showInstructions={ this.props.areInstructionsVisible }
+          setInstructionsVisible={(visibility) => { this.setInstructionsVisible(visibility) }}
+          showInstructions={ this.state.instructionsVisible }
           src={ withPrefix(frontmatter.photo) }
         />
         <Instructions
           instructions={ frontmatter.instructions }
           notes={ notesList }
-          showInstructions={ this.props.areInstructionsVisible }
+          showInstructions={ this.state.instructionsVisible }
           title={ frontmatter.title }
         />
       </div>
@@ -195,7 +206,4 @@ export const pageQuery = graphql`
 `;
 
 
-export default connect(
-  state => ({ areInstructionsVisible: state.app.areInstructionsVisible }),
-  dispatch => ({ toggleInstructions: visible => dispatch(toggleInstructionsAction(visible)) }),
-)(Recipe);
+export default Recipe;

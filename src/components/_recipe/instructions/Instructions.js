@@ -43,6 +43,7 @@ class Instructions extends Component {
     if (nextStep < 0) {
       nextStep = 0;
     }
+    
     this.setState({
       currentStep: nextStep,
     });
@@ -117,7 +118,9 @@ class Instructions extends Component {
 
 Instructions.propTypes = {
   instructions: PropTypes.array,
+  notes: PropTypes.array,
   showInstructions: PropTypes.bool,
+  title: PropTypes.string,
 }
 
 

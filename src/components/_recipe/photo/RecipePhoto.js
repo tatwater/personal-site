@@ -46,7 +46,7 @@ class RecipePhoto extends Component {
           src={ withPrefix(this.props.src) }
         />
         <SC.PreparationButton
-          onClick={() => { this.props.toggleInstructions(false) }}
+          onClick={() => { this.props.setInstructionsVisible(false) }}
           showInstructions={ this.props.showInstructions }
           type='button'
         >
@@ -59,6 +59,8 @@ class RecipePhoto extends Component {
 }
 
 RecipePhoto.propTypes = {
+  setInstructionsVisible: PropTypes.function,
+  showInstructions: PropTypes.boolean,
   src: PropTypes.string,
 }
 
