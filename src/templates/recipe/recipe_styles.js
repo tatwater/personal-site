@@ -1,12 +1,26 @@
 import styled from 'styled-components';
 
-
-const CONTENT_WIDTH_1024 = '61vw';
-const PHOTO_MAX_WIDTH_1024 = '32vw';
-const CONTENT_WIDTH_1440 = '48vw';
-const PHOTO_MAX_WIDTH_1440 = '35vw';
+import { RECIPE } from '../../utils/vars';
 
 
+export const BackgroundFlair = styled.div`
+  background: #fafafa;
+  position: fixed;
+    top: 0;
+    right: ${props => props.showInstructions ?
+      '10.75vw'
+      :
+      '8vw'
+    };
+    bottom: 0;
+  transition: right .33s ease, width .33s ease;
+  width: ${props => props.showInstructions ?
+    '37vw'
+    :
+    '35vw'
+  };
+  z-index: 0;
+`;
 export const Content = styled.div`
   margin: 40px 20px 60px;
 
@@ -24,21 +38,34 @@ export const Content = styled.div`
     margin: 0 0 100px 0;
     position: absolute;
       top: 80px;
-      right: calc(2vw + ${PHOTO_MAX_WIDTH_1024} + 2vw);
-    width: ${CONTENT_WIDTH_1024};
+      ${props => props.showInstructions ?
+        'right: 120vw;'
+        :
+        'right: calc(2vw + ' + RECIPE.PHOTO_MAX_WIDTH._1024 + ' + 2vw);'
+      }
+    transition: right .33s ease;
+    width: ${RECIPE.PREP_WIDTH._1024};
   }
   @media screen and (min-width: 1440px) {
       top: 140px;
-      right: calc(2vw + ${PHOTO_MAX_WIDTH_1440} + 2vw);
-    width: ${CONTENT_WIDTH_1440};
+      ${props => props.showInstructions ?
+        'right: 120vw;'
+        :
+        'right: calc(2vw + ' + RECIPE.PHOTO_MAX_WIDTH._1440 + ' + 2vw);'
+      }
+    width: ${RECIPE.PREP_WIDTH._1440};
   }
+`;
+export const Header = styled.div`
+  // transform: scale(${props => props.showInstructions ? '.8' : '1'});
+  margin: 50px 0;
 `;
 export const Category = styled.span`
   color: #C6C9CD;
-  font-family: Playfair Display;
+  display: block;
   font-size: 22px;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 4px;
   position: relative;
 
   @media screen and (min-width: 768px) {
@@ -46,7 +73,6 @@ export const Category = styled.span`
   }
   @media screen and (min-width: 768px) {
     font-size: 26px;
-    margin-bottom: 20px;
 
     &::before {
       background: #C6C9CD;
@@ -64,14 +90,19 @@ export const TimeWrapper = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 10px 0 50px 0;
+  margin: 10px 0;
 
   @media screen and (min-width: 1024px) {
     align-items: center;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 25px 0 80px 0;
+    margin: 20px 0;
   }
+`;
+export const Yield = styled.span`
+  display: block;
+  font-weight: 700;
+  margin: 40px 0;
 `;
 export const TimeBlock = styled.div`
   align-items: center;
@@ -139,57 +170,11 @@ export const TotalTime = styled.div`
     }
   }
 `;
-export const PhotoWrapper = styled.div`
-  position: relative;
-    top: -20px;
-    left: -20px;
-
-  @media screen and (min-width: 600px) {
-    top: 10px;
-    left: -10px;
-  }
-  @media screen and (min-width: 1024px) {
-    height: calc(100vh - 170px);
-    position: fixed;
-      top: 110px;
-      right: 2vw;
-      left: auto;
-    width: ${PHOTO_MAX_WIDTH_1024};
-  }
-  @media screen and (min-width: 1440px) {
-    height: calc(100vh - 230px);
-      top: 140px;
-    width: ${PHOTO_MAX_WIDTH_1440};
-  }
-`;
-export const Photo = styled.div`
-  ${props => props.src && 'background-image: url(' + props.src + ')'};
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 20px;
-  padding-top: 61.8%;
-  width: calc(100% + 40px);
-
-  @media screen and (min-width: 600px) {
-    border-radius: 6px;
-    box-shadow: 0 3px 15px rgba(34, 47, 62, .16);
-    margin-bottom: 40px;
-    width: calc(100% + 20px);
-  }
-  @media screen and (min-width: 880px) {
-    margin-bottom: 50px;
-  }
-  @media screen and (min-width: 1024px) {
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(34, 47, 62, .2);
-    height: 1080px;
-    margin-bottom: 0;
-    position: absolute;
-      top: 50%;
-      left: 50%;
-    width: 770px;
-  }
+export const ButtonRowWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
 export const TimeBreakdown = styled.div`
   align-items: center;
@@ -203,6 +188,30 @@ export const TimeBreakdown = styled.div`
     ${TotalTime} {
       display: flex;
     }
+  }
+`;
+export const InstructionsButton = styled.button`
+  align-items: center;
+  background: #529F8D;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Poppins';
+  font-size: 14px;
+  height: 50px;
+  letter-spacing: .05em;
+  outline: none;
+  padding: 0 40px;
+  transition: box-shadow .2s ease;
+
+  svg {
+    margin-left: 16px;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .16);
   }
 `;
 export const Recipe = styled.div`

@@ -1,4 +1,10 @@
-import styled from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
+
+injectGlobal`
+  body {
+    overflow-x: hidden;
+  }
+`;
 
 export const Container = styled.div`
   min-width: 320px;

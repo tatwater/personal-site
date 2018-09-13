@@ -1,36 +1,18 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { toggleInstructions as toggleInstructionsAction } from '../../state/app';
+import RecipePhoto from '../../components/_recipe/photo/RecipePhoto';
+import Instructions from '../../components/_recipe/instructions/Instructions';
 import * as SC from './recipe_styles';
 
 
-export default class Recip extends Component {
+class Recipe extends Component {
   constructor(props) {
     super(props);
-
-    this.photoWrapper = React.createRef();
-    this.photo = React.createRef();
-
-    this.resizePhoto = this.resizePhoto.bind(this);
-  }
-
-  resizePhoto() {
-    let scale = Math.min(
-      this.photoWrapper.current.offsetWidth / 770, 
-      this.photoWrapper.current.offsetHeight / 1080 
-    );
-    this.photo.current.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
-  }
-
-  componentDidMount() {
-    window.addEventListener("resize", this.resizePhoto);
-    this.resizePhoto();
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.resizePhoto);
   }
 
   render() {
@@ -74,14 +56,6 @@ export default class Recip extends Component {
       );
     });
 
-    frontmatter.instructions.map((instruction, key) => {
-      instructionsList.push(
-        <li key={key}>
-          { instruction.step }
-        </li>
-      );
-    });
-
     frontmatter.notes && frontmatter.notes.map((note, key) => {
       notesList.push(
         <li key={key}>
@@ -95,36 +69,25 @@ export default class Recip extends Component {
         <Helmet
           title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
         />
-        <SC.Content>
-          <SC.Category>
-            { frontmatter.category }
-          </SC.Category>
-          <h1>
-            { frontmatter.title }
-          </h1>
-          <SC.TimeWrapper>
-            { hasTotalTime &&
-              <SC.TotalTime>
-                <FontAwesomeIcon icon={['far', 'clock']} />
-                <SC.TimeAmount>
-                  { frontmatter.time.timeAmount }
-                </SC.TimeAmount>
-                <SC.TimeType>
-                  { frontmatter.time.timeUnits }
-                </SC.TimeType>
-              </SC.TotalTime>
-            }
-            <SC.PhotoWrapper
-              innerRef={ this.photoWrapper }
-            >
-              <SC.Photo
-                innerRef={ this.photo }
-                src={ withPrefix(frontmatter.photo) }
-              />
-            </SC.PhotoWrapper>
-            <SC.TimeBreakdown>
+        <SC.BackgroundFlair
+          showInstructions={ this.props.areInstructionsVisible }
+        />
+        <SC.Content
+          showInstructions={ this.props.areInstructionsVisible }
+        >
+          <SC.Header
+            showInstructions={ this.props.areInstructionsVisible }
+          >
+            <SC.Category>
+              { frontmatter.category }
+            </SC.Category>
+            <h1>
+              { frontmatter.title }
+            </h1>
+            <SC.TimeWrapper>
               { hasTotalTime &&
                 <SC.TotalTime>
+                  <FontAwesomeIcon icon={['far', 'clock']} />
                   <SC.TimeAmount>
                     { frontmatter.time.timeAmount }
                   </SC.TimeAmount>
@@ -133,9 +96,37 @@ export default class Recip extends Component {
                   </SC.TimeType>
                 </SC.TotalTime>
               }
-              { frontmatter.timing && timesList }
-            </SC.TimeBreakdown>
-          </SC.TimeWrapper>
+              <RecipePhoto
+                showInstructions={ this.props.areInstructionsVisible }
+                src={ withPrefix(frontmatter.photo) }
+              />
+              <SC.ButtonRowWrapper>
+                <SC.TimeBreakdown>
+                  { hasTotalTime &&
+                    <SC.TotalTime>
+                      <SC.TimeAmount>
+                        { frontmatter.time.timeAmount }
+                      </SC.TimeAmount>
+                      <SC.TimeType>
+                        { frontmatter.time.timeUnits }
+                      </SC.TimeType>
+                    </SC.TotalTime>
+                  }
+                  { frontmatter.timing && timesList }
+                </SC.TimeBreakdown>
+                <SC.InstructionsButton
+                  onClick={() => { this.props.toggleInstructions(true) }}
+                  type='button'
+                >
+                  INSTRUCTIONS
+                  <FontAwesomeIcon icon={['fal', 'long-arrow-right']} />
+                </SC.InstructionsButton>
+              </SC.ButtonRowWrapper>
+            </SC.TimeWrapper>
+            <SC.Yield>
+              Makes ~100 fries
+            </SC.Yield>
+          </SC.Header>
           <SC.Recipe>
             <SC.Ingredients>
               <h3>Ingredients</h3>
@@ -149,20 +140,6 @@ export default class Recip extends Component {
                 { toolsList }
               </SC.List>
             </SC.Tools>
-            <SC.Instructions>
-              <h3>Instructions</h3>
-              <ol>
-                { instructionsList }
-              </ol>
-            </SC.Instructions>
-            { frontmatter.notes &&
-              <SC.Instructions>
-                <h3>Notes</h3>
-                <SC.List>
-                  { notesList }
-                </SC.List>
-              </SC.Instructions>
-            }
             { frontmatter.source &&
               <SC.Instructions>
                 <strong>From: </strong>{ frontmatter.source }
@@ -170,6 +147,12 @@ export default class Recip extends Component {
             }
           </SC.Recipe>
         </SC.Content>
+        <Instructions
+          instructions={ frontmatter.instructions }
+          notes={ notesList }
+          showInstructions={ this.props.areInstructionsVisible }
+          title={ frontmatter.title }
+        />
       </div>
     );
   }
@@ -210,3 +193,9 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+
+export default connect(
+  state => ({ areInstructionsVisible: state.app.areInstructionsVisible }),
+  dispatch => ({ toggleInstructions: visible => dispatch(toggleInstructionsAction(visible)) }),
+)(Recipe);

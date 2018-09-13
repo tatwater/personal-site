@@ -45,8 +45,10 @@ export const Submit = styled.input`
   border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
   color: #fff;
+  cursor: pointer;
   display: flex;
   height: 50px;
   margin-top: 10px;
+  outline: none;
   padding: 0 40px;
 `;

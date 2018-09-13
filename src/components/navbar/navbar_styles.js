@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
   align-items: center;
-  background: #fff;
   display: flex;
-  height: 72px;
+  height: 60px;
   justify-content: center;
   padding: 0;
   position: fixed;
@@ -14,12 +13,14 @@ export const Container = styled.nav`
   z-index: 50;
 
   @media screen and (min-width: 768px) {
-    height: 86px;
+    height: 80px;
   }
   @media screen and (min-width: 1024px) {
-    height: 110px;
     justify-content: space-between;
     padding: 0 100px 0 40px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 110px;
   }
 `;
 export const BrandWrapper = styled.div`
@@ -38,7 +39,7 @@ export const MainNavButton = styled.button`
 
   &:hover,
   &:focus {
-    background: #fafafa;
+    background: #EFF0F3;
   }
 `;
 export const Logo = styled.img`
