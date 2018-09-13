@@ -65,28 +65,30 @@ class Instructions extends Component {
     });
 
     return (
-      <SC.Container
-        showInstructions={ this.props.showInstructions }
-      >
-        <SC.Header>
-          <div>
-            <SC.Kicker>
-              Instructions for
-            </SC.Kicker>
-            <SC.Title>
-              { this.props.title }
-            </SC.Title>
-          </div>
-          <SC.CurrentStep
-            numSteps={ this.state.numSteps }
-          >
-            { this.state.currentStep < 9 && '0'}
-            { this.state.currentStep + 1 }
-          </SC.CurrentStep>
-        </SC.Header>
-        <SC.List>
-          { instructionsList }
-        </SC.List>
+      <div>
+        <SC.Container
+          showInstructions={ this.props.showInstructions }
+        >
+          <SC.Header>
+            <div>
+              <SC.Kicker>
+                Instructions for
+              </SC.Kicker>
+              <SC.Title>
+                { this.props.title }
+              </SC.Title>
+            </div>
+            <SC.CurrentStep
+              numSteps={ this.state.numSteps }
+            >
+              { this.state.currentStep < 9 && '0'}
+              { this.state.currentStep + 1 }
+            </SC.CurrentStep>
+          </SC.Header>
+          <SC.List>
+            { instructionsList }
+          </SC.List>
+        </SC.Container>
         <SC.Controls
           showInstructions={ this.props.showInstructions }
         >
@@ -108,7 +110,7 @@ class Instructions extends Component {
             <FontAwesomeIcon icon={['fal', 'long-arrow-down']} />
           </SC.NavButton>
         </SC.Controls>
-      </SC.Container>
+      </div>
     );
   }
 }

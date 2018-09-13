@@ -7,13 +7,13 @@ export const Container = styled.div`
   margin-bottom: 20px;
   position: relative;
     top: -20px;
-    left: -20px;
+    right: -20px;
   width: calc(100% + 40px);
 
   @media screen and (min-width: 600px) {
     margin-bottom: 40px;
       top: 10px;
-      left: -10px;
+      right: -10px;
     width: calc(100% + 20px);
   }
   @media screen and (min-width: 880px) {
@@ -23,15 +23,16 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1024px) {
     height: 85vh;
+    margin: 0;
     position: fixed;
       top: 10vh;
-      right: ${props => props.showInstructions ?
-        '50vw'
-        :
-        '2vw'
-      };
-      left: auto;
-    transition: right .33s ease;
+      right: 2vw;
+    transform: translate3d(${props => props.showInstructions ?
+      '-48vw, 0, 0'
+      :
+      '0, 0, 0'
+    });
+    transition: transform .33s ease;
     width: ${props => props.showInstructions ?
       '50vw'
       :

@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   @media screen and (min-width: 1024px) {
-    // height: 80vh;
     margin-bottom: 100px;
     padding: 0 20px;
     position: absolute;
       top: 10vh;
-      right: ${props => props.showInstructions ?
-        '8vw'
-        :
-        '-60vw'
-      };
-    transition: right .33s ease;
+      right: 8vw;
+    transform: translate3d(${props => props.showInstructions ?
+      '0, 0, 0'
+      :
+      '80vw, 0, 0'
+    });
+    transition: transform .33s ease;
     width: 45vw;
   }
   @media screen and (min-width: 1440px) {
@@ -80,17 +80,19 @@ export const Step = styled.li`
 `;
 export const Controls = styled.div`
   position: fixed;
-    right: ${props => props.showInstructions ?
-      '4vw'
-      :
-      '-64vw'
-    };
+    right: 4vw;
     bottom: 10vh;
-  transition: right .33s ease;
+  transform: translate3d(${props => props.showInstructions ?
+    '0, 0, 0'
+    :
+    '150vw, 0, 0'
+  });
+  transition: transform .33s ease;
   width: 60px;
 `;
 export const NotesButton = styled.button`
   align-items: center;
+  background: none;
   border: none;
   border-radius: 50%;
   cursor: pointer;

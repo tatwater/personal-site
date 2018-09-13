@@ -1,8 +1,15 @@
 import styled, { injectGlobal } from 'styled-components';
 
 injectGlobal`
+  html,
   body {
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+  }
+  body {
+    overflow-y: scroll;
   }
 `;
 

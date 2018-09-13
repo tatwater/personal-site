@@ -96,10 +96,6 @@ class Recipe extends Component {
                   </SC.TimeType>
                 </SC.TotalTime>
               }
-              <RecipePhoto
-                showInstructions={ this.props.areInstructionsVisible }
-                src={ withPrefix(frontmatter.photo) }
-              />
               <SC.ButtonRowWrapper>
                 <SC.TimeBreakdown>
                   { hasTotalTime &&
@@ -147,6 +143,10 @@ class Recipe extends Component {
             }
           </SC.Recipe>
         </SC.Content>
+        <RecipePhoto
+          showInstructions={ this.props.areInstructionsVisible }
+          src={ withPrefix(frontmatter.photo) }
+        />
         <Instructions
           instructions={ frontmatter.instructions }
           notes={ notesList }

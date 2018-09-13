@@ -37,22 +37,18 @@ export const Content = styled.div`
   @media screen and (min-width: 1024px) {
     margin: 0 0 100px 0;
     position: absolute;
-      top: 80px;
-      ${props => props.showInstructions ?
-        'right: 120vw;'
-        :
-        'right: calc(2vw + ' + RECIPE.PHOTO_MAX_WIDTH._1024 + ' + 2vw);'
-      }
-    transition: right .33s ease;
+      top: 10vh;
+      right: calc(2vw + ${RECIPE.PHOTO_MAX_WIDTH._1024} + 2vw);
+    transform: translate3d(${props => props.showInstructions ?
+      '-90vw, 0, 0'
+      :
+      '0, 0, 0'});
+    transition: transform .33s ease;
     width: ${RECIPE.PREP_WIDTH._1024};
   }
   @media screen and (min-width: 1440px) {
       top: 140px;
-      ${props => props.showInstructions ?
-        'right: 120vw;'
-        :
-        'right: calc(2vw + ' + RECIPE.PHOTO_MAX_WIDTH._1440 + ' + 2vw);'
-      }
+      right: calc(2vw + ${RECIPE.PHOTO_MAX_WIDTH._1440} + 2vw);
     width: ${RECIPE.PREP_WIDTH._1440};
   }
 `;
