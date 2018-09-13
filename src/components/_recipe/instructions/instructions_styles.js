@@ -102,7 +102,25 @@ export const NotesButton = styled.button`
   justify-content: center;
   margin-top: 20px;
   outline: none;
+  position: relative;
   width: 60px;
+`;
+export const NumNotes = styled.span`
+  align-items: center;
+  background: #FF7555;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  font-family: 'Poppins';
+  font-size: 11px;
+  font-weight: 700;
+  height: 18px;
+  justify-content: center;
+  position: absolute;
+    top: 14px;
+    right: 14px;
+  width: 18px;
 `;
 export const NavButton = styled.button`
   align-items: center;

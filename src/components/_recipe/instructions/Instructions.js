@@ -43,7 +43,7 @@ class Instructions extends Component {
     if (nextStep < 0) {
       nextStep = 0;
     }
-    
+
     this.setState({
       currentStep: nextStep,
     });
@@ -51,6 +51,7 @@ class Instructions extends Component {
 
   render() {
     let instructionsList = [];
+    console.log(this.props.notes);
 
     this.props.instructions.map((instruction, key) => {
       instructionsList.push(
@@ -96,7 +97,12 @@ class Instructions extends Component {
           <SC.NotesButton
             type='button'
           >
-          <FontAwesomeIcon icon={['fal', 'sticky-note']} />
+            <FontAwesomeIcon icon={['fal', 'sticky-note']} />
+            { this.props.notes.length &&
+              <SC.NumNotes>
+                { this.props.notes.length }
+              </SC.NumNotes>
+            }
           </SC.NotesButton>
           <SC.NavButton
             onClick={() => { this.previousStep() }}

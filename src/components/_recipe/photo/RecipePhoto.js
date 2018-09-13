@@ -59,8 +59,8 @@ class RecipePhoto extends Component {
 }
 
 RecipePhoto.propTypes = {
-  setInstructionsVisible: PropTypes.function,
-  showInstructions: PropTypes.boolean,
+  setInstructionsVisible: PropTypes.func,
+  showInstructions: PropTypes.bool,
   src: PropTypes.string,
 }
 
