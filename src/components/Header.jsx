@@ -224,7 +224,7 @@ const Header = ({tag}) => (
     <Name>
       <NameLink to='/'>Teagan Atwater</NameLink>
     </Name>
-    <Logo src={withPrefix('/images/logo.svg')} alt='T A Logo' />
+    <Logo src={withPrefix('/images/logo-old.svg')} alt='T A Logo' />
     {tag ? <Tag>{tag}</Tag> : null}
   </HeaderWrapper>
 );
