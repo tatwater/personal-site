@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import Gallery from '../../components/gallery/Gallery';
+import Gallery from '../../components/gallery/Gallery';
 import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
 
@@ -28,9 +28,9 @@ const KitchenHomePage = ({ data }) => {
         <p>Then again, that’s not really the point of cooking for me. For me, it’s all about hanging out with the food, taking my time, having fun with it, and watching others enjoy what I’ve made. It’s a great way to be creative, to wind down from the day, and I often find it rather meditative. My general attitude is usually that I’ll eat whenever it’s ready.</p>
         <p>This may be important to you because for a large part, unless I’ve made the recipe a bunch, the time estimates are largely guesses. Sorry about that.</p> */}
       </KitchenLayout>
-      {/* <Gallery
+      <Gallery
         recipes={ data.allMarkdownRemark.edges }
-      /> */}
+      />
     </div>
   );
 }

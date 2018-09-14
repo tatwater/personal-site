@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import Gallery from '../../components/gallery/Gallery';
+import Gallery from '../../components/gallery/Gallery';
 import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
 
@@ -10,9 +10,9 @@ const KitchenDessertsPage = ({ data }) => {
       <KitchenLayout>
         <h1>Desserts</h1>
       </KitchenLayout>
-      {/* <Gallery
+      <Gallery
         recipes={ data.allMarkdownRemark.edges }
-      /> */}
+      />
     </div>
   );
 }
