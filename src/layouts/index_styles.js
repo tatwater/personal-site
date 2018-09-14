@@ -4,12 +4,8 @@ injectGlobal`
   html,
   body {
     height: 100vh;
-    overflow: hidden;
     position: relative;
     width: 100vw;
-  }
-  body {
-    overflow-y: scroll;
   }
 `;
 

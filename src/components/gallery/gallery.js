@@ -18,6 +18,10 @@ const Gallery = ({ recipes }) => {
           <SC.Title>
             { node.frontmatter.title }
           </SC.Title>
+          <SC.Time>
+            { node.frontmatter.time.timeAmount }
+            { node.frontmatter.time.timeUnits }
+          </SC.Time>
         </SC.Card>
       )}
     </SC.Container>

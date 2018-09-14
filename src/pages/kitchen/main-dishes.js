@@ -8,13 +8,14 @@ import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 const KitchenMainDishesPage = ({ data }) => {
   console.log(data);
   return (
-    <KitchenLayout>
-      <h1>Main dishes</h1>
-
+    <div>
+      <KitchenLayout>
+        <h1>Main dishes</h1>
+      </KitchenLayout>
       <Gallery
         recipes={ data.allMarkdownRemark.edges }
       />
-    </KitchenLayout>
+    </div>
   );
 }
 

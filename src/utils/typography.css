@@ -1,12 +1,13 @@
-body.noscroll {
-  height: 100%;
-  overflow: hidden;
-}
-
 html {
   color: #222F3E;
   font-family: 'Open Sans';
   font-size: 16px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+body {
+  overflow: scroll;
 }
 h1 {
   color: #222F3E;

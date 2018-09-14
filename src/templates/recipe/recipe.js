@@ -84,7 +84,7 @@ class Recipe extends Component {
     });
 
     return (
-      <div>
+      <SC.HideOffCanvas>
         <Helmet
           title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
         />
@@ -177,7 +177,7 @@ class Recipe extends Component {
           showInstructions={ this.state.instructionsVisible }
           title={ frontmatter.title }
         />
-      </div>
+      </SC.HideOffCanvas>
     );
   }
 }

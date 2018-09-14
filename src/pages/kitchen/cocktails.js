@@ -7,13 +7,14 @@ import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
 const KitchenCocktailsPage = ({ data }) => {
   return (
-    <KitchenLayout>
-      <h1>Cocktails</h1>
-
+    <div>
+      <KitchenLayout>
+        <h1>Cocktails</h1>
+      </KitchenLayout>
       <Gallery
         recipes={ data.allMarkdownRemark.edges }
       />
-    </KitchenLayout>
+    </div>
   );
 }
 
