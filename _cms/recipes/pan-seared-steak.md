@@ -2,7 +2,7 @@
 path: /kitchen/recipe/pan-seared-steak
 layout: recipe
 source: Martha Stewart
-title: Pan-Seared Steak
+title: Pan-seared steak
 category: Main dishes
 allergens:
   - allergen: Red meat
