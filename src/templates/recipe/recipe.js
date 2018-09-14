@@ -38,11 +38,6 @@ class Recipe extends Component {
     const toolsList = [];
     const instructionsList = [];
     const notesList = [];
-    let signedIn = false;
-
-    if (auth.currentUser()) {
-      signedIn = true;
-    }
 
     frontmatter.timing && frontmatter.timing.map((time, key) => {
       timesList.push(
@@ -99,14 +94,14 @@ class Recipe extends Component {
           >
             <SC.Category>
               { frontmatter.category }
-              { signedIn &&
+              {/* auth.currentUser() &&
                 <SC.EditButton
                   href={ 'https://www.teaganatwater.com/admin/#/collections/recipes/entries/' + frontmatter.title.toLowerCase().split(' ').join('-') }
                   target='_edit'
                 >
                   <FontAwesomeIcon icon={['fal', 'pencil']} />
                 </SC.EditButton>
-              }
+              */}
             </SC.Category>
             <h1>
               { frontmatter.title }
