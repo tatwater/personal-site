@@ -10,7 +10,6 @@ const KitchenBreadsPage = ({ data }) => {
     <div>
       <KitchenLayout>
         <h1>Breads</h1>
-        <p>Blah</p>
       </KitchenLayout>
       <Gallery
         recipes={ data.allMarkdownRemark.edges }
