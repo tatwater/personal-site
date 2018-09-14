@@ -1,7 +1,6 @@
 import React from 'react';
-import Link from 'gatsby-link';
 
-import Gallery from '../../components/gallery/Gallery';
+// import Gallery from '../../components/gallery/Gallery';
 import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
 
@@ -11,9 +10,9 @@ const KitchenCocktailsPage = ({ data }) => {
       <KitchenLayout>
         <h1>Cocktails</h1>
       </KitchenLayout>
-      <Gallery
+      {/* <Gallery
         recipes={ data.allMarkdownRemark.edges }
-      />
+      /> */}
     </div>
   );
 }
