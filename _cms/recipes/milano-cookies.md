@@ -2,7 +2,7 @@
 path: /kitchen/recipe/milano-cookies
 layout: recipe
 source: Craftsy
-title: Milano cookies
+title: Milano cookies (temp)
 category: Desserts
 allergens:
   - allergen: Gluten
