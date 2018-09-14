@@ -60,7 +60,7 @@ class Navbar extends Component {
           >
             <SC.HamburgerIcon>
               <div></div>
-              <div class='small'></div>
+              <div className='small'></div>
               <div></div>
             </SC.HamburgerIcon>
           </SC.MainNavButton>

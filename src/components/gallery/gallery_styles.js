@@ -11,6 +11,7 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1024px) {
     margin: 0;
+    padding-right: 70px;
     position: absolute;
       top: calc(10vh + 232px);
       left: calc(100vw - ${RECIPE.PREP_WIDTH._1024} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1024} - 2vw);

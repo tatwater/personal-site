@@ -7,9 +7,9 @@ import * as SC from './gallery_styles';
 const Gallery = ({ recipes }) => {
   return (
     <SC.Container>
-      {recipes.map(({ node }) =>
+      {recipes.map(({ node }, key) =>
         <SC.Card
-          key={node.id}
+          key={ key }
           to={ node.frontmatter.path }
         >
           <SC.Photo
