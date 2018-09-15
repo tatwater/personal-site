@@ -41,6 +41,7 @@ ingredients:
 tools:
   - toolName: Stand mixer with flat beater attachment
   - toolName: Wooden spoon
+  - toolName: Cookie sheet
   - toolName: Small ice cream scoop (#40)
 instructions:
   - step: Preheat oven to 350°.

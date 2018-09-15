@@ -1,8 +1,19 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import Link from 'gatsby-link';
 
 import { RECIPE } from '../../utils/vars';
 
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
 
 export const Container = styled.div`
   align-items: flex-start;
@@ -33,12 +44,29 @@ export const Photo = styled.div`
   width: 100%;
 `;
 export const Card = styled(Link)`
+  animation: ${fadeIn} .3s ease-out;
+  animation-fill-mode: both;
   margin-right: 30px;
   text-decoration: none;
   width: 300px;
 
   &:nth-of-type(1) {
-    // 
+    animation-delay: 0s;
+  }
+  &:nth-of-type(2) {
+    animation-delay: .1s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: .2s;
+  }
+  &:nth-of-type(4) {
+    animation-delay: .3s;
+  }
+  &:nth-of-type(5) {
+    animation-delay: .4s;
+  }
+  &:nth-of-type(6) {
+    animation-delay: .5s;
   }
 
   &:hover ${Photo} {
