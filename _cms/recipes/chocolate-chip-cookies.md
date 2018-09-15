@@ -37,7 +37,7 @@ ingredients:
   - ingredientAmount: 2 tbsp
     ingredientName: Vegetable oil
   - ingredientAmount: 1 cup
-    ingredientName: Semisweet chocolate chips
+    ingredientName: Bittersweet chocolate chips
 tools:
   - toolName: Stand mixer with flat beater attachment
   - toolName: Wooden spoon
@@ -50,4 +50,8 @@ instructions:
   - step: Fold in chocolate chips with a spoon.
   - step: Drop by the spoonful onto a greased baking sheet.
   - step: Bake for 10-12 minutes.
+notes:
+  - note: Bittersweet or dark chips are better than semisweet
+  - note: They come out very soft but will firm up after about 10 mins
+  - note: 'Tip: lightly sprinkle the tops of cookies with salt while they cool'
 ---
