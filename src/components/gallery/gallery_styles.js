@@ -37,6 +37,10 @@ export const Card = styled(Link)`
   text-decoration: none;
   width: 300px;
 
+  &:nth-of-type(1) {
+    // 
+  }
+
   &:hover ${Photo} {
     box-shadow: 0 5px 30px rgba(34, 47, 62, .15);
   }
