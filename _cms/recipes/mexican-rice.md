@@ -1,7 +1,7 @@
 ---
 path: /kitchen/recipe/mexican-rice
 layout: recipe
-title: Mexican Rice
+title: Mexican rice
 category: Sides
 timing:
   - timingAmount: 5 mins
