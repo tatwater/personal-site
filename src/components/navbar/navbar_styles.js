@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import Link from 'gatsby-link';
+
 
 export const Container = styled.nav`
   align-items: center;
@@ -63,6 +65,11 @@ export const HamburgerIcon = styled.div`
       width: 18px;
     }
   }
+`;
+export const HomeLink = styled(Link)`
+  align-items: center;
+  display: flex;
+  text-decoration: none;
 `;
 export const Logo = styled.img`
   height: 30px;

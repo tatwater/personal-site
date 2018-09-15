@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link, { push, withPrefix } from 'gatsby-link';
+import { push, withPrefix } from 'gatsby-link';
 import { connect } from 'react-redux';
 
 import auth from '../../utils/auth';
@@ -59,17 +59,17 @@ class Navbar extends Component {
               <div></div>
             </SC.HamburgerIcon>
           </SC.MainNavButton>
-          <Link
+          <SC.HomeLink
             to={ '/' + sectionSlug }
           >
             <SC.Logo
               alt='T A logo'
               src={ withPrefix('/images/logo.svg') }
             />
-          </Link>
-          <SC.SectionName>
-            { section }
-          </SC.SectionName>
+            <SC.SectionName>
+              { section }
+            </SC.SectionName>
+          </SC.HomeLink>
         </SC.BrandWrapper>
         <SC.MenuWrapper>
           { section === 'kitchen' &&
