@@ -100,12 +100,12 @@ class Instructions extends Component {
             { instructionsList }
           </SC.List>
         </SC.Container>
-        {/* <RecipeNotes
+        <RecipeNotes
           notes={ this.props.notes }
           notesVisible={ this.state.notesVisible }
           setNotesVisible={(visibility) => { this.setNotesVisible(visibility) }}
           showInstructions={ this.props.showInstructions }
-        /> */}
+        />
         <SC.Controls
           showInstructions={ this.props.showInstructions }
         >
