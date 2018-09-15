@@ -50,9 +50,6 @@ export const Card = styled(Link)`
   text-decoration: none;
   width: 300px;
 
-  &:nth-of-type(1) {
-    animation-delay: 0s;
-  }
   &:nth-of-type(2) {
     animation-delay: .1s;
   }

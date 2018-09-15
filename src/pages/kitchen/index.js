@@ -8,8 +8,8 @@ const KitchenHomePage = ({ data }) => {
   return (
     <div>
       <KitchenLayout>
-        <h1>All recipes ({ data.allMarkdownRemark.totalCount })</h1>
-        {/* <h2>Hi there!</h2>
+        <h1>All recipes</h1>
+        {/* <h2>Hi there! ({ data.allMarkdownRemark.totalCount })</h2>
         <Link to='/kitchen/recipe/oven-baked-fries'>Oven-baked fries</Link>
         <p>While this is largely a tool for myself to keep track of things I’ve made for future reference, it’s a pleasure to share my notes with you! If you find something you like, please let me know on Instagram <a href='https://instagram.com/teaganskitchen' target='_insta'>@teaganskitchen</a> :)</p>
         

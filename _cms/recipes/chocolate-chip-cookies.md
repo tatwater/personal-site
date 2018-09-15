@@ -16,13 +16,13 @@ timing:
   - timingAmount: 10 mins
     timingType: Bake time
 time:
-  timeAmount: '0.5'
-  timeUnits: hrs
+  timeAmount: '30'
+  timeUnits: mins
 photo: /images/uploads/33689000_198331750994004_1542238570339631104_n.jpg
 ingredients:
   - ingredientAmount: 1 stick
     ingredientName: unsalted butter
-  - ingredientAmount: 1/4 cups
+  - ingredientAmount: 1/4 cup
     ingredientName: Granulated sugar
   - ingredientAmount: 1/2 cup
     ingredientName: Brown sugar
@@ -31,7 +31,7 @@ ingredients:
   - ingredientAmount: 1 tsp
     ingredientName: Baking soda
   - ingredientAmount: 1 tsp
-    ingredientName: Vanilla
+    ingredientName: Vanilla extract
   - ingredientAmount: 1 tbsp
     ingredientName: Water
   - ingredientAmount: 2 tbsp
