@@ -142,9 +142,9 @@ class Recipe extends Component {
                 <FontAwesomeIcon icon={['fal', 'long-arrow-right']} />
               </SC.InstructionsButton>
             </SC.TimeWrapper>
-            <SC.Yield>
+            {/* <SC.Yield>
               Makes ~100 fries
-            </SC.Yield>
+            </SC.Yield> */}
           </SC.Header>
           <SC.Recipe>
             <SC.Ingredients>

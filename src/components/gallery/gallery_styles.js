@@ -47,6 +47,7 @@ export const Title = styled.span`
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2em;
+  margin-bottom: 2px;
 `;
 export const Time = styled.span`
   color: #C6C9CD;
