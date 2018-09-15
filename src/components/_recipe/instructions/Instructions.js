@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// import RecipeNotes from '../notes/Notes';
+import RecipeNotes from '../notes/Notes';
 import * as SC from './instructions_styles';
 
 
