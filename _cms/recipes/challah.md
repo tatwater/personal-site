@@ -20,7 +20,7 @@ timing:
 time:
   timeAmount: '1.75'
   timeUnits: hrs
-photo: /images/uploads/34808476_384468882039405_7299761407380160512_n.jpg
+photo: /images/uploads/IMG_20180702_215604.jpg
 ingredients:
   - ingredientAmount: 2 tbsp
     ingredientName: Dry active yeast
