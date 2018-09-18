@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 import { toggleMainNav as toggleMainNavAction } from '../../state/app';
 import * as SC from './mainNav_styles';

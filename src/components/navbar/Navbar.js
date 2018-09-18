@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { push, withPrefix } from 'gatsby-link';
+import { withPrefix } from 'gatsby-link';
 import { connect } from 'react-redux';
+import { Router, navigate } from '@reach/router';
 
 import auth from '../../utils/auth';
 import { toggleMainNav as toggleMainNavAction } from '../../state/app';
@@ -20,7 +21,7 @@ class Navbar extends Component {
     let user = auth.currentUser();
     user.logout()
         .then((response) => {
-          push('');
+          navigate('');
         })
         .catch((error) => {
           console.log(error);
@@ -28,24 +29,6 @@ class Navbar extends Component {
   }
 
   render() {
-    let sectionSlug = this.props.location.pathname.split('/')[1];
-    let section;
-    
-    switch(sectionSlug) {
-      case '':
-        section = '';
-        break;
-      case 'kitchen':
-        section = 'kitchen';
-        break;
-      case 'signin':
-        section = 'sign in';
-        break;
-      default:
-        section = '404';
-        break;
-    }
-
     return (
       <SC.Container>
         <SC.BrandWrapper>
@@ -60,21 +43,33 @@ class Navbar extends Component {
             </SC.HamburgerIcon>
           </SC.MainNavButton>
           <SC.HomeLink
-            to={ '/' + sectionSlug }
+            to='/'
           >
             <SC.Logo
               alt='T A logo'
               src={ withPrefix('/images/logo.svg') }
             />
-            <SC.SectionName>
-              { section }
-            </SC.SectionName>
           </SC.HomeLink>
+          {/*<Router>
+            <div path='/'>
+            </div>
+            <div path='/kitchen'>
+              <SC.HomeLink
+                to='/kitchen'
+              >
+                <SC.Logo
+                  alt='T A logo'
+                  src={ withPrefix('/images/logo.svg') }
+                />
+                <SC.SectionName >
+                  Kitchen
+                </SC.SectionName>
+              </SC.HomeLink>
+            </div>
+          </Router>*/}
         </SC.BrandWrapper>
         <SC.MenuWrapper>
-          { section === 'kitchen' &&
-            <MegaMenu />
-          }
+          <MegaMenu />
           {/* auth.currentUser() && <button onClick={() => { this.signOut() }}>Sign out</button> */}
         </SC.MenuWrapper>
         { this.props.isMainNavVisible && <MainNav /> }

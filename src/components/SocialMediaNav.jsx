@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {keyframes} from 'styled-components';
@@ -244,7 +243,7 @@ class SocialMediaNav extends Component {
   }
 
   manageScrollIndicator = () => {
-    let scrollTop = event.srcElement.body.scrollTop;
+    let scrollTop = document.getElementsByTagName('body')[0].scrollTop;
 
     if (scrollTop > 50) {
       this.setState({
@@ -285,37 +284,37 @@ class SocialMediaNav extends Component {
       <IconRow>
         <Social>
           <Media color='#0077b5'>
-            <a href='https://www.linkedin.com/in/teaganatwater/' target='_blank'>
+            <a href='https://www.linkedin.com/in/teaganatwater/' target='_blank' rel='noopener noreferrer'>
               <MediaIcon icon={['fab', 'linkedin-in']} />
               LinkedIn
             </a>
           </Media>
           <Media color='#333'>
-            <a href='https://angel.co/teagan-atwater' target='_blank'>
+            <a href='https://angel.co/teagan-atwater' target='_blank' rel='noopener noreferrer'>
               <MediaIcon icon={['fab', 'angellist']} />
               AngelList
             </a>
           </Media>
           <Media color='#5d267d'>
-            <a href='https://github.com/tatwater' target='_blank'>
+            <a href='https://github.com/tatwater' target='_blank' rel='noopener noreferrer'>
               <MediaIcon icon={['fab', 'github']} />
               GitHub
             </a>
           </Media>
           <Media color='#ea4c89'>
-            <a href='https://dribbble.com/tatwater' target='_blank'>
+            <a href='https://dribbble.com/tatwater' target='_blank' rel='noopener noreferrer'>
               <MediaIcon icon={['fab', 'dribbble']} />
               Dribbble
             </a>
           </Media>
           <Media color='#00ab6c'>
-            <a href='https://medium.com/@teaganatwater' target='_blank'>
+            <a href='https://medium.com/@teaganatwater' target='_blank' rel='noopener noreferrer'>
               <MediaIcon icon={['fab', 'medium-m']} />
               Medium
             </a>
           </Media>
           {/* <Media color='#1db954'>
-            <a href='https://open.spotify.com/user/nagaant' target='_blank'>
+            <a href='https://open.spotify.com/user/nagaant' target='_blank' rel='noopener noreferrer'>
               <MediaIcon icon={['fab', 'spotify']} />
               Spotify
             </a>

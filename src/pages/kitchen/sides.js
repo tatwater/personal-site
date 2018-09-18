@@ -1,25 +1,29 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
+import DefaultLayout from '../../components/_layouts/default/DefaultLayout';
+import KitchenLayout from '../../components/_layouts/kitchen/KitchenLayout';
 import Gallery from '../../components/gallery/Gallery';
-import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
 
-const KitchenSidesPage = ({ data }) => {
+const KitchenSidesPage = ({ data, location }) => {
   return (
-    <div>
+    <DefaultLayout
+      location={ location }
+    >
       <KitchenLayout>
         <h1>Sides</h1>
       </KitchenLayout>
       <Gallery
         recipes={ data.allMarkdownRemark.edges }
       />
-    </div>
+    </DefaultLayout>
   );
 }
 
 
 export const kitchenSidesQuery = graphql`
-  query kitchenSidesQuery {
+  query {
     allMarkdownRemark(
       filter: {
         frontmatter: {

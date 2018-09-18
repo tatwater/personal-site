@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
 import {keyframes} from 'styled-components';
 
@@ -162,16 +161,6 @@ export const Info = styled.p`
 `;
 
 class Footer extends Component {
-  componentDidMount() {
-    let account = 'desk';
-    let domain = 'teaganatwater.com';
-    let linkText = account + '@' + domain;
-
-    let link = document.querySelector('a.contact');
-    link.href = 'mai' + 'lto:' + linkText; // Break string for added security
-    link.innerText = linkText;
-  }
-
   render() {
     return (
       <FooterWrapper>
@@ -184,7 +173,7 @@ class Footer extends Component {
         <Contact>
           <Kicker>Contact</Kicker>
           <Info>
-            <a className='contact'></a>
+            <a href='mailto:desk@teaganatwater.com'>desk@teaganatwater.com</a>
           </Info>
         </Contact>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import {keyframes} from 'styled-components';
 
@@ -8,6 +8,16 @@ import PageHeading from '../components/PageHeading';
 import SocialMediaNav from '../components/SocialMediaNav';
 import Projects from '../components/Projects';
 import Footer from '../components/Footer';
+
+
+const noUnwrapPageFitsScrollFooter = '(min-height: 810px)';
+const noUnwrapPageFits = '(min-height: 1010px)';
+const firstUnwrapPageDoesntFit = '(max-height: 799px)';
+const firstUnwrapPageFitsScrollFooter = '(min-height: 800px)';
+const firstUnwrapPageFits = '(min-height: 980px)';
+const secondUnwrapPageDoesntFit = '(max-height: 749px)';
+const secondUnwrapPageFits = '(min-height: 750px)';
+
 
 const Animations = {
   bounce: keyframes`
@@ -139,15 +149,6 @@ const Headline = styled.h2`
     }
   }
 `;
-
-
-const noUnwrapPageFitsScrollFooter = '(min-height: 810px)';
-const noUnwrapPageFits = '(min-height: 1010px)';
-const firstUnwrapPageDoesntFit = '(max-height: 799px)';
-const firstUnwrapPageFitsScrollFooter = '(min-height: 800px)';
-const firstUnwrapPageFits = '(min-height: 980px)';
-const secondUnwrapPageDoesntFit = '(max-height: 749px)';
-const secondUnwrapPageFits = '(min-height: 750px)';
 
 const LayoutWrapper = styled.div`
   display: grid;
@@ -295,6 +296,20 @@ const LayoutWrapper = styled.div`
 
 const HomePage = () => (
   <LayoutWrapper>
+    <Helmet
+      meta={[
+        {
+          name: 'description',
+          content: 'Full-stack web developer, designer, and startup founder'
+        },
+        {
+          name: 'keywords',
+          content: 'develop, developer, web, website, full-stack, design, designer, production, ui, ux, user interface, user experience, startup, entrepreneur, founder, fiber, fiber app'
+        },
+      ]}
+      title={ 'Teagan Atwater' }
+    />
+
     <Header />
 
     <PageHeading>

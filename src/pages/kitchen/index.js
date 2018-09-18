@@ -1,12 +1,16 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
+import DefaultLayout from '../../components/_layouts/default/DefaultLayout';
+import KitchenLayout from '../../components/_layouts/kitchen/KitchenLayout';
 import Gallery from '../../components/gallery/Gallery';
-import KitchenLayout from '../../layouts/kitchen/KitchenLayout';
 
 
-const KitchenHomePage = ({ data }) => {
+const KitchenHomePage = ({ data, location }) => {
   return (
-    <div>
+    <DefaultLayout
+      location={ location }
+    >
       <KitchenLayout>
         <h1>All recipes</h1>
         {/* <h2>Hi there! ({ data.allMarkdownRemark.totalCount })</h2>
@@ -31,13 +35,13 @@ const KitchenHomePage = ({ data }) => {
       <Gallery
         recipes={ data.allMarkdownRemark.edges }
       />
-    </div>
+    </DefaultLayout>
   );
 }
 
 
 export const kitchenHomeQuery = graphql`
-  query kitchenHomeQuery {
+  query {
     allMarkdownRemark(
       sort: {
         fields: [frontmatter___title], order: ASC

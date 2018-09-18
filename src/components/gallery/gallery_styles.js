@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 import { RECIPE } from '../../utils/vars';
 

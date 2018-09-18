@@ -62,9 +62,9 @@ class Instructions extends Component {
     let instructionsList = [];
 
     this.props.instructions.map((instruction, key) => {
-      instructionsList.push(
+      return instructionsList.push(
         <SC.Step
-          active={ this.state.currentStep == key }
+          active={ this.state.currentStep === key }
           done={ this.state.currentStep > key }
           onClick={() => { this.setStep(key) }}
           key={ key }

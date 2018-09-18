@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { graphql } from 'gatsby';
 
-import auth from '../../utils/auth';
+// import auth from '../../utils/auth';
+import DefaultLayout from '../../components/_layouts/default/DefaultLayout';
 import RecipePhoto from '../../components/_recipe/photo/RecipePhoto';
 import Instructions from '../../components/_recipe/instructions/Instructions';
 import * as SC from './recipe_styles';
@@ -36,11 +38,10 @@ class Recipe extends Component {
     const timesList = [];
     const ingredientsList = [];
     const toolsList = [];
-    const instructionsList = [];
     const notesList = [];
 
     frontmatter.timing && frontmatter.timing.map((time, key) => {
-      timesList.push(
+      return timesList.push(
         <SC.TimeBlock key={key}>
           <SC.TimeAmount>
             { time.timingAmount }
@@ -53,7 +54,7 @@ class Recipe extends Component {
     });
 
     frontmatter.ingredients.map((ingredient, key) => {
-      ingredientsList.push(
+      return ingredientsList.push(
         <li key={key}>
           { ingredient.ingredientAmount && ingredient.ingredientAmount + ' ' }
           <span>{ ingredient.ingredientAmount ? ingredient.ingredientName.toLowerCase() : ingredient.ingredientName }</span>
@@ -63,7 +64,7 @@ class Recipe extends Component {
     });
 
     frontmatter.tools.map((tool, key) => {
-      toolsList.push(
+      return toolsList.push(
         <li key={key}>
           { tool.toolName.toLowerCase() }
         </li>
@@ -71,7 +72,7 @@ class Recipe extends Component {
     });
 
     frontmatter.notes && frontmatter.notes.map((note, key) => {
-      notesList.push(
+      return notesList.push(
         <li key={key}>
           { note.note }
         </li>
@@ -79,106 +80,108 @@ class Recipe extends Component {
     });
 
     return (
-      <SC.HideOffCanvas>
-        <Helmet
-          title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
-        />
-        <SC.BackgroundFlair
-          showInstructions={ this.state.instructionsVisible }
-        />
-        <SC.Prep
-          showInstructions={ this.state.instructionsVisible }
-        >
-          <SC.Header
+      <DefaultLayout>
+        <SC.HideOffCanvas>
+          <Helmet
+            title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
+          />
+          <SC.BackgroundFlair
+            showInstructions={ this.state.instructionsVisible }
+          />
+          <SC.Prep
             showInstructions={ this.state.instructionsVisible }
           >
-            <SC.Category>
-              { frontmatter.category }
-              {/* auth.currentUser() &&
-                <SC.EditButton
-                  href={ 'https://www.teaganatwater.com/admin/#/collections/recipes/entries/' + frontmatter.title.toLowerCase().split(' ').join('-') }
-                  target='_edit'
+            <SC.Header
+              showInstructions={ this.state.instructionsVisible }
+            >
+              <SC.Category>
+                { frontmatter.category }
+                {/* auth.currentUser() &&
+                  <SC.EditButton
+                    href={ 'https://www.teaganatwater.com/admin/#/collections/recipes/entries/' + frontmatter.title.toLowerCase().split(' ').join('-') }
+                    target='_edit'
+                  >
+                    <FontAwesomeIcon icon={['fal', 'pencil']} />
+                  </SC.EditButton>
+                */}
+              </SC.Category>
+              <h1>
+                { frontmatter.title }
+              </h1>
+              { hasTotalTime &&
+                <SC.TotalTime>
+                  <FontAwesomeIcon icon={['far', 'clock']} />
+                  <SC.TimeAmount>
+                    { frontmatter.time.timeAmount }
+                  </SC.TimeAmount>
+                  <SC.TimeType>
+                    { frontmatter.time.timeUnits }
+                  </SC.TimeType>
+                </SC.TotalTime>
+              }
+              <SC.Photo
+                src={ withPrefix(frontmatter.photo) }
+              />
+              <SC.TimeWrapper>
+                <SC.TimeBreakdown>
+                  { hasTotalTime &&
+                    <SC.TotalTime>
+                      <SC.TimeAmount>
+                        { frontmatter.time.timeAmount }
+                      </SC.TimeAmount>
+                      <SC.TimeType>
+                        { frontmatter.time.timeUnits }
+                      </SC.TimeType>
+                    </SC.TotalTime>
+                  }
+                  { frontmatter.timing && timesList }
+                </SC.TimeBreakdown>
+                <SC.InstructionsButton
+                  onClick={() => { this.setInstructionsVisible(true) }}
+                  type='button'
                 >
-                  <FontAwesomeIcon icon={['fal', 'pencil']} />
-                </SC.EditButton>
-              */}
-            </SC.Category>
-            <h1>
-              { frontmatter.title }
-            </h1>
-            { hasTotalTime &&
-              <SC.TotalTime>
-                <FontAwesomeIcon icon={['far', 'clock']} />
-                <SC.TimeAmount>
-                  { frontmatter.time.timeAmount }
-                </SC.TimeAmount>
-                <SC.TimeType>
-                  { frontmatter.time.timeUnits }
-                </SC.TimeType>
-              </SC.TotalTime>
-            }
-            <SC.Photo
-              src={ withPrefix(frontmatter.photo) }
-            />
-            <SC.TimeWrapper>
-              <SC.TimeBreakdown>
-                { hasTotalTime &&
-                  <SC.TotalTime>
-                    <SC.TimeAmount>
-                      { frontmatter.time.timeAmount }
-                    </SC.TimeAmount>
-                    <SC.TimeType>
-                      { frontmatter.time.timeUnits }
-                    </SC.TimeType>
-                  </SC.TotalTime>
-                }
-                { frontmatter.timing && timesList }
-              </SC.TimeBreakdown>
-              <SC.InstructionsButton
-                onClick={() => { this.setInstructionsVisible(true) }}
-                type='button'
-              >
-                INSTRUCTIONS
-                <FontAwesomeIcon icon={['fal', 'long-arrow-right']} />
-              </SC.InstructionsButton>
-            </SC.TimeWrapper>
-            {/* <SC.Yield>
-              Makes ~100 fries
-            </SC.Yield> */}
-          </SC.Header>
-          <SC.Recipe>
-            <SC.Ingredients>
-              <h3>Ingredients</h3>
-              <SC.List hideBullets>
-                { ingredientsList }
-              </SC.List>
-            </SC.Ingredients>
-            <SC.Tools>
-              <h3>Tools</h3>
-              <SC.List hideBullets>
-                { toolsList }
-              </SC.List>
-            </SC.Tools>
-          </SC.Recipe>
-        </SC.Prep>
-        <RecipePhoto
-          setInstructionsVisible={(visibility) => { this.setInstructionsVisible(visibility) }}
-          showInstructions={ this.state.instructionsVisible }
-          src={ withPrefix(frontmatter.photo) }
-        />
-        <Instructions
-          instructions={ frontmatter.instructions }
-          notes={ notesList }
-          showInstructions={ this.state.instructionsVisible }
-          title={ frontmatter.title }
-        />
-      </SC.HideOffCanvas>
+                  INSTRUCTIONS
+                  <FontAwesomeIcon icon={['fal', 'long-arrow-right']} />
+                </SC.InstructionsButton>
+              </SC.TimeWrapper>
+              {/* <SC.Yield>
+                Makes ~100 fries
+              </SC.Yield> */}
+            </SC.Header>
+            <SC.Recipe>
+              <SC.Ingredients>
+                <h3>Ingredients</h3>
+                <SC.List hideBullets>
+                  { ingredientsList }
+                </SC.List>
+              </SC.Ingredients>
+              <SC.Tools>
+                <h3>Tools</h3>
+                <SC.List hideBullets>
+                  { toolsList }
+                </SC.List>
+              </SC.Tools>
+            </SC.Recipe>
+          </SC.Prep>
+          <RecipePhoto
+            setInstructionsVisible={(visibility) => { this.setInstructionsVisible(visibility) }}
+            showInstructions={ this.state.instructionsVisible }
+            src={ withPrefix(frontmatter.photo) }
+          />
+          <Instructions
+            instructions={ frontmatter.instructions }
+            notes={ notesList }
+            showInstructions={ this.state.instructionsVisible }
+            title={ frontmatter.title }
+          />
+        </SC.HideOffCanvas>
+      </DefaultLayout>
     );
   }
 }
 
 export const pageQuery = graphql`
-  query RecipeByPath($path: String!) {
+  query($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       frontmatter {
         path

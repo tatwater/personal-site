@@ -1,9 +1,11 @@
 import styled, { injectGlobal } from 'styled-components';
 
+
 injectGlobal`
   html,
   body {
     height: 100vh;
+    min-width: 320px;
     position: relative;
     width: 100vw;
   }

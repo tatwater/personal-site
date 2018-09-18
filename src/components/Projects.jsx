@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import styled from 'styled-components';
 import {keyframes} from 'styled-components';
 
@@ -226,10 +225,10 @@ const Projects = () => (
         <div>
           <Kicker>Current</Kicker>
           <Title>
-            <a href='https://fiberapp.io' target='_blank'>Fiber</a>
+            <a href='https://fiberapp.io' target='_blank' rel='noopener noreferrer'>Fiber</a>
           </Title>
           <Subtitle>Co-founder & devops lead</Subtitle>
-          <VisitLink href='https://fiberapp.io' target='_blank'>Visit</VisitLink>
+          <VisitLink href='https://fiberapp.io' target='_blank' rel='noopener noreferrer'>Visit</VisitLink>
         </div>
       </ProjectWrapper>
 
@@ -237,10 +236,10 @@ const Projects = () => (
         <div>
           <Kicker>Previous</Kicker>
           <Title>
-            <a href='https://oho.com' target='_blank'>OHO Interactive</a>
+            <a href='https://oho.com' target='_blank' rel='noopener noreferrer'>OHO Interactive</a>
           </Title>
           <Subtitle>Full-stack developer</Subtitle>
-          <VisitLink href='https://oho.com' target='_blank'>Visit</VisitLink>
+          <VisitLink href='https://oho.com' target='_blank' rel='noopener noreferrer'>Visit</VisitLink>
         </div>
       </ProjectWrapper>
 

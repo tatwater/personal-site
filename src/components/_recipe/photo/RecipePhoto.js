@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { withPrefix } from 'gatsby-link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import { toggleInstructions as toggleInstructionsAction } from '../../../state/app';
 import * as SC from './recipePhoto_styles';
 
 
@@ -65,7 +63,4 @@ RecipePhoto.propTypes = {
 }
 
 
-export default connect(
-  state => ({ areInstructionsVisible: state.app.areInstructionsVisible }),
-  dispatch => ({ toggleInstructions: visible => dispatch(toggleInstructionsAction(visible)) }),
-)(RecipePhoto);
+export default RecipePhoto;

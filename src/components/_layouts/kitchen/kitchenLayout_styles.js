@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { RECIPE } from '../../utils/vars';
+import { RECIPE } from '../../../utils/vars';
 
 
 export const Container = styled.div`
