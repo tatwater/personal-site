@@ -10,6 +10,20 @@ import MegaMenu from '../mega-menu/MegaMenu';
 import * as SC from './navbar_styles';
 
 
+const Brand = ({ name, to }) => (
+  <SC.HomeLink
+    to={ to }
+  >
+    <SC.Logo
+      alt='T A logo'
+      src={ withPrefix('/images/logo.svg') }
+    />
+    <SC.SectionName>
+      { name }
+    </SC.SectionName>
+  </SC.HomeLink>
+);
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -31,47 +45,37 @@ class Navbar extends Component {
   render() {
     return (
       <SC.Container>
-        <SC.BrandWrapper>
+        <SC.SimplifiedNavbar>
           <SC.MainNavButton
             onClick={() => { this.props.toggleMainNav(true) }}
             type='button'
           >
             <SC.HamburgerIcon>
-              <div></div>
-              <div className='small'></div>
-              <div></div>
+              <div /><div /><div />
             </SC.HamburgerIcon>
           </SC.MainNavButton>
-          <SC.HomeLink
-            to='/'
-          >
-            <SC.Logo
-              alt='T A logo'
-              src={ withPrefix('/images/logo.svg') }
+          <Router>
+            <Brand
+              name='work'
+              path='/'
+              to='/'
             />
-          </SC.HomeLink>
-          {/*<Router>
-            <div path='/'>
-            </div>
-            <div path='/kitchen'>
-              <SC.HomeLink
-                to='/kitchen'
-              >
-                <SC.Logo
-                  alt='T A logo'
-                  src={ withPrefix('/images/logo.svg') }
-                />
-                <SC.SectionName >
-                  Kitchen
-                </SC.SectionName>
-              </SC.HomeLink>
-            </div>
-          </Router>*/}
-        </SC.BrandWrapper>
-        <SC.MenuWrapper>
-          <MegaMenu />
-          {/* auth.currentUser() && <button onClick={() => { this.signOut() }}>Sign out</button> */}
-        </SC.MenuWrapper>
+            <Brand
+              name='kitchen'
+              path='/kitchen/*'
+              to='/kitchen'
+            />
+          </Router>
+          <SC.SearchButton></SC.SearchButton>
+        </SC.SimplifiedNavbar>
+        <SC.ExpandedMenuWrapper>
+          <Router>
+            <MegaMenu
+              path='/kitchen/*'
+              tree='kitchen'
+            />
+          </Router>
+        </SC.ExpandedMenuWrapper>
         { this.props.isMainNavVisible && <MainNav /> }
       </SC.Container>
     );

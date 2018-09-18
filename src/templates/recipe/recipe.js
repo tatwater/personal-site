@@ -80,7 +80,9 @@ class Recipe extends Component {
     });
 
     return (
-      <DefaultLayout>
+      <DefaultLayout
+        location={ this.props.location }
+      >
         <SC.HideOffCanvas>
           <Helmet
             title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }

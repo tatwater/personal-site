@@ -5,7 +5,6 @@ import * as SC from './notes_styles';
 
 
 const RecipeNotes = ({ notes, notesVisible, setNotesVisible, showInstructions }) => {
-  console.log(notesVisible)
   return (
     <div>
       <SC.Overlay

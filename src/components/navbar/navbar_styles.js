@@ -1,39 +1,34 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+import { BREAKPOINTS, COLORS } from '../../utils/vars';
+
 
 export const Container = styled.nav`
   align-items: center;
-  background: #fff;
   display: flex;
-  height: 60px;
-  justify-content: center;
-  padding: 0;
-  position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-  z-index: 50;
+  grid-area: navigation;
+  justify-content: space-between;
+  padding: 0 3vw;
 
-  @media screen and (min-width: 768px) {
-    height: 80px;
-  }
-  @media screen and (min-width: 1024px) {
-    background: none;
-    justify-content: space-between;
-    padding: 0 100px 0 40px;
-  }
-  @media screen and (min-width: 1440px) {
-    height: 110px;
+  ${BREAKPOINTS.wideLayout} {
+    padding: 0 6vw 0 2vw;
   }
 `;
-export const BrandWrapper = styled.div`
+export const SimplifiedNavbar = styled.div`
   align-items: center;
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  ${BREAKPOINTS.wideLayout} {
+    justify-content: flex-start;
+    width: auto;
+  }
 `;
 export const MainNavButton = styled.button`
   align-items: center;
-  background: #fff;
+  background: transparent;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -46,7 +41,7 @@ export const MainNavButton = styled.button`
 
   &:hover,
   &:focus {
-    background: #EFF0F3;
+    background: ${COLORS.borderPrimary};
   }
 `;
 export const HamburgerIcon = styled.div`
@@ -57,11 +52,11 @@ export const HamburgerIcon = styled.div`
   justify-content: space-between;
 
   div {
-    background: #222F3E;
+    background: ${COLORS.textPrimary};
     height: 2px;
     width: 22px;
 
-    &.small {
+    &:nth-of-type(2) {
       width: 18px;
     }
   }
@@ -69,21 +64,47 @@ export const HamburgerIcon = styled.div`
 export const HomeLink = styled(Link)`
   align-items: center;
   display: flex;
+  margin: 0 12px;
   text-decoration: none;
 `;
 export const Logo = styled.img`
   height: 30px;
-  margin-left: 12px;
   vertical-align: bottom;
 `;
 export const SectionName = styled.span`
-  color: #C6C9CD;
+  color: ${COLORS.textTertiary};
   font-family: 'Poppins';
   font-size: 30px;
   font-weight: 300;
-  margin-left: 18px;
+  margin-left: 16px;
 `;
-export const MenuWrapper = styled.div`
+export const SearchButton = styled.button`
   align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
   display: flex;
+  height: 40px;
+  justify-content: center;
+  outline: none;
+  transition: background .1s ease;
+  width: 40px;
+
+  &:hover,
+  &:focus {
+    background: ${COLORS.borderPrimary};
+  }
+
+  ${BREAKPOINTS.wideLayout} {
+    display: none;
+  }
+`;
+export const ExpandedMenuWrapper = styled.div`
+  align-items: center;
+  display: none;
+
+  ${BREAKPOINTS.wideLayout} {
+    display: flex;
+  }
 `;

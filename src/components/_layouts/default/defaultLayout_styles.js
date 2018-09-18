@@ -6,19 +6,25 @@ injectGlobal`
   body {
     height: 100vh;
     min-width: 320px;
+    overflow: hidden;
     position: relative;
     width: 100vw;
   }
 `;
 
-export const Container = styled.div`
-  min-width: 320px;
-  padding-top: 72px;
+export const Grid = styled.div`
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+    'navigation'
+    'content';
+  grid-template-columns: 1fr;
+  grid-template-rows: 15vh 1fr;
 
-  @media screen and (min-width: 768px) {
-    padding-top: 86px;
-  }
   @media screen and (min-width: 1024px) {
-    padding-top: 110px;
+    grid-template-rows: 12vh 1fr;
   }
+`;
+export const Content = styled.div`
+  grid-area: content;
 `;

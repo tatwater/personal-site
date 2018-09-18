@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import '../../../utils/normalize.css';
 import '../../../utils/typography.css';
 import '../../../utils/fontawesome';
+
 import createStore from '../../../state/createStore';
 import Navbar from '../../navbar/Navbar';
 import * as SC from './defaultLayout_styles';
@@ -13,8 +14,10 @@ import * as SC from './defaultLayout_styles';
 
 const DefaultLayout = ({ children, location }) => {
   return (
-    <Provider store={createStore()}>
-      <SC.Container>
+    <Provider
+      store={ createStore() }
+    >
+      <SC.Grid>
         <Helmet
           meta={[
             {
@@ -32,17 +35,20 @@ const DefaultLayout = ({ children, location }) => {
         <Navbar
           location={ location }
         />
-
-        { children }
-
-      </SC.Container>
+        <SC.Content>
+          { children }
+        </SC.Content>
+      </SC.Grid>
     </Provider>
   );
 }
 
 DefaultLayout.propTypes = {
-  children: PropTypes.array,
-  location: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.element,
+  ]),
+  location: PropTypes.object.isRequired,
 }
 
 

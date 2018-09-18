@@ -4,16 +4,10 @@ import { RECIPE } from '../../utils/vars';
 
 
 export const HideOffCanvas = styled.div`
-  overflow-x: hidden;
-  position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 `;
 export const BackgroundFlair = styled.div`
   display: none;
-  z-index: 0;
+  z-index: -1;
 
   @media screen and (min-width: 1024px) {
     background: #fafafa;
