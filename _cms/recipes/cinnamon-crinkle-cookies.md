@@ -1,8 +1,8 @@
 ---
-path: /kitchen/recipe/brown-butter-cinnamon-crinkle-cookies
+path: /kitchen/recipe/cinnamon-crinkle-cookies
 layout: recipe
 source: Cookies and Cups
-title: Brown butter cinnamon crinkle cookies
+title: Cinnamon crinkle cookies
 category: Desserts
 allergens:
   - allergen: Dairy
@@ -85,4 +85,3 @@ instructions:
       Allow the cookies to cool on the pan for a few minutes before transferring
       them to a wire rack to finish cooling.
 ---
-
