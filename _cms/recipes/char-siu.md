@@ -2,7 +2,7 @@
 path: /kitchen/recipe/char-siu
 layout: recipe
 source: Recipe Tin Eats
-title: Char siu (temp)
+title: Char siu
 category: Main dishes
 timing:
   - timingAmount: 15 mins
@@ -14,7 +14,7 @@ timing:
 time:
   timeAmount: '26'
   timeUnits: hrs
-photo: /images/uploads/delete-this-2.jpg
+photo: /images/uploads/40739500_565284447233975_1267851191610507264_n.jpg
 ingredients:
   - ingredientAmount: 1 1/2 tbsp
     ingredientName: Brown sugar
