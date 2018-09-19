@@ -17,19 +17,7 @@ const fadeIn = keyframes`
 
 export const Container = styled.div`
   align-items: flex-start;
-  display: flex;
-  margin-top: 70px;
-
-  @media screen and (min-width: 1024px) {
-    margin: 0;
-    padding-right: 70px;
-    position: absolute;
-      top: calc(10vh + 232px);
-      left: calc(100vw - ${RECIPE.PREP_WIDTH._1024} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1024} - 2vw);
-  }
-  @media screen and (min-width: 1440px) {
-      left: calc(100vw - ${RECIPE.PREP_WIDTH._1440} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1440} - 2vw);
-  }
+  display: inline-flex;
 `;
 export const Photo = styled.div`
   ${props => props.src && 'background-image: url(' + props.src + ')'};
@@ -46,6 +34,8 @@ export const Photo = styled.div`
 export const Card = styled(Link)`
   animation: ${fadeIn} .3s ease-out;
   animation-fill-mode: both;
+  display: block;
+  flex-shrink: 0;
   margin-right: 30px;
   text-decoration: none;
   width: 300px;
@@ -64,6 +54,9 @@ export const Card = styled(Link)`
   }
   &:nth-of-type(6) {
     animation-delay: .5s;
+  }
+  &:last-of-type {
+    margin-right: 0;
   }
 
   &:hover ${Photo} {

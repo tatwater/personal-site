@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import DefaultLayout from '../../components/_layouts/default/DefaultLayout';
-import KitchenLayout from '../../components/_layouts/kitchen/KitchenLayout';
+import BrowseLayout from '../../components/_layouts/browse/BrowseLayout';
 import Gallery from '../../components/gallery/Gallery';
 
 
@@ -11,9 +11,9 @@ const KitchenDessertsPage = ({ data, location }) => {
     <DefaultLayout
       location={ location }
     >
-      <KitchenLayout>
+      <BrowseLayout>
         <h1>Desserts</h1>
-      </KitchenLayout>
+      </BrowseLayout>
       <Gallery
         recipes={ data.allMarkdownRemark.edges }
       />

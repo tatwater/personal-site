@@ -1,6 +1,7 @@
 // Breakpoints
 export const BREAKPOINTS = {
   wideLayout: '@media screen and (min-width: 1024px) and (orientation: landscape)',
+  extraWideLayout: '@media screen and (min-width: 1440px) and (orientation: landscape)',
 }
 
 // Colors
