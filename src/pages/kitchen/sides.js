@@ -2,21 +2,22 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import DefaultLayout from '../../components/_layouts/default/DefaultLayout';
-import BrowseLayout from '../../components/_layouts/browse/BrowseLayout';
+import BrowseLayout, { BrowseHeader, BrowseSubHeading, BrowseHeading, BrowseContent } from '../../components/_layouts/browse/BrowseLayout';
 import Gallery from '../../components/gallery/Gallery';
 
 
 const KitchenSidesPage = ({ data, location }) => {
   return (
-    <DefaultLayout
-      location={ location }
-    >
+    <DefaultLayout location={ location }>
       <BrowseLayout>
-        <h1>Sides</h1>
+        <BrowseHeader>
+          <BrowseSubHeading></BrowseSubHeading>
+          <BrowseHeading>Sides</BrowseHeading>
+        </BrowseHeader>
+        <BrowseContent>
+          <Gallery recipes={ data.allMarkdownRemark.edges } />
+        </BrowseContent>
       </BrowseLayout>
-      <Gallery
-        recipes={ data.allMarkdownRemark.edges }
-      />
     </DefaultLayout>
   );
 }

@@ -1,8 +1,6 @@
 import styled, {keyframes} from 'styled-components';
 import { Link } from 'gatsby';
 
-import { RECIPE } from '../../utils/vars';
-
 
 const fadeIn = keyframes`
   from {
