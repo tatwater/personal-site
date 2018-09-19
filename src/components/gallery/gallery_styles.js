@@ -1,6 +1,8 @@
 import styled, {keyframes} from 'styled-components';
 import { Link } from 'gatsby';
 
+import { BREAKPOINTS } from '../../utils/vars';
+
 
 const fadeIn = keyframes`
   from {
@@ -16,6 +18,7 @@ const fadeIn = keyframes`
 export const Container = styled.div`
   align-items: flex-start;
   display: inline-flex;
+  height: 100%;
 `;
 export const Photo = styled.div`
   ${props => props.src && 'background-image: url(' + props.src + ')'};
@@ -24,10 +27,14 @@ export const Photo = styled.div`
   background-size: cover;
   border-radius: 10px;
   box-shadow: 0 2px 10px #fff;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-top: 140%;
   transition: box-shadow .2s ease;
   width: 100%;
+
+  ${BREAKPOINTS.wideLayout} {
+    margin-bottom: 20px;
+  }
 `;
 export const Card = styled(Link)`
   animation: ${fadeIn} .3s ease-out;
@@ -36,7 +43,7 @@ export const Card = styled(Link)`
   flex-shrink: 0;
   margin-right: 30px;
   text-decoration: none;
-  width: 300px;
+  width: calc(.618 * (100vh - 14vh - 80px - 50px));
 
   &:nth-of-type(2) {
     animation-delay: .1s;
@@ -59,6 +66,11 @@ export const Card = styled(Link)`
 
   &:hover ${Photo} {
     box-shadow: 0 5px 30px rgba(34, 47, 62, .15);
+  }
+
+  ${BREAKPOINTS.wideLayout} {
+    max-width: 300px;
+    width: calc(.618 * (100vh - 12vh - 213px - 100px));
   }
 `;
 export const Title = styled.span`

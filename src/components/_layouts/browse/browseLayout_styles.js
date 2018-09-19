@@ -53,7 +53,7 @@ export const SubHeading = styled.span`
 export const Content = styled.main`
   grid-area: content;
   overflow-x: scroll;
-  padding: 0 20px;
+  padding: 10px 20px 0 20px;
 
   ${BREAKPOINTS.wideLayout} {
     padding-left: calc(100vw - ${RECIPE.PREP_WIDTH._1024} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1024} - 2vw);
