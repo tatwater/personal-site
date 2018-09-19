@@ -14,7 +14,7 @@ export const Grid = styled.div`
 `;
 export const Header = styled.header`
   grid-area: header;
-  padding: 0;
+  padding: 10px 20px 20px 20px;
 
   ${BREAKPOINTS.wideLayout} {
     padding: 50px 0 50px calc(100vw - ${RECIPE.PREP_WIDTH._1024} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1024} - 2vw);
@@ -29,7 +29,6 @@ export const SubHeading = styled.span`
   display: flex;
   font-size: 22px;
   font-weight: 400;
-  height: 26px;
   justify-content: space-between;
   margin-bottom: 4px;
   position: relative;
@@ -54,6 +53,7 @@ export const SubHeading = styled.span`
 export const Content = styled.main`
   grid-area: content;
   overflow-x: scroll;
+  padding: 0 20px;
 
   ${BREAKPOINTS.wideLayout} {
     padding-left: calc(100vw - ${RECIPE.PREP_WIDTH._1024} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1024} - 2vw);
