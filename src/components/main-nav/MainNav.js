@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { toggleMainNav as toggleMainNavAction } from '../../state/app';
 import * as SC from './mainNav_styles';
@@ -19,6 +20,7 @@ class MainNav extends Component {
     }
   }
 
+  // Prevent scroll and start listening for ESC
   componentDidMount() {
     document.getElementsByTagName('body')[0].classList.toggle('noscroll');
     document.getElementsByTagName('body')[0].addEventListener(
@@ -34,6 +36,7 @@ class MainNav extends Component {
     );
   }
 
+  // Restore scroll and stop listening for ESC
   componentWillUnmount() {
     document.getElementsByTagName('body')[0].classList.toggle('noscroll');
     document.getElementsByTagName('body')[0].removeEventListener(
@@ -50,6 +53,8 @@ class MainNav extends Component {
   }
 
   render() {
+    let currentYear = (new Date()).getFullYear();
+
     return (
       <div>
         <SC.Overlay
@@ -92,7 +97,84 @@ class MainNav extends Component {
                 Yoga
               </SC.Title>
             </SC.Yoga>
-            <SC.Social></SC.Social>
+            <SC.Social>
+              <SC.SocialTile
+                href='https://linkedin.com/in/teaganatwater'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <SC.SocialIcon>
+                  <FontAwesomeIcon icon={['fab', 'linkedin-in']} />
+                </SC.SocialIcon>
+                <SC.SocialText>
+                  <h3>Work I've done</h3>
+                  <span>on LinkedIn</span>
+                </SC.SocialText>
+              </SC.SocialTile>
+              <SC.SocialTile
+                href='https://github.com/tatwater'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <SC.SocialIcon>
+                  <FontAwesomeIcon icon={['fab', 'github']} />
+                </SC.SocialIcon>
+                <SC.SocialText>
+                  <h3>My technical side</h3>
+                  <span>on GitHub</span>
+                </SC.SocialText>
+              </SC.SocialTile>
+              <SC.SocialTile
+                href='https://dribbble.com/tatwater'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <SC.SocialIcon>
+                  <FontAwesomeIcon icon={['fab', 'dribbble']} />
+                </SC.SocialIcon>
+                <SC.SocialText>
+                  <h3>My visual side</h3>
+                  <span>on Dribbble</span>
+                </SC.SocialText>
+              </SC.SocialTile>
+              <SC.SocialTile
+                href='https://www.instagram.com/teaganskitchen/'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <SC.SocialIcon>
+                  <FontAwesomeIcon icon={['fab', 'instagram']} />
+                </SC.SocialIcon>
+                <SC.SocialText>
+                  <h3>Food I'm making</h3>
+                  <span>on Instagram</span>
+                </SC.SocialText>
+              </SC.SocialTile>
+              <SC.SocialTile
+                href='https://open.spotify.com/user/nagaant'
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <SC.SocialIcon>
+                  <FontAwesomeIcon icon={['fab', 'spotify']} />
+                </SC.SocialIcon>
+                <SC.SocialText>
+                  <h3>Music I'm listening to</h3>
+                  <span>on Spotify</span>
+                </SC.SocialText>
+              </SC.SocialTile>
+            </SC.Social>
+            <SC.Footer>
+              <SC.TextWrapper>
+                <div>Made with {' '}<FontAwesomeIcon icon={['fas', 'heart']} />{' '} in Boston, MA</div>
+                <div>Copyright &copy; { currentYear }</div>
+              </SC.TextWrapper>
+              <SC.EmailButton
+                href='mailto:desk@teaganatwater.com'
+              >
+                <FontAwesomeIcon icon={['fal', 'envelope']} />
+              </SC.EmailButton>
+            </SC.Footer>
           </SC.NavLayout>
         </SC.Container>
       </div>

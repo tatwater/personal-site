@@ -1,5 +1,7 @@
 import styled, { injectGlobal } from 'styled-components';
 
+import { BREAKPOINTS } from '../../../utils/vars';
+
 
 injectGlobal`
   html,
@@ -19,9 +21,9 @@ export const Grid = styled.div`
     'navigation'
     'content';
   grid-template-columns: 1fr;
-  grid-template-rows: 15vh 1fr;
+  grid-template-rows: 14vh 1fr;
 
-  @media screen and (min-width: 1024px) {
+  ${BREAKPOINTS.wideLayout} {
     grid-template-rows: 12vh 1fr;
   }
 `;

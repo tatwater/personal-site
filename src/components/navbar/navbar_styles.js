@@ -19,7 +19,7 @@ export const SimplifiedNavbar = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100vw - 6vw);
 
   ${BREAKPOINTS.wideLayout} {
     justify-content: flex-start;
@@ -78,23 +78,9 @@ export const SectionName = styled.span`
   font-weight: 300;
   margin-left: 16px;
 `;
-export const SearchButton = styled.button`
-  align-items: center;
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
+export const SearchButton = styled.div`
   height: 40px;
-  justify-content: center;
-  outline: none;
-  transition: background .1s ease;
   width: 40px;
-
-  &:hover,
-  &:focus {
-    background: ${COLORS.borderPrimary};
-  }
 
   ${BREAKPOINTS.wideLayout} {
     display: none;

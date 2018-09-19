@@ -7,7 +7,8 @@ export const BREAKPOINTS = {
 export const COLORS = {
   backgroundGrey: '#fafafa',
   borderPrimary: '#eaeced',
-  textPrimary: '#222f3e',
+  overlayShade: 'rgba(34, 47, 62, .16)',
+  textPrimary: 'rgb(34, 47, 62)',
   textSecondary: '#c6c9cd',
   textTertiary: '#c6c9cd',
 }
