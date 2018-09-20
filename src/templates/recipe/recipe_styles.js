@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { RECIPE, BREAKPOINTS } from '../../utils/vars';
+import { BREAKPOINTS } from '../../utils/vars';
 
 
 export const RecipeWrapperGrid = styled.div`
