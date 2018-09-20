@@ -21,7 +21,7 @@ export const Grid = styled.div`
 `;
 export const Header = styled.header`
   grid-area: header;
-  padding: 10px 20px 0 20px;
+  padding: 10px 20px 10px 20px;
   width: 100%;
 
   ${BREAKPOINTS.wideLayout} {

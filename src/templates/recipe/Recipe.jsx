@@ -7,6 +7,7 @@ import { graphql } from 'gatsby';
 import DefaultLayout from '../../components/_layouts/default/DefaultLayout';
 import RecipeLayout, { RecipeHeader, RecipeSubHeading, RecipeHeading, RecipeContent } from '../../components/_layouts/recipe/RecipeLayout';
 import TabNav from '../../components/_recipe/tab-nav/TabNav';
+import Allergens from '../../components/_recipe/allergens/Allergens';
 import RecipePhoto from '../../components/_recipe/photo/RecipePhoto';
 import RecipeTiming from '../../components/_recipe/timing/RecipeTiming';
 import Instructions from '../../components/_recipe/instructions/Instructions';
@@ -106,6 +107,9 @@ class Recipe extends Component {
                   timing={ frontmatter.timing }
                 />
               </SC.NotWideLayout>
+              <Allergens
+                currentView={ this.state.currentView }
+              />
               <SC.Prep>
                 <SC.Ingredients currentView={ this.state.currentView }>
                   <h3>Ingredients</h3>
