@@ -21,11 +21,11 @@ export const Grid = styled.div`
 `;
 export const Header = styled.header`
   grid-area: header;
-  // overflow: hidden;  // TODO: figure out why this shrinks everything to fit
-  margin: 10px 20px 0 20px;
+  padding: 10px 20px 0 20px;
   width: 100%;
 
   ${BREAKPOINTS.wideLayout} {
+    padding: 0;
     margin: 50px 0 50px calc(100vw - ${RECIPE.PREP_WIDTH._1024} - 2vw - ${RECIPE.PHOTO_MAX_WIDTH._1024} - 2vw);
     width: ${RECIPE.PREP_WIDTH._1024};
   }
