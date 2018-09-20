@@ -4,23 +4,9 @@ import { RECIPE } from '../../../utils/vars';
 
 
 export const Container = styled.div`
-  margin-bottom: 20px;
-  position: relative;
-    top: -20px;
-    right: -20px;
-  width: calc(100% + 40px);
-
-  @media screen and (min-width: 600px) {
-    margin-bottom: 40px;
-      top: 10px;
-      right: -10px;
-    width: calc(100% + 20px);
-  }
-  @media screen and (min-width: 880px) {
-    margin-bottom: 50px;
-  }
-
-
+  margin-top: 10px;
+  width: 100%;
+  
   @media screen and (min-width: 1024px) {
     height: 85vh;
     margin: 0;
@@ -54,14 +40,20 @@ export const Photo = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 16px;
-  box-shadow: 0 30px 90px rgba(34, 47, 62, .25);
-  height: 1080px;
-  margin-bottom: 0;
-  position: absolute;
-    top: 50%;
-    left: 50%;
-  width: 770px;
+  border-radius: 5px;
+  padding-top: 61.8%;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    border-radius: 16px;
+    box-shadow: 0 30px 90px rgba(34, 47, 62, .25);
+    height: 1080px;
+    margin-bottom: 0;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+    width: 770px;
+  }
 `;
 export const PreparationButton = styled.button`
   align-items: center;

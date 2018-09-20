@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 
+export const Wrapper = styled.div`
+  display: ${props => props.currentView === 'instructions' ? 'block' : 'none'};
+
+  @media screen and (min-width: 1024px) {
+    display: ${props => props.currentView === 'instructions' || props.currentView === 'notes' ? 'block' : 'none'};
+  }
+`;
 export const Container = styled.div`
-  padding: 0 20px;
-  margin-bottom: 40px;
+  margin: 20px 0 40px;
   
   @media screen and (min-width: 480px) {
     padding: 0 30px;

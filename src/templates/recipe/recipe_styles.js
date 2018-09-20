@@ -107,152 +107,6 @@ export const EditButton = styled.a`
     background: #C6C9CD;
   }
 `;
-export const Photo = styled.div`
-  ${props => props.src && 'background-image: url(' + props.src + ')'};
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 61.8%;
-  position: relative;
-    left: -20px;
-  width: calc(100% + 40px);
-
-  @media screen and (min-width: 480px) {
-    border-radius: 10px;
-    box-shadow: 0 5px 30px rgba(34, 47, 62, .2);
-    left: 0;
-    width: 100%;
-  }
-  @media screen and (min-width: 1024px) {
-    display: none;
-  }
-`;
-export const TimeWrapper = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  margin: 30px 0;
-
-  @media screen and (min-width: 1024px) {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 20px 0;
-  }
-`;
-export const TimeBlock = styled.div`
-  align-items: center;
-  border: 1px solid #eee;
-  border-radius: 3px;
-  display: flex;
-  flex-direction: column;
-  height: 46px;
-  justify-content: center;
-  width: 90px;
-
-  & + div {
-    margin-left: 12px;
-  }
-`;
-export const TimeAmount = styled.span`
-  font-family: 'Poppins';
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 1px;
-`;
-export const TimeType = styled.span`
-  color: #C6C9CD;
-  font-size: 12px;
-  font-weight: 300;
-`;
-export const TotalTime = styled.div`
-  color: #C6C9CD;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 20px;
-
-  svg {
-    height: 18px;
-    margin-right: 6px;
-  }
-
-  @media screen and (max-width: 479px) {
-    ${TimeAmount} {
-      font-size: 18px;
-      font-weight: 500;
-    }
-    ${TimeType} {
-      font-size: 18px;
-      font-weight: 500;
-    }
-  }
-  @media screen and (min-width: 480px) {
-    align-items: center;
-    background: #222F3E;
-    border-radius: 50%;
-    color: #fff;
-    display: none;
-    flex-direction: column;
-    font-size: 16px;
-    font-weight: 700;
-    height: 52px;
-    justify-content: center;
-    margin: 0 16px 0 0;
-    top: 0;
-    width: 52px;
-
-    svg {
-      display: none;
-    }
-  }
-`;
-export const TimeBreakdown = styled.div`
-  align-items: center;
-  display: flex;
-
-  ${TotalTime} {
-    display: none;
-  }
-
-  @media screen and (min-width: 480px) {
-    ${TotalTime} {
-      display: flex;
-    }
-  }
-`;
-export const InstructionsButton = styled.button`
-  align-items: center;
-  background: #529F8D;
-  border: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
-  color: #fff;
-  cursor: pointer;
-  display: none;
-  font-family: 'Poppins';
-  font-size: 14px;
-  height: 50px;
-  letter-spacing: .05em;
-  outline: none;
-  padding: 0 40px;
-  transition: box-shadow .2s ease;
-
-  svg {
-    margin-left: 16px;
-  }
-
-  &:hover {
-    box-shadow: 0 20px 50px rgba(0, 0, 0, .16);
-  }
-
-  @media screen and (min-width: 1024px) {
-    display: flex;
-  }
-`;
-export const Yield = styled.span`
-  display: block;
-  font-weight: 700;
-  margin: 40px 0;
-`;
 export const Recipe = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -278,12 +132,14 @@ export const List = styled.ul`
   padding-left: ${props => props.hideBullets ? '8px' : '20px'};
 `;
 export const Ingredients = styled.div`
+  display: ${props => props.currentView === 'prep' ? 'block' : 'none'};
   width: 100%;
 
   @media screen and (min-width: 600px) {
     width: 50%;
   }
   @media screen and (min-width: 1024px) {
+    display: ${props => props.currentView === 'overview' || props.currentView === 'prep' ? 'block' : 'none'};
     width: 100%;
   }
   @media screen and (min-width: 1200px) {
@@ -291,6 +147,7 @@ export const Ingredients = styled.div`
   }
 `;
 export const Tools = styled.div`
+  display: ${props => props.currentView === 'prep' ? 'block' : 'none'};
   margin-top: 30px;
   width: 100%;
 
@@ -300,6 +157,7 @@ export const Tools = styled.div`
     width: 50%;
   }
   @media screen and (min-width: 1024px) {
+    display: ${props => props.currentView === 'overview' || props.currentView === 'prep' ? 'block' : 'none'};
     margin-top: 50px;
     padding-left: 0;
     width: 100%;
@@ -308,13 +166,5 @@ export const Tools = styled.div`
     margin-top: 0;
     padding-left: 40px;
     width: 50%;
-  }
-`;
-export const Instructions = styled.div`
-  margin-top: 30px;
-  width: 100%;
-
-  @media screen and (min-width: 600px) {
-    margin-top: 50px;
   }
 `;

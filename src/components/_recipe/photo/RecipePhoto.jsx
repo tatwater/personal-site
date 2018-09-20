@@ -17,11 +17,15 @@ class RecipePhoto extends Component {
   }
 
   resizePhoto() {
-    let scale = Math.min(
-      this.photoContainer.current.offsetWidth / 770, 
-      this.photoContainer.current.offsetHeight / 1080 
-    );
-    this.photo.current.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+    if (window.innerWidth >= 1024) {
+      let scale = Math.min(
+        this.photoContainer.current.offsetWidth / 770, 
+        this.photoContainer.current.offsetHeight / 1080 
+      );
+      this.photo.current.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+    } else {
+      this.photo.current.style.transform = 'scale(1)';
+    }
   }
 
   componentDidMount() {

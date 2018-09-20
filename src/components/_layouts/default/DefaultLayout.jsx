@@ -44,10 +44,6 @@ const DefaultLayout = ({ children, location }) => {
 }
 
 DefaultLayout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.element,
-  ]),
   location: PropTypes.object.isRequired,
 }
 

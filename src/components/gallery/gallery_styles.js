@@ -76,10 +76,14 @@ export const Card = styled(Link)`
 export const Title = styled.span`
   display: block;
   font-family: 'Poppins';
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.2em;
   margin-bottom: 2px;
+
+  ${BREAKPOINTS.wideLayout} {
+    font-size: 24px;
+  }
 `;
 export const Time = styled.span`
   color: #C6C9CD;

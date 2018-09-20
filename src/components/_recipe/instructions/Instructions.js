@@ -75,8 +75,9 @@ class Instructions extends Component {
     });
 
     return (
-      <div>
+      <SC.Wrapper>
         <SC.Container
+          currentView={ this.props.currentView }
           showInstructions={ this.props.showInstructions }
         >
           <SC.Header>
@@ -133,7 +134,7 @@ class Instructions extends Component {
             <FontAwesomeIcon icon={['fal', 'long-arrow-down']} />
           </SC.NavButton>
         </SC.Controls>
-      </div>
+      </SC.Wrapper>
     );
   }
 }
