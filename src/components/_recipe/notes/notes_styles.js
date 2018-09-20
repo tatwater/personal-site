@@ -12,15 +12,7 @@ export const Overlay = styled.button`
 `;
 export const Container = styled.div`
   display: ${props => props.currentView === 'notes' ? 'block' : 'none'};
-  padding: 0 20px;
-  margin-bottom: 50px;
-  
-  @media screen and (min-width: 480px) {
-    padding: 0 30px;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 0 40px;
-  }
+
   @media screen and (min-width: 1024px) {
     background: #fff;
     border-radius: 16px;
@@ -44,23 +36,17 @@ export const Container = styled.div`
   }
 `;
 export const MobileHeading = styled.h3`
-  display: block;
-
-  @media screen and (min-width: 768px) {
-    padding: 0 20px;
-  }
   @media screen and (min-width: 1024px) {
     margin-top: 20px;
     padding: 0;
   }
 `;
 export const List = styled.ol`
-  // list-style-type: none;
   margin: 0;
   padding-left: 24px;
 
   li {
-    margin: 20px 0;
+    margin: 10px 0;
   }
 `;
 export const NotesButton = styled.button`

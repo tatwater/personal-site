@@ -10,16 +10,8 @@ export const Wrapper = styled.div`
   }
 `;
 export const Container = styled.div`
-  margin: 20px 0 40px;
-  
-  @media screen and (min-width: 480px) {
-    padding: 0 30px;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 0 20px;
-  }
-  @media screen and (min-width: 1024px) {
-    margin-bottom: 100px;
+  ${BREAKPOINTS.wideLayout} {
+    margin: 20px 0 100px;
     position: absolute;
       top: 0;
       right: 8vw;
@@ -72,11 +64,6 @@ export const CurrentStep = styled.span`
   }
 `;
 export const MobileHeading = styled.h3`
-  display: block;
-
-  @media screen and (min-width: 768px) {
-    padding: 0 20px;
-  }
   @media screen and (min-width: 1024px) {
     display: none;
   }
