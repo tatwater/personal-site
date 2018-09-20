@@ -15,6 +15,8 @@ export const Container = styled.div`
 `;
 export const Tab = styled.button`
   align-items: center;
+  background: none;
+  border: none;
   color: ${props => props.active ? COLORS.textPrimary : COLORS.textTertiary };
   display: flex;
   font-size: 20px;
