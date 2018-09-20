@@ -15,12 +15,14 @@ export const Container = styled.div`
 `;
 export const Tab = styled.button`
   align-items: center;
-  background: none;
+  background: ${props => props.active ? COLORS.backgroundGrey : '#fff' };
   border: none;
   color: ${props => props.active ? COLORS.textPrimary : COLORS.textTertiary };
   display: flex;
   font-size: 20px;
   flex-shrink: 1;
   justify-content: center;
+  outline: none;
+  transition: background .1s ease, color .1s ease;
   width: 100%;
 `;
