@@ -29,7 +29,9 @@ export const RecipeHeading = ({ children }) => (
   </h1>
 );
 export const RecipeContent = ({ children }) => (
-  <SC.Content>
+  <SC.Content
+    className='toTopOnChange'
+  >
     { children }
   </SC.Content>
 );

@@ -30,6 +30,8 @@ class Recipe extends Component {
     this.setState({
       currentView: view,
     });
+
+    document.getElementsByClassName('toTopOnChange')[0].scrollTo(0, 0);
   }
 
   render() {
