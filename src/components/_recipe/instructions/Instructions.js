@@ -12,20 +12,12 @@ class Instructions extends Component {
 
     this.state = {
       currentStep: 0,
-      notesVisible: false,
       numSteps: this.props.instructions.length,
     }
 
     this.setStep = this.setStep.bind(this);
-    this.setNotesVisible = this.setNotesVisible.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.previousStep = this.previousStep.bind(this);
-  }
-
-  setNotesVisible(visibility) {
-    this.setState({
-      notesVisible: visibility,
-    });
   }
 
   setStep(step) {
@@ -75,10 +67,11 @@ class Instructions extends Component {
     });
 
     return (
-      <SC.Wrapper>
+      <SC.Wrapper
+        currentView={ this.props.currentView }
+      >
         <SC.Container
           currentView={ this.props.currentView }
-          showInstructions={ this.props.showInstructions }
         >
           <SC.Header>
             <div>
@@ -103,16 +96,15 @@ class Instructions extends Component {
         </SC.Container>
         <RecipeNotes
           notes={ this.props.notes }
-          notesVisible={ this.state.notesVisible }
-          setNotesVisible={(visibility) => { this.setNotesVisible(visibility) }}
-          showInstructions={ this.props.showInstructions }
+          setCurrentView={(view) => { this.props.setCurrentView(view) }}
+          currentView={ this.props.currentView }
         />
         <SC.Controls
-          showInstructions={ this.props.showInstructions }
+          currentView={ this.props.currentView }
         >
           { this.props.notes.length > 0 &&
             <SC.NotesButton
-              onClick={() => { this.setNotesVisible(true) }}
+              onClick={() => { this.props.setCurrentView('notes') }}
               type='button'
             >
               <FontAwesomeIcon icon={['fal', 'sticky-note']} />
@@ -140,9 +132,10 @@ class Instructions extends Component {
 }
 
 Instructions.propTypes = {
+  currentView: PropTypes.string,
   instructions: PropTypes.array,
   notes: PropTypes.array,
-  showInstructions: PropTypes.bool,
+  setCurrentView: PropTypes.func,
   title: PropTypes.string,
 }
 

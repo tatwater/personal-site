@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import * as SC from './tabNav_styles';
 
 
-const TabNav = ({ currentView, setCurrentView }) => (
+const TabNav = ({ currentView, hasNotes, setCurrentView }) => (
   <SC.Container>
     <SC.Tab
       active={ currentView === 'overview' }
@@ -28,13 +28,15 @@ const TabNav = ({ currentView, setCurrentView }) => (
     >
       <FontAwesomeIcon icon={['fal', 'list-ol']} />
     </SC.Tab>
-    <SC.Tab
-      active={ currentView === 'notes' }
-      onClick={() => { setCurrentView('notes') }}
-      type='button'
-    >
-      <FontAwesomeIcon icon={['fal', 'sticky-note']} />
-    </SC.Tab>
+    { hasNotes &&
+      <SC.Tab
+        active={ currentView === 'notes' }
+        onClick={() => { setCurrentView('notes') }}
+        type='button'
+      >
+        <FontAwesomeIcon icon={['fal', 'sticky-note']} />
+      </SC.Tab>
+    }
   </SC.Container>
 );
 

@@ -24,8 +24,8 @@ const TimingsList = ({ timing }) => {
   return timesList;
 }
 
-const RecipeTiming = ({ setCurrentView, time, timing }) => (
-  <SC.Container>
+const RecipeTiming = ({ currentView, setCurrentView, time, timing }) => (
+  <SC.Container currentView={ currentView }>
     <SC.TimeBreakdown>
       { time !== undefined &&
         <SC.TimeBlock isTotal>

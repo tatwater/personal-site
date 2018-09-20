@@ -5,6 +5,7 @@ import { BREAKPOINTS, RECIPE } from '../../../utils/vars';
 
 export const Grid = styled.div`
   display: grid;
+  grid-area: content;
   grid-template-areas:
     'header'
     'content';

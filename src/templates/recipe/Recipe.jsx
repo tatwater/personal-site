@@ -10,6 +10,7 @@ import TabNav from '../../components/_recipe/tab-nav/TabNav';
 import RecipePhoto from '../../components/_recipe/photo/RecipePhoto';
 import RecipeTiming from '../../components/_recipe/timing/RecipeTiming';
 import Instructions from '../../components/_recipe/instructions/Instructions';
+import RecipeNotes from '../../components/_recipe/notes/Notes';
 import * as SC from './recipe_styles';
 
 
@@ -19,26 +20,15 @@ class Recipe extends Component {
 
     this.state = {
       currentView: 'overview',
-      instructionsVisible: false,
     }
 
     this.setCurrentView = this.setCurrentView.bind(this);
-    this.setInstructionsVisible = this.setInstructionsVisible.bind(this);
   }
 
   setCurrentView(view) {
     this.setState({
       currentView: view,
     });
-  }
-
-  setInstructionsVisible(visibility) {
-    this.setState({
-      instructionsVisible: visibility,
-    });
-
-    // TODO: Smooth jarring jump when scrolled down
-    document.getElementsByTagName('body')[0].scrollTo(0, 0);
   }
 
   render() {
@@ -79,67 +69,81 @@ class Recipe extends Component {
         location={ this.props.location }
       >
         <SC.BackgroundFlair
-          showInstructions={ this.state.instructionsVisible }
+          currentView={ this.state.currentView }
         />
-        <RecipeLayout>
-          <Helmet
-            title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
-          />
-          <RecipeHeader>
-            <RecipeSubHeading>
-              { frontmatter.category }
-              {/* auth.currentUser() &&
-                <SC.EditButton
-                  href={ 'https://www.teaganatwater.com/admin/#/collections/recipes/entries/' + frontmatter.title.toLowerCase().split(' ').join('-') }
-                  target='_edit'
-                >
-                  <FontAwesomeIcon icon={['fal', 'pencil']} />
-                </SC.EditButton>
-              } */}
-            </RecipeSubHeading>
-            <RecipeHeading>
-              { frontmatter.title }
-            </RecipeHeading>
-            { this.state.currentView === 'overview' &&
-              <RecipePhoto
-                setInstructionsVisible={(visibility) => { this.setInstructionsVisible(visibility) }}
-                showInstructions={ this.state.instructionsVisible }
-                src={ withPrefix(frontmatter.photo) }
-              />
-            }
-            { this.state.currentView === 'overview' &&
-              <RecipeTiming
-                time={ frontmatter.time }
-                timing={ frontmatter.timing }
-              />
-            }
-          </RecipeHeader>
-          <RecipeContent>
-            <SC.Ingredients currentView={ this.state.currentView }>
-              <h3>Ingredients</h3>
-              <SC.List hideBullets>
-                { ingredientsList }
-              </SC.List>
-            </SC.Ingredients>
-            <SC.Tools currentView={ this.state.currentView }>
-              <h3>Tools</h3>
-              <SC.List hideBullets>
-                { toolsList }
-              </SC.List>
-            </SC.Tools>
-            <Instructions
-              currentView={ this.state.currentView }
-              instructions={ frontmatter.instructions }
-              notes={ notesList }
-              showInstructions={ this.state.instructionsVisible }
-              title={ frontmatter.title }
+        <SC.RecipeWrapperGrid
+          currentView={ this.state.currentView }
+        >
+          <RecipeLayout>
+            <Helmet
+              title={ `${ frontmatter.title } | Teagan Atwater — Kitchen` }
             />
-          </RecipeContent>
-          <TabNav
+            <RecipeHeader>
+              <RecipeSubHeading>
+                { frontmatter.category }
+              </RecipeSubHeading>
+              <RecipeHeading>
+                { frontmatter.title }
+              </RecipeHeading>
+              <SC.OnlyWideLayout>
+                <RecipeTiming
+                  currentView={ this.state.currentView }
+                  setCurrentView={(view) => { this.setCurrentView(view) }}
+                  time={ frontmatter.time }
+                  timing={ frontmatter.timing }
+                />
+              </SC.OnlyWideLayout>
+            </RecipeHeader>
+            <RecipeContent>
+              <SC.NotWideLayout>
+                <SC.Photo
+                  currentView={ this.state.currentView }
+                  src={ withPrefix(frontmatter.photo) }
+                />
+                <RecipeTiming
+                  currentView={ this.state.currentView }
+                  time={ frontmatter.time }
+                  timing={ frontmatter.timing }
+                />
+              </SC.NotWideLayout>
+              <SC.Prep>
+                <SC.Ingredients currentView={ this.state.currentView }>
+                  <h3>Ingredients</h3>
+                  <SC.List hideBullets>
+                    { ingredientsList }
+                  </SC.List>
+                </SC.Ingredients>
+                <SC.Tools currentView={ this.state.currentView }>
+                  <h3>Tools</h3>
+                  <SC.List hideBullets>
+                    { toolsList }
+                  </SC.List>
+                </SC.Tools>
+              </SC.Prep>
+              <Instructions
+                currentView={ this.state.currentView }
+                instructions={ frontmatter.instructions }
+                notes={ notesList }
+                setCurrentView={(view) => { this.setCurrentView(view) }}
+                title={ frontmatter.title }
+              />
+              <RecipeNotes
+                currentView={ this.state.currentView }
+                notes={ notesList }
+              />
+            </RecipeContent>
+            <TabNav
+              currentView={ this.state.currentView }
+              hasNotes={ notesList.length > 0 }
+              setCurrentView={(view) => { this.setCurrentView(view) }}
+            />
+          </RecipeLayout>
+          <RecipePhoto
             currentView={ this.state.currentView }
             setCurrentView={(view) => { this.setCurrentView(view) }}
+            src={ withPrefix(frontmatter.photo) }
           />
-        </RecipeLayout>
+        </SC.RecipeWrapperGrid>
       </DefaultLayout>
     );
   }

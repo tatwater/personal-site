@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 
-export const Overlay = styled.div`
-  display: ${props => props.notesVisible ? 'block' : 'none'};
+export const Overlay = styled.button`
+  display: ${props => props.currentView === 'notes' ? 'block' : 'none'};
+  height: 100%;
   position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+  width: 100%;
   z-index: 100;
 `;
 export const Container = styled.div`
+  display: ${props => props.currentView === 'notes' ? 'block' : 'none'};
   padding: 0 20px;
   margin-bottom: 50px;
   
@@ -24,14 +25,15 @@ export const Container = styled.div`
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 20px 60px rgba(34, 47, 62, .2);
-    visibility: ${props => props.notesVisible ? 'visible' : 'hidden'};
+    display: block;
+    visibility: ${props => props.currentView === 'notes' ? 'visible' : 'hidden'};
     margin: 0 0 150px 0;
     padding: 20px 50px 30px 40px;
-    opacity: ${props => props.notesVisible ? '1' : '0'};
+    opacity: ${props => props.currentView === 'notes' ? '1' : '0'};
     position: fixed;
       right: calc(4vw + 40px);
       bottom: 10vh;
-    transform: translate3d(${props => props.notesVisible ?
+    transform: translate3d(${props => props.currentView === 'notes' ?
       '0, 0, 0'
       :
       '0, 40px, 0'
@@ -76,7 +78,7 @@ export const NotesButton = styled.button`
   position: absolute;
     right: -40px;
     bottom: 10px;
-  transform: translate3d(${props => props.notesVisible ?
+  transform: translate3d(${props => props.currentView === 'notes' ?
     '0, 0, 0'
     :
     '0, -40px, 0'

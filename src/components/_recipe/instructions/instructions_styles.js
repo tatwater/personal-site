@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { BREAKPOINTS } from '../../../utils/vars';
 
 
 export const Wrapper = styled.div`
   display: ${props => props.currentView === 'instructions' ? 'block' : 'none'};
 
   @media screen and (min-width: 1024px) {
-    display: ${props => props.currentView === 'instructions' || props.currentView === 'notes' ? 'block' : 'none'};
+    display: block;
   }
 `;
 export const Container = styled.div`
@@ -20,18 +21,9 @@ export const Container = styled.div`
   @media screen and (min-width: 1024px) {
     margin-bottom: 100px;
     position: absolute;
-      top: 10vh;
+      top: 0;
       right: 8vw;
-    transform: translate3d(${props => props.showInstructions ?
-      '0, 0, 0'
-      :
-      '80vw, 0, 0'
-    });
-    transition: transform .33s ease;
     width: 45vw;
-  }
-  @media screen and (min-width: 1440px) {
-    top: 12.5vh;
   }
 `;
 export const Header = styled.div`
@@ -118,16 +110,21 @@ export const Step = styled.li`
   }
 `;
 export const Controls = styled.div`
+  display: none;
   position: fixed;
     right: 4vw;
     bottom: 10vh;
-  transform: translate3d(${props => props.showInstructions ?
+  transform: translate3d(${props => props.currentView === 'instructions' || props.currentView === 'notes' ?
     '0, 0, 0'
     :
     '150vw, 0, 0'
   });
   transition: transform .33s ease;
   width: 60px;
+
+  ${BREAKPOINTS.wideLayout} {
+    display: block;
+  }
 `;
 export const NumNotes = styled.span`
   align-items: center;

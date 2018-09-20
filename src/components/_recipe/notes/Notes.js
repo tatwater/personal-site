@@ -4,24 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as SC from './notes_styles';
 
 
-const RecipeNotes = ({ notes, notesVisible, setNotesVisible, showInstructions }) => {
+const RecipeNotes = ({ currentView, notes, setCurrentView }) => {
   return (
     <div>
       <SC.Overlay
-        onClick={() => { setNotesVisible(false) }}
-        notesVisible={ notesVisible }
+        onClick={() => { setCurrentView('instructions') }}
       />
       <SC.Container
-        notesVisible={ notesVisible }
-        showInstructions={ showInstructions }
+        currentView={ currentView }
       >
         <SC.MobileHeading>Notes</SC.MobileHeading>
         <SC.List>
           { notes }
         </SC.List>
         <SC.NotesButton
-          notesVisible={ notesVisible }
-          onClick={() => { setNotesVisible(false) }}
+          onClick={() => { setCurrentView('instructions') }}
           type='button'
         >
           <FontAwesomeIcon icon={['fal', 'sticky-note']} />

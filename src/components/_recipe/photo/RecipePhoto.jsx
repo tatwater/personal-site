@@ -40,16 +40,16 @@ class RecipePhoto extends Component {
   render() {
     return (
       <SC.Container
+        currentView={ this.props.currentView }
         innerRef={ this.photoContainer }
-        showInstructions={ this.props.showInstructions }
       >
         <SC.Photo
           innerRef={ this.photo }
           src={ withPrefix(this.props.src) }
         />
         <SC.PreparationButton
-          onClick={() => { this.props.setInstructionsVisible(false) }}
-          showInstructions={ this.props.showInstructions }
+          currentView={ this.props.currentView }
+          onClick={() => { this.props.setCurrentView('prep') }}
           type='button'
         >
           <FontAwesomeIcon icon={['fal', 'long-arrow-left']} />
@@ -61,8 +61,8 @@ class RecipePhoto extends Component {
 }
 
 RecipePhoto.propTypes = {
-  setInstructionsVisible: PropTypes.func,
-  showInstructions: PropTypes.bool,
+  currentView: PropTypes.string,
+  setCurrentView: PropTypes.func,
   src: PropTypes.string,
 }
 

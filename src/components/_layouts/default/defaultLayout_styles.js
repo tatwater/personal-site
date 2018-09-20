@@ -22,11 +22,9 @@ export const Grid = styled.div`
     'content';
   grid-template-columns: 1fr;
   grid-template-rows: 14vh 1fr;
+  width: 100vw;
 
   ${BREAKPOINTS.wideLayout} {
     grid-template-rows: 12vh 1fr;
   }
-`;
-export const Content = styled.div`
-  grid-area: content;
 `;

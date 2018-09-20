@@ -35,9 +35,7 @@ const DefaultLayout = ({ children, location }) => {
         <Navbar
           location={ location }
         />
-        <SC.Content>
-          { children }
-        </SC.Content>
+        { children }
       </SC.Grid>
     </Provider>
   );

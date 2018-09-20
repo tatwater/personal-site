@@ -18,6 +18,7 @@ export const Tab = styled.button`
   color: ${props => props.active ? COLORS.textPrimary : COLORS.textTertiary };
   display: flex;
   font-size: 20px;
+  flex-shrink: 1;
   justify-content: center;
-  width: 25%;
+  width: 100%;
 `;

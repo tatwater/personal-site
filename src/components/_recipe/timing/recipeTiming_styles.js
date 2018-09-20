@@ -5,7 +5,7 @@ import { BREAKPOINTS, COLORS, RECIPE } from '../../../utils/vars';
 
 export const Container = styled.div`
   align-items: center;
-  display: flex;
+  display: ${props => props.currentView === 'overview' ? 'flex' : 'none'};
   justify-content: flex-start;
   overflow-x: scroll;
   padding: 30px 20px;
@@ -15,6 +15,7 @@ export const Container = styled.div`
 
   ${BREAKPOINTS.wideLayout} {
     align-items: center;
+    display: flex;
     justify-content: space-between;
     padding: 14px 30px 50px 0;
     left: 0;

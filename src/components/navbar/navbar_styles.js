@@ -10,6 +10,7 @@ export const Container = styled.nav`
   grid-area: navigation;
   justify-content: space-between;
   padding: 0 3vw;
+  width: 100vw;
 
   ${BREAKPOINTS.wideLayout} {
     padding: 0 6vw 0 2vw;

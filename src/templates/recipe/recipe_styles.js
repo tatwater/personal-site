@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
-import { RECIPE } from '../../utils/vars';
+import { RECIPE, BREAKPOINTS } from '../../utils/vars';
 
 
-export const HideOffCanvas = styled.div`
+export const RecipeWrapperGrid = styled.div`
+  transform: translate3d(0, 0, 0);
+  transition: transform .33s ease;
+
+  ${BREAKPOINTS.wideLayout} {
+    transform: ${props => props.currentView === 'instructions' || props.currentView === 'notes' ? 'translate3d(-100vw, 0, 0)' : 'translate3d(0, 0, 0)'};
+    width: 200vw;
+  }
 `;
 export const BackgroundFlair = styled.div`
   display: none;
@@ -14,51 +21,22 @@ export const BackgroundFlair = styled.div`
     display: block;
     position: fixed;
       top: 0;
-      right: ${props => props.showInstructions ?
+      right: ${props => props.currentView === 'instructions' || props.currentView === 'notes' ?
         '10.75vw'
         :
         '8vw'
       };
       bottom: 0;
     transition: right .33s ease, width .33s ease;
-    width: ${props => props.showInstructions ?
+    width: ${props => props.currentView === 'instructions' || props.currentView === 'notes' ?
       '37vw'
       :
       '35vw'
     };
   }
 `;
-export const Prep = styled.div`
-  margin: 40px 20px 30px;
-  position: relative;
-    top: 0;
-    right: 0;
-
-  @media screen and (min-width: 480px) {
-    margin: 40px 30px 30px;
-  }
-  @media screen and (min-width: 768px) {
-    margin: 40px 40px 40px;
-  }
-  @media screen and (min-width: 1024px) {
-    margin: 0;
-    position: absolute;
-      top: 10vh;
-      right: calc(2vw + ${RECIPE.PHOTO_MAX_WIDTH._1024} + 2vw);
-    transform: translate3d(${props => props.showInstructions ?
-      '-90vw, 0, 0'
-      :
-      '0, 0, 0'});
-    transition: transform .33s ease;
-    width: ${RECIPE.PREP_WIDTH._1024};
-  }
-  @media screen and (min-width: 1440px) {
-      right: calc(2vw + ${RECIPE.PHOTO_MAX_WIDTH._1440} + 2vw);
-    width: ${RECIPE.PREP_WIDTH._1440};
-  }
-`;
 export const Header = styled.div`
-  // transform: scale(${props => props.showInstructions ? '.8' : '1'});
+  // transform: scale(${props => props.currentView === 'instructions' || props.currentView === 'notes' ? '.8' : '1'});
   @media screen and (min-width: 1024px) {
     margin: 50px 0;
   }
@@ -127,9 +105,41 @@ export const Recipe = styled.div`
     margin: 0 0 6px;
   }
 `;
+export const OnlyWideLayout = styled.div`
+  display: none;
+
+  ${BREAKPOINTS.wideLayout} {
+    display: block;
+  }
+`;
+export const NotWideLayout = styled.div`
+  display: block;
+
+  ${BREAKPOINTS.wideLayout} {
+    display: none;
+  }
+`;
+export const Photo = styled.div`
+  ${props => props.src && 'background-image: url(' + props.src + ')'};
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  display: ${props => props.currentView === 'overview' ? 'block' : 'none'};
+  padding-top: 61.8%;
+  width: 100%;
+
+  ${BREAKPOINTS.wideLayout} {
+    display: none;
+  }
+`;
 export const List = styled.ul`
   ${props => props.hideBullets && 'list-style-type: none'};
   padding-left: ${props => props.hideBullets ? '8px' : '20px'};
+
+  li {
+    margin: 0 0 6px 0;
+  }
 `;
 export const Ingredients = styled.div`
   display: ${props => props.currentView === 'prep' ? 'block' : 'none'};
@@ -139,7 +149,7 @@ export const Ingredients = styled.div`
     width: 50%;
   }
   @media screen and (min-width: 1024px) {
-    display: ${props => props.currentView === 'overview' || props.currentView === 'prep' ? 'block' : 'none'};
+    display: block;
     width: 100%;
   }
   @media screen and (min-width: 1200px) {
@@ -157,7 +167,7 @@ export const Tools = styled.div`
     width: 50%;
   }
   @media screen and (min-width: 1024px) {
-    display: ${props => props.currentView === 'overview' || props.currentView === 'prep' ? 'block' : 'none'};
+    display: block;
     margin-top: 50px;
     padding-left: 0;
     width: 100%;
@@ -166,5 +176,14 @@ export const Tools = styled.div`
     margin-top: 0;
     padding-left: 40px;
     width: 50%;
+  }
+`;
+export const Prep = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${BREAKPOINTS.wideLayout} {
+    align-items: flex-start;
+    flex-direction: row;
   }
 `;
