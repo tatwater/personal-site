@@ -221,27 +221,27 @@ const VisitLink = styled.a`
 const Projects = () => (
   <ProjectsWrapper>
 
-      <ProjectWrapper color='#2962ff'>
-        <div>
-          <Kicker>Current</Kicker>
-          <Title>
-            <a href='https://fiberapp.io' target='_blank' rel='noopener noreferrer'>Fiber</a>
-          </Title>
-          <Subtitle>Co-founder & devops lead</Subtitle>
-          <VisitLink href='https://fiberapp.io' target='_blank' rel='noopener noreferrer'>Visit</VisitLink>
-        </div>
-      </ProjectWrapper>
+  <ProjectWrapper color='#d8ab4e'>
+    <div>
+      <Kicker>Current</Kicker>
+      <Title>
+        <a href='https://cliniciq.ai' target='_blank' rel='noopener noreferrer'>Scope</a>
+      </Title>
+      <Subtitle>Chief Design Officer, CTO, and Co-founder</Subtitle>
+      <VisitLink href='https://cliniciq.ai' target='_blank' rel='noopener noreferrer'>Visit</VisitLink>
+    </div>
+  </ProjectWrapper>
 
-      <ProjectWrapper color='#f57d22'>
-        <div>
-          <Kicker>Previous</Kicker>
-          <Title>
-            <a href='https://oho.com' target='_blank' rel='noopener noreferrer'>OHO Interactive</a>
-          </Title>
-          <Subtitle>Full-stack developer</Subtitle>
-          <VisitLink href='https://oho.com' target='_blank' rel='noopener noreferrer'>Visit</VisitLink>
-        </div>
-      </ProjectWrapper>
+  <ProjectWrapper color='#2962ff'>
+    <div>
+      <Kicker>Previous</Kicker>
+      <Title>
+        <a href='https://fiberapp.io' target='_blank' rel='noopener noreferrer'>Fiber</a>
+      </Title>
+      <Subtitle>Co-founder & devops lead</Subtitle>
+      <VisitLink href='https://fiberapp.io' target='_blank' rel='noopener noreferrer'>Visit</VisitLink>
+    </div>
+  </ProjectWrapper>
 
   </ProjectsWrapper>
 );
